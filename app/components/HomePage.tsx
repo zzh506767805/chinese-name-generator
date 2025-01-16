@@ -4,9 +4,6 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
 import NameResult from './NameResult'
-import { loadStripe } from '@stripe/stripe-js'
-
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
 interface NameResponse {
   chineseName: string
@@ -28,7 +25,6 @@ export default function HomePage() {
   })
   const [nameResult, setNameResult] = useState<NameResponse | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [isProcessing, setIsProcessing] = useState(false)
 
   const generateName = async () => {
     try {
@@ -68,41 +64,6 @@ export default function HomePage() {
     console.log('HomePage: Requesting new name')
     setNameResult(null)
     setStep(1)
-  }
-
-  const handleProceedToPayment = async () => {
-    if (!nameResult) return
-
-    try {
-      console.log('HomePage: Starting payment process')
-      setIsProcessing(true)
-      setError(null)
-
-      const response = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nameResultId: nameResult.id,
-        }),
-      })
-
-      console.log('HomePage: Payment API response status:', response.status)
-      const data = await response.json()
-      console.log('HomePage: Payment API response data:', data)
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to create checkout session')
-      }
-
-      window.location.href = data.url
-    } catch (err) {
-      console.error('HomePage: Error during payment:', err)
-      setError(err instanceof Error ? err.message : t('errors.payment_failed'))
-    } finally {
-      setIsProcessing(false)
-    }
   }
 
   return (
@@ -205,8 +166,6 @@ export default function HomePage() {
           <NameResult
             {...nameResult}
             onRequestNewName={handleRequestNewName}
-            onProceedToPayment={handleProceedToPayment}
-            isProcessingPayment={isProcessing}
           />
         )}
       </div>
