@@ -2,8 +2,6 @@
 
 import { useTranslations } from 'next-intl'
 import { useState, useEffect } from 'react'
-import { getStripe } from '../lib/stripe'
-import TipJar from './TipJar'
 
 interface NameResultProps {
   chineseName: string
@@ -11,8 +9,6 @@ interface NameResultProps {
   explanation: string
   culturalContext?: string
   onRequestNewName: () => void
-  onProceedToPayment: () => void
-  isProcessingPayment: boolean
 }
 
 export default function NameResult({
@@ -21,8 +17,6 @@ export default function NameResult({
   explanation,
   culturalContext,
   onRequestNewName,
-  onProceedToPayment,
-  isProcessingPayment
 }: NameResultProps) {
   const t = useTranslations()
   const [isPlaying, setIsPlaying] = useState(false)
@@ -126,25 +120,8 @@ export default function NameResult({
       {/* 操作按钮 */}
       <div className="flex flex-col space-y-4">
         <button
-          onClick={onProceedToPayment}
-          disabled={isProcessingPayment}
-          className="w-full py-3 bg-gradient-to-r from-red-600 to-yellow-500 text-white rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed relative"
-        >
-          {isProcessingPayment ? (
-            <>
-              <span className="opacity-0">{t('result.save')}</span>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-              </div>
-            </>
-          ) : (
-            t('result.save')
-          )}
-        </button>
-        <button
           onClick={onRequestNewName}
-          disabled={isProcessingPayment}
-          className="w-full py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
         >
           {t('result.generate_another')}
         </button>
