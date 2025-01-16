@@ -1,11 +1,15 @@
 import { NextResponse } from 'next/server'
-import { headers } from 'next/headers'
-import { handleWebhook } from '@/app/utils/stripe'
+import Stripe from 'stripe'
+import { handleWebhookEvent } from '@/app/utils/stripe'
 
-export async function POST(request: Request) {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: '2023-10-16',
+})
+
+export async function POST(req: Request) {
   try {
-    const body = await request.text()
-    const signature = request.headers.get('stripe-signature')
+    const body = await req.text()
+    const signature = req.headers.get('stripe-signature')
 
     if (!signature) {
       return NextResponse.json(
@@ -13,13 +17,20 @@ export async function POST(request: Request) {
         { status: 400 }
       )
     }
+    
+    const event = stripe.webhooks.constructEvent(
+      body,
+      signature,
+      process.env.STRIPE_WEBHOOK_SECRET!
+    )
 
-    const result = await handleWebhook(body, signature)
-    return NextResponse.json(result)
+    await handleWebhookEvent(event)
+    
+    return NextResponse.json({ received: true })
   } catch (error) {
     console.error('Error handling webhook:', error)
     return NextResponse.json(
-      { error: 'Webhook handling failed' },
+      { error: 'Webhook handler failed' },
       { status: 400 }
     )
   }
