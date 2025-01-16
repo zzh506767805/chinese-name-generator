@@ -1,0 +1,49 @@
+{
+  "title": "中文名字助手",
+  "subtitle": "获得一个完美的中文名字",
+  "nav": {
+    "how_it_works": "使用说明",
+    "name_meanings": "名字含义",
+    "about": "关于我们"
+  },
+  "form": {
+    "title": "告诉我们你的偏好",
+    "gender": {
+      "label": "性别",
+      "options": {
+        "male": "男性",
+        "female": "女性",
+        "neutral": "中性"
+      }
+    },
+    "meaning": {
+      "label": "期望的含义",
+      "placeholder": "描述你希望名字包含的含义或特质..."
+    },
+    "style": {
+      "label": "名字风格",
+      "options": {
+        "traditional": "传统",
+        "modern": "现代",
+        "literary": "文学",
+        "simple": "简约"
+      }
+    },
+    "submit": "生成名字"
+  },
+  "result": {
+    "loading": "正在为你精心创作名字...",
+    "title": "为你推荐的名字",
+    "meaning": "名字含义",
+    "cultural_context": "文化背景",
+    "save": "保存此名字",
+    "generate_another": "重新生成"
+  },
+  "errors": {
+    "generation_failed": "生成名字失败，请重试",
+    "payment_failed": "支付处理失败，请重试"
+  },
+  "footer": {
+    "tagline": "让AI助你寻找完美的中文名字"
+  }
+} 

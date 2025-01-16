@@ -1,0 +1,120 @@
+{
+  "title": "Chinese Name Assistant",
+  "subtitle": "Find your perfect Chinese name with AI",
+  "form": {
+    "gender": {
+      "label": "Gender Preference",
+      "options": {
+        "male": "Male",
+        "female": "Female",
+        "neutral": "Neutral"
+      }
+    },
+    "meaning": {
+      "label": "Desired Meaning or Characteristics",
+      "placeholder": "e.g., I want a name that represents wisdom and kindness..."
+    },
+    "style": {
+      "label": "Name Style",
+      "options": {
+        "traditional": "Traditional",
+        "modern": "Modern"
+      }
+    },
+    "submit": "Generate Chinese Name"
+  },
+  "how_it_works": {
+    "step1": {
+      "title": "Tell Us Your Preferences",
+      "description": "Start by sharing your gender preference and the qualities or meanings you'd like your Chinese name to represent. You can also choose between traditional and modern naming styles."
+    },
+    "step2": {
+      "title": "AI-Powered Name Generation",
+      "description": "Our advanced AI system analyzes your preferences and creates a culturally authentic Chinese name that matches your desired characteristics."
+    },
+    "step3": {
+      "title": "Understanding Your Name",
+      "description": "Each generated name comes with detailed explanations of its meaning, cultural context, and pronunciation guide in pinyin."
+    },
+    "step4": {
+      "title": "Save Your Perfect Name",
+      "description": "Once you find a name you love, you can save it and receive a beautiful digital certificate with your new Chinese name."
+    }
+  },
+  "result": {
+    "loading": "AI is creating your perfect Chinese name...",
+    "meaning": "Meaning",
+    "cultural_context": "Cultural Context",
+    "save": "Save this name ($5)",
+    "generate_another": "Generate Another"
+  },
+  "success": {
+    "payment_completed": "Payment Completed!",
+    "thank_you": "Thank you for your purchase. Your Chinese name is now ready.",
+    "your_name": "Your Chinese Name",
+    "print": "Print Name Certificate",
+    "generate_another": "Generate Another Name"
+  },
+  "nav": {
+    "how_it_works": "How It Works",
+    "name_meanings": "Name Meanings",
+    "about": "About",
+    "faq": "FAQ",
+    "history": "History"
+  },
+  "footer": {
+    "tagline": "Powered by AI • Culturally authentic • 100% unique"
+  },
+  "errors": {
+    "generation_failed": "Failed to generate name. Please try again.",
+    "payment_failed": "Payment process failed. Please try again.",
+    "fetch_result_failed": "Failed to fetch your name details. Please contact support."
+  },
+  "common": {
+    "back_to_home": "Back to Home"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions About Chinese Names",
+    "what_makes_good_name": {
+      "question": "What makes a good Chinese name?",
+      "answer": "A good Chinese name typically has several key characteristics: meaningful characters that convey positive attributes, harmonious pronunciation, appropriate complexity (usually 2-3 characters), and cultural relevance. The name should also be easy to pronounce and write, while avoiding any negative connotations in Chinese culture."
+    },
+    "name_structure": {
+      "question": "How is a Chinese name structured?",
+      "answer": "A Chinese name traditionally consists of a family name (surname) followed by a given name. The surname is usually one character, while the given name can be one or two characters. For example, in the name '李明' (Li Ming), '李' is the surname and '明' is the given name."
+    },
+    "meaning_importance": {
+      "question": "How important is the meaning of characters in Chinese names?",
+      "answer": "The meaning of characters is extremely important in Chinese names. Each character carries specific meanings and cultural connotations. Parents often choose characters that represent their hopes and wishes for their child, such as virtues, natural elements, or positive qualities like wisdom, strength, or beauty."
+    },
+    "common_characters": {
+      "question": "What are some common characters used in Chinese names?",
+      "answer": "Common characters in Chinese names often relate to virtues, natural elements, or positive qualities. For example: '明' (bright), '华' (splendid), '伟' (great), '丽' (beautiful), '智' (wise), '强' (strong), '雪' (snow), '海' (ocean), and '文' (cultural, refined)."
+    },
+    "gender_specific": {
+      "question": "Are Chinese names gender-specific?",
+      "answer": "While Chinese names can be gender-neutral, many characters are traditionally associated with specific genders. Characters suggesting beauty, grace, or gentleness are often used for girls (like '美', '婷', '静'), while characters implying strength, ambition, or leadership are common for boys (like '强', '伟', '志')."
+    },
+    "name_taboos": {
+      "question": "Are there any taboos in Chinese naming?",
+      "answer": "Yes, there are several naming taboos in Chinese culture: avoiding names of ancestors or respected figures, avoiding unlucky numbers or negative meanings, not using characters that are too complex or rare, and being mindful of the combination of characters that might create unfortunate meanings when read together."
+    },
+    "pronunciation": {
+      "question": "How important is the pronunciation of a Chinese name?",
+      "answer": "Pronunciation is crucial in Chinese names. A good name should have a pleasant sound when spoken, with characters that flow well together. The tones of the characters should also be considered, as they can affect the overall harmony of the name. Additionally, the name should be relatively easy for both Chinese and non-Chinese speakers to pronounce."
+    },
+    "cultural_significance": {
+      "question": "What is the cultural significance of Chinese names?",
+      "answer": "Chinese names carry deep cultural significance. They reflect traditional values, family hopes, and cultural identity. Names often connect individuals to their family history, cultural heritage, and personal aspirations. In Chinese culture, a name is considered to influence a person's destiny and character, making the naming process particularly important."
+    }
+  },
+  "history": {
+    "title": "Your Name History",
+    "description": "Here are all the Chinese names you've generated",
+    "empty": "You haven't generated any names yet. Try generating your first Chinese name!",
+    "generate_new": "Generate a New Name",
+    "saved_at": "Generated on",
+    "meaning": "Meaning",
+    "cultural_context": "Cultural Context"
+  }
+} 

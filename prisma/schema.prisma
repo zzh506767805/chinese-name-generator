@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model NamingRequest {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userInput   String   // 用户的需求描述
+  preferences Json?    // 用户的具体偏好（如性别、寓意等）
+  language    String   // 用户使用的语言
+  ipAddress   String?  // 用户IP地址
+  result      NamingResult?
+}
+
+model NamingResult {
+  id              String        @id @default(cuid())
+  createdAt       DateTime      @default(now())
+  chineseName     String        // 生成的中文名
+  pinyin          String        // 拼音
+  explanation     String        // 名字解释
+  culturalContext String?       // 文化背景说明
+  requestId       String        @unique
+  request         NamingRequest @relation(fields: [requestId], references: [id])
+  payment         Payment?
+}
+
+model Payment {
+  id            String       @id @default(cuid())
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  amount        Float
+  currency      String
+  status        PaymentStatus
+  stripeId      String       @unique
+  resultId      String       @unique
+  namingResult  NamingResult @relation(fields: [resultId], references: [id])
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  EXPIRED
+  REFUNDED
+} 

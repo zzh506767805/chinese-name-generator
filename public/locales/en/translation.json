@@ -1,0 +1,49 @@
+{
+  "title": "Chinese Name Assistant",
+  "subtitle": "Get Your Perfect Chinese Name",
+  "nav": {
+    "how_it_works": "How It Works",
+    "name_meanings": "Name Meanings",
+    "about": "About"
+  },
+  "form": {
+    "title": "Tell Us Your Preferences",
+    "gender": {
+      "label": "Gender",
+      "options": {
+        "male": "Male",
+        "female": "Female",
+        "neutral": "Neutral"
+      }
+    },
+    "meaning": {
+      "label": "Desired Meaning",
+      "placeholder": "Describe the meaning or qualities you want in your name..."
+    },
+    "style": {
+      "label": "Name Style",
+      "options": {
+        "traditional": "Traditional",
+        "modern": "Modern",
+        "literary": "Literary",
+        "simple": "Simple"
+      }
+    },
+    "submit": "Generate Name"
+  },
+  "result": {
+    "loading": "Creating your perfect name...",
+    "title": "Your Chinese Name",
+    "meaning": "Name Meaning",
+    "cultural_context": "Cultural Context",
+    "save": "Save This Name",
+    "generate_another": "Generate Another Name"
+  },
+  "errors": {
+    "generation_failed": "Failed to generate name, please try again",
+    "payment_failed": "Payment processing failed, please try again"
+  },
+  "footer": {
+    "tagline": "Let AI help you find the perfect Chinese name"
+  }
+} 

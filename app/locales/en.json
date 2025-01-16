@@ -1,0 +1,14 @@
+{
+  "title": "Chinese Name Assistant",
+  "subtitle": "Find your perfect Chinese name with AI",
+  "tip": {
+    "title": "Support Us",
+    "description": "If you find this service helpful, please consider supporting us to help us improve!",
+    "send": "Send Tip",
+    "thank_you": "Thank you for your generous support! Your contribution helps us continue improving our service.",
+    "minimum_amount": "Minimum tip amount is $0.60"
+  },
+  "errors": {
+    "payment_failed": "Payment process failed. Please try again."
+  }
+} 

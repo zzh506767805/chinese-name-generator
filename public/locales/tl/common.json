@@ -1,0 +1,82 @@
+{
+  "title": "Chinese Name Assistant",
+  "subtitle": "Hanapin ang iyong perpektong Chinese name gamit ang AI",
+  "form": {
+    "gender": {
+      "label": "Kagustuhan sa Kasarian",
+      "options": {
+        "male": "Lalaki",
+        "female": "Babae",
+        "neutral": "Neutral"
+      }
+    },
+    "meaning": {
+      "label": "Nais na Kahulugan o Katangian",
+      "placeholder": "Halimbawa: Gusto ko ng pangalang sumasagisag sa karunungan at kabutihan..."
+    },
+    "style": {
+      "label": "Istilo ng Pangalan",
+      "options": {
+        "traditional": "Tradisyonal",
+        "modern": "Makabago"
+      }
+    },
+    "submit": "Gumawa ng Chinese Name"
+  },
+  "result": {
+    "loading": "Gumagawa ang AI ng iyong perpektong Chinese name...",
+    "meaning": "Kahulugan",
+    "cultural_context": "Kontekstong Pangkultura",
+    "save": "I-save ang pangalang ito ($5)",
+    "generate_another": "Gumawa ng Iba Pa",
+    "play_pronunciation": "I-play ang pagbigkas"
+  },
+  "success": {
+    "payment_completed": "Kumpleto na ang Pagbabayad!",
+    "thank_you": "Salamat sa iyong pagbili. Handa na ang iyong Chinese name.",
+    "your_name": "Ang Iyong Chinese Name",
+    "print": "I-print ang Name Certificate",
+    "generate_another": "Gumawa ng Ibang Pangalan"
+  },
+  "nav": {
+    "how_it_works": "Paano Gumagana",
+    "name_meanings": "Mga Kahulugan ng Pangalan",
+    "about": "Tungkol",
+    "faq": "Mga Madalas na Tanong"
+  },
+  "footer": {
+    "tagline": "Pinapagana ng AI • Tunay sa kultura • 100% natatangi"
+  },
+  "errors": {
+    "generation_failed": "Hindi nagawa ang pangalan. Pakisubukang muli.",
+    "payment_failed": "Hindi nagtagumpay ang proseso ng pagbabayad. Pakisubukang muli.",
+    "fetch_result_failed": "Hindi makuha ang detalye ng iyong pangalan. Mangyaring makipag-ugnayan sa support."
+  },
+  "common": {
+    "back_to_home": "Bumalik sa Home"
+  },
+  "tip": {
+    "title": "Suportahan Kami",
+    "description": "Kung nakatulong sa iyo ang serbisyong ito, maaari mo kaming suportahan para makatulong sa pagpapabuti!",
+    "send": "Magbigay ng Tip"
+  },
+  "how_it_works": {
+    "title": "Paano Ito Gumagana",
+    "step1": {
+      "title": "Sabihin sa Amin ang Iyong mga Kagustuhan",
+      "description": "Magsimula sa pagbabahagi ng iyong kagustuhan sa kasarian at mga katangian o kahulugan na nais mong irepresenta ng iyong Chinese name. Maaari ka ring pumili sa pagitan ng tradisyonal at modernong estilo ng pagpapangalan."
+    },
+    "step2": {
+      "title": "Paggawa ng Pangalan gamit ang AI",
+      "description": "Sinusuri ng aming advanced na AI system ang iyong mga kagustuhan at lumilikha ng isang pangalang Chinese na tumutugma sa iyong mga ninanais na katangian."
+    },
+    "step3": {
+      "title": "Pag-unawa sa Iyong Pangalan",
+      "description": "Bawat pangalang ginawa ay may kasamang detalyadong paliwanag ng kahulugan nito, kontekstong pangkultura, at gabay sa pagbigkas sa pinyin."
+    },
+    "step4": {
+      "title": "I-save ang Iyong Perpektong Pangalan",
+      "description": "Kapag nakahanap ka na ng pangalang gusto mo, maaari mo itong i-save at makatanggap ng magandang digital certificate kasama ang iyong bagong Chinese name."
+    }
+  }
+} 

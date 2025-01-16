@@ -1,0 +1,82 @@
+{
+  "title": "Asisten Nama Tionghoa",
+  "subtitle": "Temukan nama Tionghoa sempurna Anda dengan AI",
+  "form": {
+    "gender": {
+      "label": "Preferensi Gender",
+      "options": {
+        "male": "Laki-laki",
+        "female": "Perempuan",
+        "neutral": "Netral"
+      }
+    },
+    "meaning": {
+      "label": "Makna atau Karakteristik yang Diinginkan",
+      "placeholder": "Contoh: Saya ingin nama yang melambangkan kebijaksanaan dan kebaikan..."
+    },
+    "style": {
+      "label": "Gaya Nama",
+      "options": {
+        "traditional": "Tradisional",
+        "modern": "Modern"
+      }
+    },
+    "submit": "Buat Nama Tionghoa"
+  },
+  "result": {
+    "loading": "AI sedang membuat nama Tionghoa sempurna untuk Anda...",
+    "meaning": "Arti",
+    "cultural_context": "Konteks Budaya",
+    "save": "Simpan nama ini ($5)",
+    "generate_another": "Buat Nama Lain",
+    "play_pronunciation": "Putar pengucapan"
+  },
+  "success": {
+    "payment_completed": "Pembayaran Selesai!",
+    "thank_you": "Terima kasih atas pembelian Anda. Nama Tionghoa Anda sudah siap.",
+    "your_name": "Nama Tionghoa Anda",
+    "print": "Cetak Sertifikat Nama",
+    "generate_another": "Buat Nama Lain"
+  },
+  "nav": {
+    "how_it_works": "Cara Kerja",
+    "name_meanings": "Arti Nama",
+    "about": "Tentang",
+    "faq": "FAQ"
+  },
+  "footer": {
+    "tagline": "Didukung oleh AI • Otentik secara budaya • 100% unik"
+  },
+  "errors": {
+    "generation_failed": "Gagal membuat nama. Silakan coba lagi.",
+    "payment_failed": "Proses pembayaran gagal. Silakan coba lagi.",
+    "fetch_result_failed": "Gagal mengambil detail nama Anda. Silakan hubungi dukungan."
+  },
+  "common": {
+    "back_to_home": "Kembali ke Beranda"
+  },
+  "tip": {
+    "title": "Dukung Kami",
+    "description": "Jika layanan ini bermanfaat bagi Anda, mohon pertimbangkan untuk mendukung kami agar dapat terus meningkatkan layanan!",
+    "send": "Kirim Tip"
+  },
+  "how_it_works": {
+    "title": "Cara Kerja",
+    "step1": {
+      "title": "Beritahu Kami Preferensi Anda",
+      "description": "Mulai dengan membagikan preferensi gender dan kualitas atau makna yang ingin Anda representasikan dalam nama Tionghoa Anda. Anda juga dapat memilih antara gaya penamaan tradisional dan modern."
+    },
+    "step2": {
+      "title": "Pembuatan Nama dengan AI",
+      "description": "Sistem AI canggih kami menganalisis preferensi Anda dan menciptakan nama Tionghoa yang sesuai dengan karakteristik yang Anda inginkan."
+    },
+    "step3": {
+      "title": "Memahami Nama Anda",
+      "description": "Setiap nama yang dihasilkan dilengkapi dengan penjelasan detail tentang maknanya, konteks budaya, dan panduan pengucapan dalam pinyin."
+    },
+    "step4": {
+      "title": "Simpan Nama Sempurna Anda",
+      "description": "Setelah Anda menemukan nama yang Anda sukai, Anda dapat menyimpannya dan menerima sertifikat digital yang indah dengan nama Tionghoa baru Anda."
+    }
+  }
+} 

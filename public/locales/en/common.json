@@ -1,0 +1,91 @@
+{
+  "title": "Chinese Name Assistant",
+  "subtitle": "Find your perfect Chinese name with AI",
+  "form": {
+    "gender": {
+      "label": "Gender Preference",
+      "options": {
+        "male": "Male",
+        "female": "Female",
+        "neutral": "Neutral"
+      }
+    },
+    "meaning": {
+      "label": "Desired Meaning or Characteristics",
+      "placeholder": "e.g., I want a name that represents wisdom and kindness..."
+    },
+    "style": {
+      "label": "Name Style",
+      "options": {
+        "traditional": "Traditional",
+        "modern": "Modern"
+      }
+    },
+    "submit": "Generate Chinese Name"
+  },
+  "result": {
+    "loading": "AI is creating your perfect Chinese name...",
+    "meaning": "Meaning",
+    "cultural_context": "Cultural Context",
+    "save": "Save this name ($5)",
+    "generate_another": "Generate Another",
+    "play_pronunciation": "Play pronunciation"
+  },
+  "success": {
+    "payment_completed": "Payment Completed!",
+    "thank_you": "Thank you for your purchase. Your Chinese name is now ready.",
+    "your_name": "Your Chinese Name",
+    "print": "Print Name Certificate",
+    "generate_another": "Generate Another Name"
+  },
+  "nav": {
+    "how_it_works": "How It Works",
+    "name_meanings": "Name Meanings",
+    "about": "About",
+    "faq": "FAQ",
+    "history": "History"
+  },
+  "footer": {
+    "tagline": "Powered by AI • Culturally authentic • 100% unique"
+  },
+  "errors": {
+    "generation_failed": "Failed to generate name. Please try again.",
+    "payment_failed": "Payment process failed. Please try again.",
+    "fetch_result_failed": "Failed to fetch your name details. Please contact support."
+  },
+  "common": {
+    "back_to_home": "Back to Home"
+  },
+  "tip": {
+    "title": "Support Us",
+    "description": "If you find this service helpful, please consider supporting us to help us improve!",
+    "send": "Send Tip",
+    "thank_you": "Thank you for your generous support! Your contribution helps us continue improving our service."
+  },
+  "history": {
+    "title": "Name History",
+    "description": "Here are all the Chinese names you've generated. These records are stored locally in your browser.",
+    "empty": "You haven't generated any names yet.",
+    "generate_first": "Generate Your First Name",
+    "note": "Note: These records are stored in your browser's local storage and will be lost if you clear your browser data or switch devices."
+  },
+  "how_it_works": {
+    "title": "How It Works",
+    "step1": {
+      "title": "Tell Us Your Preferences",
+      "description": "Start by sharing your gender preference and the qualities or meanings you'd like your Chinese name to represent. You can also choose between traditional and modern naming styles."
+    },
+    "step2": {
+      "title": "AI-Powered Name Generation",
+      "description": "Our advanced AI system analyzes your preferences and creates a culturally authentic Chinese name that matches your desired characteristics."
+    },
+    "step3": {
+      "title": "Understanding Your Name",
+      "description": "Each generated name comes with detailed explanations of its meaning, cultural context, and pronunciation guide in pinyin."
+    },
+    "step4": {
+      "title": "Save Your Perfect Name",
+      "description": "Once you find a name you love, you can save it and receive a beautiful digital certificate with your new Chinese name."
+    }
+  }
+} 
