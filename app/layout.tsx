@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import Navbar from './components/Navbar'
 import I18nProvider from './components/I18nProvider'
 import SchemaOrg from './components/SchemaOrg'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -96,6 +97,19 @@ export default function RootLayout({
     <html lang={params.locale || 'en'}>
       <head>
         <SchemaOrg locale={params.locale || 'en'} />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-1JVZ3WVYQ4"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-1JVZ3WVYQ4');
+          `}
+        </Script>
       </head>
       <body className={inter.className}>
         <I18nProvider>
