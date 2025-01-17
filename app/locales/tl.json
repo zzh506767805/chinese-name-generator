@@ -1,0 +1,87 @@
+{
+  "title": "Chinese Name Generator",
+  "subtitle": "Find your perfect Chinese name with AI",
+  "form": {
+    "gender": {
+      "label": "Kagustuhan sa Kasarian",
+      "options": {
+        "male": "Lalaki",
+        "female": "Babae",
+        "neutral": "Neutral"
+      }
+    },
+    "meaning": {
+      "label": "Nais na Kahulugan o Katangian",
+      "placeholder": "Halimbawa: Gusto ko ng pangalang sumasagisag sa karunungan at kabutihan..."
+    },
+    "style": {
+      "label": "Istilo ng Pangalan",
+      "options": {
+        "traditional": "Tradisyonal",
+        "modern": "Makabago"
+      }
+    },
+    "submit": "Gumawa ng Chinese Name"
+  },
+  "result": {
+    "loading": "Gumagawa ang AI ng iyong perpektong Chinese name...",
+    "meaning": "Kahulugan",
+    "cultural_context": "Kontekstong Pangkultura",
+    "generate_another": "Gumawa ng Iba Pa",
+    "play_pronunciation": "I-play ang pagbigkas"
+  },
+  "nav": {
+    "how_it_works": "Paano Gumagana",
+    "name_meanings": "Mga Kahulugan ng Pangalan",
+    "about": "Tungkol Sa",
+    "faq": "Mga FAQ",
+    "history": "Kasaysayan"
+  },
+  "tip": {
+    "title": "Suportahan Kami",
+    "description": "Kung nakatulong sa iyo ang serbisyong ito, maaari mo kaming suportahan para makatulong sa pagpapabuti!",
+    "send": "Magbigay ng Tip",
+    "thank_you": "Salamat sa iyong suporta! Ang iyong kontribusyon ay makakatulong sa pagpapabuti ng serbisyo."
+  },
+  "history": {
+    "title": "Kasaysayan ng mga Pangalan",
+    "description": "Listahan ng mga nabuong Chinese name. Ang mga record na ito ay naka-save sa iyong browser.",
+    "empty": "Wala ka pang nabubuo na pangalan.",
+    "generate_first": "Bumuo ng unang pangalan",
+    "note": "Tandaan: Ang mga record na ito ay naka-save sa local storage ng browser at mabubura kapag ni-clear ang browser data o nagpalit ng device."
+  },
+  "how_it_works": {
+    "title": "Paano Ito Gumagana",
+    "step1": {
+      "title": "Sabihin sa Amin ang Iyong mga Kagustuhan",
+      "description": "Magsimula sa pagbabahagi ng iyong kagustuhan sa kasarian at mga katangian o kahulugan na nais mong irepresenta ng iyong Chinese name. Maaari ka ring pumili sa pagitan ng tradisyonal at modernong estilo ng pagpapangalan."
+    },
+    "step2": {
+      "title": "Paggawa ng Pangalan gamit ang AI",
+      "description": "Sinusuri ng aming advanced na AI system ang iyong mga kagustuhan at lumilikha ng isang pangalang Chinese na tumutugma sa iyong mga ninanais na katangian."
+    },
+    "step3": {
+      "title": "Pag-unawa sa Iyong Pangalan",
+      "description": "Bawat pangalang ginawa ay may kasamang detalyadong paliwanag ng kahulugan nito, kontekstong pangkultura, at gabay sa pagbigkas sa pinyin."
+    },
+    "step4": {
+      "title": "Higit pang mga Pagpipilian",
+      "description": "Kung hindi mo gusto ang nabuong pangalan, maaari kang gumawa ng mga bagong pagpipilian hanggang sa mahanap mo ang perpektong pangalan."
+    }
+  },
+  "faq_page": {
+    "title": "Mga Madalas na Tanong Tungkol sa Chinese Names",
+    "what_makes_good_name": {
+      "question": "Ano ang bumubuo ng magandang Chinese name?",
+      "answer": "Ang magandang Chinese name ay may ilang mahahalagang katangian: mga character na may makabuluhang kahulugan na nagpapahayag ng positibong katangian, magandang pagbigkas, angkop na kahirapan (karaniwang 2-3 character), at kultural na kaugnayan. Ang pangalan ay dapat madaling bigkasin at isulat, habang iniiwasan ang anumang negatibong kahulugan sa Chinese culture."
+    },
+    "name_structure": {
+      "question": "Paano binubuo ang Chinese name?",
+      "answer": "Ang Chinese name ay tradisyonal na binubuo ng family name (apelyido) na sinusundan ng given name. Ang apelyido ay karaniwang isang character, habang ang given name ay maaaring isa o dalawang character. Halimbawa, sa pangalang '李明' (Li Ming), ang '李' ay ang apelyido at ang '明' ay ang given name."
+    },
+    "meaning_importance": {
+      "question": "Gaano kahalaga ang kahulugan ng mga character sa Chinese names?",
+      "answer": "Ang kahulugan ng mga character ay napakahalaga sa Chinese names. Bawat character ay may tiyak na kahulugan at kultural na kabuluhan. Ang mga magulang ay kadalasang pumipili ng mga character na kumakatawan sa kanilang mga pag-asa at hangarin para sa kanilang anak, tulad ng karunungan, kabutihan, kagandahan o lakas."
+    }
+  }
+} 

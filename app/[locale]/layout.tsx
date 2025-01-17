@@ -24,8 +24,14 @@ export default async function LocaleLayout({
 
   let messages;
   try {
+    const [commonMessages, faqMessages] = await Promise.all([
+      import(`../../public/locales/${locale}/common.json`),
+      import(`../../public/locales/${locale}/faq.json`).catch(() => ({ default: {} }))
+    ])
+    
     messages = {
-      ...(await import(`../../public/locales/${locale}/common.json`)).default,
+      ...commonMessages.default,
+      faq: faqMessages.default
     }
     console.log('Loaded messages:', messages)
   } catch (error) {

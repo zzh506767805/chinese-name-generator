@@ -1,0 +1,35 @@
+{
+  "title": "Mga Madalas na Tanong Tungkol sa Chinese Names",
+  "what_makes_good_name": {
+    "question": "Ano ang bumubuo ng magandang Chinese name?",
+    "answer": "Ang magandang Chinese name ay may ilang mahahalagang katangian: mga character na may makabuluhang kahulugan na nagpapahayag ng positibong katangian, magandang pagbigkas, angkop na kahirapan (karaniwang 2-3 character), at kultural na kaugnayan. Ang pangalan ay dapat madaling bigkasin at isulat, habang iniiwasan ang anumang negatibong kahulugan sa Chinese culture."
+  },
+  "name_structure": {
+    "question": "Paano binubuo ang Chinese name?",
+    "answer": "Ang Chinese name ay tradisyonal na binubuo ng family name (apelyido) na sinusundan ng given name. Ang apelyido ay karaniwang isang character, habang ang given name ay maaaring isa o dalawang character. Halimbawa, sa pangalang '李明' (Li Ming), ang '李' ay ang apelyido at ang '明' ay ang given name."
+  },
+  "meaning_importance": {
+    "question": "Gaano kahalaga ang kahulugan ng mga character sa Chinese names?",
+    "answer": "Ang kahulugan ng mga character ay napakahalaga sa Chinese names. Bawat character ay may tiyak na kahulugan at kultural na kabuluhan. Ang mga magulang ay kadalasang pumipili ng mga character na kumakatawan sa kanilang mga pag-asa at hangarin para sa kanilang anak, tulad ng karunungan, kabutihan, kagandahan o lakas."
+  },
+  "common_characters": {
+    "question": "Anu-anong mga character ang karaniwang ginagamit sa Chinese names?",
+    "answer": "Ang mga karaniwang character sa Chinese names ay kadalasang may kaugnayan sa mga birtud, elemento ng kalikasan, o positibong katangian. Halimbawa: '明' (maliwanag), '华' (kahanga-hanga), '伟' (dakila), '丽' (maganda), '智' (matalino), '强' (malakas), '雪' (niyebe), '海' (dagat), at '文' (kultural, pino)."
+  },
+  "gender_specific": {
+    "question": "May pagkakaiba ba ang Chinese names ayon sa kasarian?",
+    "answer": "Bagama't ang Chinese names ay maaaring maging gender-neutral, maraming character ang tradisyonal na nauugnay sa partikular na kasarian. Ang mga character na nagpapahiwatig ng kagandahan, kahinhinan, o kalamigan ay kadalasang ginagamit para sa mga babae (tulad ng '美', '婷', '静'), habang ang mga character na nagpapahiwatig ng lakas, ambisyon, o pamumuno ay karaniwan para sa mga lalaki (tulad ng '强', '伟', '志')."
+  },
+  "name_taboos": {
+    "question": "May mga bawal ba sa pagbibigay ng Chinese name?",
+    "answer": "Oo, may ilang bawal sa pagbibigay ng pangalan sa Chinese culture: pag-iwas sa mga pangalan ng ninuno o mga iginagalang na tao, pag-iwas sa mga malas na numero o negatibong kahulugan, hindi paggamit ng masyadong kumplikado o bihirang character, at pag-iingat sa kombinasyon ng mga character na maaaring lumikha ng hindi kanais-nais na kahulugan kapag binasa nang magkasama."
+  },
+  "pronunciation": {
+    "question": "Gaano kahalaga ang pagbigkas ng Chinese name?",
+    "answer": "Ang pagbigkas ay napakahalaga sa Chinese names. Ang magandang pangalan ay dapat maganda sa pandinig kapag binibigkas, may mga character na magandang magkasunod. Ang mga tono ng mga character ay dapat ding isaalang-alang, dahil nakakaapekto ito sa pangkalahatang harmonia ng pangalan. Bukod dito, ang pangalan ay dapat medyo madaling bigkasin para sa parehong Chinese at hindi Chinese speakers."
+  },
+  "cultural_significance": {
+    "question": "Ano ang kultural na kahalagahan ng Chinese names?",
+    "answer": "Ang Chinese names ay may malalim na kultural na kahalagahan. Sumasalamin ito sa mga tradisyonal na pagpapahalaga, pag-asa ng pamilya, at kultural na pagkakakilanlan. Ang mga pangalan ay kadalasang nagdurugtong sa mga tao sa kanilang kasaysayan ng pamilya, kultural na pamana, at personal na mga hangarin. Sa Chinese culture, ang pangalan ay itinuturing na nakakaimpluwensya sa kapalaran at karakter ng isang tao, kaya't ang proseso ng pagpili ng pangalan ay partikular na mahalaga."
+  }
+} 

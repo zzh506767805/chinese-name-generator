@@ -44,6 +44,11 @@ const languages = {
     description: 'Libreng Chinese name generator para sa mga lalaki at babae. Humanap ng makabuluhang Chinese name na may pinyin at kahulugan. Available ang Chinese first names at last names.',
     keywords: 'chinese names, chinese name generator, chinese girl names, chinese boy names, chinese last names',
   },
+  ru: {
+    title: 'Генератор китайских имён - Найдите идеальное китайское имя | Бесплатно',
+    description: 'Бесплатный генератор китайских имён для мальчиков и девочек. Найдите значимые китайские имена с пиньинь и значениями. Популярные китайские имена и фамилии.',
+    keywords: 'китайские имена, китайские женские имена, китайские мужские имена, китайские фамилии, генератор китайских имён',
+  },
 }
 
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {

@@ -39,6 +39,7 @@ export default function LocaleSelect() {
         <option value="hi">हिंदी</option>
         <option value="id">Bahasa Indonesia</option>
         <option value="tl">Tagalog</option>
+        <option value="ru">Русский</option>
       </select>
     )
   } catch (error) {

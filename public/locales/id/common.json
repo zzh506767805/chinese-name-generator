@@ -42,7 +42,8 @@
     "how_it_works": "Cara Kerja",
     "name_meanings": "Arti Nama",
     "about": "Tentang",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "history": "Riwayat"
   },
   "footer": {
     "tagline": "Didukung oleh AI • Otentik secara budaya • 100% unik"
@@ -78,5 +79,12 @@
       "title": "Simpan Nama Sempurna Anda",
       "description": "Setelah Anda menemukan nama yang Anda sukai, Anda dapat menyimpannya dan menerima sertifikat digital yang indah dengan nama Tionghoa baru Anda."
     }
+  },
+  "history": {
+    "title": "Riwayat Nama",
+    "description": "Berikut adalah semua nama Tionghoa yang telah Anda hasilkan. Catatan ini disimpan di browser Anda.",
+    "empty": "Anda belum menghasilkan nama apapun.",
+    "generate_first": "Hasilkan Nama Pertama",
+    "note": "Catatan: Riwayat ini disimpan di penyimpanan lokal browser Anda. Data akan hilang jika Anda menghapus data browser atau mengganti perangkat."
   }
 } 

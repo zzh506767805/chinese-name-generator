@@ -40,9 +40,10 @@
   },
   "nav": {
     "how_it_works": "Paano Gumagana",
-    "name_meanings": "Mga Kahulugan ng Pangalan",
+    "name_meanings": "Kahulugan ng Pangalan",
     "about": "Tungkol",
-    "faq": "Mga Madalas na Tanong"
+    "faq": "FAQ",
+    "history": "Kasaysayan"
   },
   "footer": {
     "tagline": "Pinapagana ng AI • Tunay sa kultura • 100% natatangi"
@@ -78,5 +79,12 @@
       "title": "I-save ang Iyong Perpektong Pangalan",
       "description": "Kapag nakahanap ka na ng pangalang gusto mo, maaari mo itong i-save at makatanggap ng magandang digital certificate kasama ang iyong bagong Chinese name."
     }
+  },
+  "history": {
+    "title": "Kasaysayan ng mga Pangalan",
+    "description": "Narito ang lahat ng Chinese name na iyong nagawa. Ang mga tala na ito ay naka-save sa iyong browser.",
+    "empty": "Wala ka pang nagagawang pangalan.",
+    "generate_first": "Gumawa ng Unang Pangalan",
+    "note": "Tandaan: Ang mga tala na ito ay naka-save sa local storage ng iyong browser. Mawawala ang data kapag binura mo ang browser data o nagpalit ng device."
   }
 } 
