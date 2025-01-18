@@ -2,13 +2,14 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 
-type Props = {
+interface PageProps {
   params: {
     locale: string
   }
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const t = await getTranslations('common')
   return {
     title: t('blog.title'),
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function BlogPage({ params }: Props) {
+export default async function BlogPage({ params }: PageProps) {
   const t = await getTranslations('common')
 
   const blogPosts = [
