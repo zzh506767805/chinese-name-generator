@@ -6,7 +6,7 @@ interface PageProps {
   params: Promise<{
     locale: string
   }>
-  searchParams?: { [key: string]: string | string[] | undefined }
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
