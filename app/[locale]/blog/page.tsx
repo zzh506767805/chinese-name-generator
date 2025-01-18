@@ -13,13 +13,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const t = await getTranslations('common')
   return {
     title: t('blog.title'),
-    description: t('blog.description'),
+    description: 'Explore Chinese names, their meanings, and cultural significance. Find perfect Chinese names for boys and girls, learn about surnames, and understand naming traditions.',
     keywords: 'chinese names, chinese name meaning, chinese naming culture, chinese name guide'
   }
 }
 
 export default async function BlogPage({ params }: PageProps) {
   const t = await getTranslations('common')
+  const locale = params.locale
 
   const blogPosts = [
     {
@@ -110,13 +111,13 @@ export default async function BlogPage({ params }: PageProps) {
         {blogPosts.map((post) => (
           <Link
             key={post.slug}
-            href={`/${params.locale}/blog/${post.slug}`}
+            href={`/${locale}/blog/${post.slug}`}
             className="block p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 hover:border-gray-300"
           >
             <div className="flex items-center text-sm text-gray-500 mb-2">
               <time dateTime={post.date}>{post.date}</time>
               <span className="mx-2">·</span>
-              <span>{post.readTime[params.locale as keyof typeof post.readTime] || post.readTime['en']}</span>
+              <span>{post.readTime[locale as keyof typeof post.readTime] || post.readTime['en']}</span>
             </div>
             <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
             <p className="text-gray-600">{post.description}</p>
