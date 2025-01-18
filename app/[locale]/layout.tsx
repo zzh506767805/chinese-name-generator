@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
 import { locales } from '../../i18n.config'
 import Navbar from '@/app/components/Navbar'
+import Footer from '@/app/components/Footer'
 
 type Props = {
   children: React.ReactNode
@@ -47,6 +48,7 @@ export default async function LocaleLayout({
           <main className="pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {children}
           </main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
