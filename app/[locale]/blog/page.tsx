@@ -3,16 +3,17 @@ import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 
 interface PageProps {
-  params: {
+  params: Promise<{
     locale: string
-  }
-  searchParams: { [key: string]: string | string[] | undefined }
+  }>
+  searchParams?: { [key: string]: string | string[] | undefined }
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const t = await getTranslations('common')
+  const resolvedParams = await params
   return {
-    title: t('blog.title'),
+    title: 'Blog - Chinese Name Assistant',
     description: 'Explore Chinese names, their meanings, and cultural significance. Find perfect Chinese names for boys and girls, learn about surnames, and understand naming traditions.',
     keywords: 'chinese names, chinese name meaning, chinese naming culture, chinese name guide'
   }
@@ -20,7 +21,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPage({ params }: PageProps) {
   const t = await getTranslations('common')
-  const locale = params.locale
+  const resolvedParams = await params
+  const locale = resolvedParams.locale
 
   const blogPosts = [
     {
