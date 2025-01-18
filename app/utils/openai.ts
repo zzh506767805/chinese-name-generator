@@ -65,7 +65,7 @@ export async function generateChineseName(preferences: NamePreferences) {
   const responseLanguage = getResponseLanguage(preferences.language)
 
   // 构建 prompt
-  const prompt = `作为一个专业的中文起名专家，请根据以下要求为用户起一个中文名：
+  const prompt = `作为一个熟读中华文化的起名专家，请根据以下要求为用户起一个中文名：
 - 性别偏好：${preferences.gender}
 - 期望含义：${preferences.meaning}
 - 名字风格：${preferences.style}
@@ -107,11 +107,9 @@ ${preferences.additionalInfo ? `- 补充信息：${preferences.additionalInfo}` 
             content: prompt
           }
         ],
-        temperature: 0.7,
+        temperature: 0.8,
         max_tokens: 1000,
         response_format: { type: "json_object" },
-        seed: 42,
-        top_p: 0.9
       }),
       timeout: 60000 // 60 seconds timeout
     })

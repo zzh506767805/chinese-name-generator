@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import BlogArticle, { ContentSection, CardGrid, Card } from '@/app/components/BlogArticle'
+import BlogArticle, { ContentSection, CardGrid, Card, CTASection } from '@/app/components/BlogArticle'
 
 export const metadata: Metadata = {
   title: 'Chinese Names: Complete Guide with 200+ Popular Names and Meanings (2024)',
@@ -936,6 +936,13 @@ export default function ChineseNamesGuidePage() {
           </Card>
         </CardGrid>
       </ContentSection>
+
+      <CTASection
+        title="Find Your Perfect Chinese Name"
+        description="Ready to discover your ideal Chinese name? Use our AI-powered name generator to create a meaningful name that reflects your personality:"
+        buttonText="Generate Names →"
+        buttonHref="/"
+      />
     </BlogArticle>
   )
-} 
+}

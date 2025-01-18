@@ -3,6 +3,7 @@ import BlogArticle from '@/app/components/BlogArticle'
 import ContentSection from '@/app/components/BlogArticle/ContentSection'
 import CardGrid from '@/app/components/BlogArticle/CardGrid'
 import Card from '@/app/components/BlogArticle/Card'
+import CTASection from '@/app/components/BlogArticle/CTASection'
 
 export const metadata: Metadata = {
   title: 'Chinese Names Guide (2025): Meanings, Examples & Tips',
@@ -129,6 +130,13 @@ export default function ChineseNamesGuidePage() {
           <li>Following trends without considering meaning</li>
         </ul>
       </ContentSection>
+
+      <CTASection
+        title="Create Your Perfect Chinese Name"
+        description="Ready to find your ideal Chinese name? Try our AI-powered name generator that considers all these factors:"
+        buttonText="Generate Names →"
+        buttonHref="/"
+      />
     </BlogArticle>
   )
 } 

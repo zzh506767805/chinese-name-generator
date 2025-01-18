@@ -115,13 +115,14 @@ export default async function BlogPage({ params }: PageProps) {
             key={post.slug}
             href={`/${locale}/blog/${post.slug}`}
             className="block p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 hover:border-gray-300"
+            prefetch={true}
           >
             <div className="flex items-center text-sm text-gray-500 mb-2">
               <time dateTime={post.date}>{post.date}</time>
               <span className="mx-2">·</span>
               <span>{post.readTime[locale as keyof typeof post.readTime] || post.readTime['en']}</span>
             </div>
-            <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
+            <h2 className="text-xl font-semibold mb-2 hover:text-blue-600 transition-colors">{post.title}</h2>
             <p className="text-gray-600">{post.description}</p>
           </Link>
         ))}
