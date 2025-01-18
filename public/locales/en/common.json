@@ -39,6 +39,7 @@
     "generate_another": "Generate Another Name"
   },
   "nav": {
+    "blog": "Naming Guide",
     "how_it_works": "How It Works",
     "name_meanings": "Name Meanings",
     "about": "About",
@@ -86,6 +87,27 @@
     "step4": {
       "title": "Save Your Perfect Name",
       "description": "Once you find a name you love, you can save it and receive a beautiful digital certificate with your new Chinese name."
+    }
+  },
+  "blog": {
+    "title": "Chinese Name Blog",
+    "subtitle": "Explore Traditional Chinese Naming Culture and Modern Methods",
+    "description": "Discover the cultural significance of Chinese names, naming techniques, and meaning analysis. Get professional guidance on choosing Chinese names.",
+    "search_placeholder": "Search articles...",
+    "categories": {
+      "all": "All Articles",
+      "girl-names": "Girl Names",
+      "boy-names": "Boy Names",
+      "surname": "Surnames",
+      "culture": "Culture"
+    },
+    "featured_articles": "Featured Articles",
+    "all_articles": "All Articles",
+    "newsletter": {
+      "title": "Subscribe to Our Weekly Newsletter",
+      "description": "Get the latest naming tips, cultural insights, and practical advice",
+      "email_placeholder": "Enter your email address",
+      "subscribe": "Subscribe"
     }
   }
 } 

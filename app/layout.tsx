@@ -51,6 +51,66 @@ const languages = {
   },
 }
 
+export const metadata: Metadata = {
+  metadataBase: new URL('https://chinesenamegenerate.com'),
+  title: {
+    template: '%s | Chinese Name Generator',
+    default: 'Chinese Name Generator - Create Beautiful Chinese Names'
+  },
+  description: 'Create meaningful Chinese names with our AI-powered name generator. Get personalized suggestions with pinyin pronunciation and character meanings.',
+  keywords: ['chinese name generator', 'chinese names', 'chinese name meaning', 'chinese name translation'],
+  authors: [{ name: 'Chinese Name Generator Team' }],
+  creator: 'Chinese Name Generator',
+  publisher: 'Chinese Name Generator',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://chinesenamegenerate.com',
+    siteName: 'Chinese Name Generator',
+    title: 'Chinese Name Generator - Create Beautiful Chinese Names',
+    description: 'Create meaningful Chinese names with our AI-powered name generator. Get personalized suggestions with pinyin pronunciation and character meanings.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Chinese Name Generator'
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Chinese Name Generator - Create Beautiful Chinese Names',
+    description: 'Create meaningful Chinese names with our AI-powered name generator. Get personalized suggestions with pinyin pronunciation and character meanings.',
+    images: ['/twitter-image.png'],
+    creator: '@chinesename',
+  },
+  verification: {
+    google: 'google-site-verification-code',
+  },
+  alternates: {
+    canonical: 'https://chinesenamegenerate.com',
+    languages: {
+      'en': 'https://chinesenamegenerate.com/en',
+      'zh': 'https://chinesenamegenerate.com/zh',
+      'ja': 'https://chinesenamegenerate.com/ja',
+      'ko': 'https://chinesenamegenerate.com/ko',
+      'hi': 'https://chinesenamegenerate.com/hi',
+      'id': 'https://chinesenamegenerate.com/id',
+      'tl': 'https://chinesenamegenerate.com/tl'
+    }
+  }
+}
+
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
   const locale = params.locale || 'en'
   const meta = languages[locale as keyof typeof languages] || languages.en

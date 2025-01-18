@@ -31,6 +31,7 @@
     "play_pronunciation": "발음 듣기"
   },
   "nav": {
+    "blog": "작명 가이드",
     "how_it_works": "사용 방법",
     "name_meanings": "이름의 의미",
     "about": "서비스 소개",
@@ -67,6 +68,27 @@
     "step4": {
       "title": "더 많은 이름 탐색",
       "description": "생성된 이름이 마음에 들지 않으면 원하는 이름을 찾을 때까지 더 많은 옵션을 생성할 수 있습니다."
+    }
+  },
+  "blog": {
+    "title": "중국어 이름 블로그",
+    "subtitle": "중국 전통 작명 문화와 현대적 방법 탐구",
+    "description": "중국어 이름의 문화적 의미, 작명 기법, 의미 분석에 대해 깊이 있게 이해하세요. 전문적인 중국어 이름 짓기 가이드를 제공합니다.",
+    "search_placeholder": "게시물 검색...",
+    "categories": {
+      "all": "전체 게시물",
+      "girl-names": "여자아이 이름",
+      "boy-names": "남자아이 이름",
+      "surname": "성씨",
+      "culture": "문화"
+    },
+    "featured_articles": "추천 게시물",
+    "all_articles": "전체 게시물",
+    "newsletter": {
+      "title": "주간 뉴스레터 구독",
+      "description": "최신 작명 팁, 문화적 통찰력, 실용적인 조언을 받아보세요",
+      "email_placeholder": "이메일 주소 입력",
+      "subscribe": "구독"
     }
   }
 } 

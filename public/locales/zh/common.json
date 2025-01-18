@@ -39,6 +39,7 @@
     "generate_another": "生成另一个名字"
   },
   "nav": {
+    "blog": "起名知识",
     "how_it_works": "使用说明",
     "name_meanings": "名字含义",
     "about": "关于我们",
@@ -85,6 +86,27 @@
     "step4": {
       "title": "保存完美名字",
       "description": "当您找到心仪的名字时，可以保存它并获得一份精美的电子证书。"
+    }
+  },
+  "blog": {
+    "title": "中文起名博客",
+    "subtitle": "探索中国传统命名文化与现代起名方法",
+    "description": "深入了解中文名字的文化内涵、命名技巧和寓意分析。为您提供专业的中文起名指导和建议。",
+    "search_placeholder": "搜索文章...",
+    "categories": {
+      "all": "全部文章",
+      "girl-names": "女孩起名",
+      "boy-names": "男孩起名",
+      "surname": "姓氏文化",
+      "culture": "文化传统"
+    },
+    "featured_articles": "精选文章",
+    "all_articles": "所有文章",
+    "newsletter": {
+      "title": "订阅我们的周刊",
+      "description": "获取最新的起名技巧、文化见解和实用建议",
+      "email_placeholder": "输入您的邮箱地址",
+      "subscribe": "订阅"
     }
   }
 } 

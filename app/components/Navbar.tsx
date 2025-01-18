@@ -3,7 +3,6 @@ import Link from 'next/link'
 import LocaleSelect from './LocaleSelect'
 
 export default function Navbar() {
-  console.log('Rendering Navbar')
   const t = useTranslations()
 
   return (
@@ -12,13 +11,19 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <Link href="/" className="flex items-center">
-              <span className="text-lg sm:text-xl font-bold text-red-600 whitespace-nowrap">
+              <span className="text-base sm:text-xl font-bold text-red-600 whitespace-nowrap">
                 {t('title')}
               </span>
             </Link>
           </div>
 
-          <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className="flex items-center space-x-1 sm:space-x-4">
+            <Link
+              href="/blog"
+              className="text-gray-700 hover:text-gray-900 px-2 sm:px-3 py-2 rounded-md text-sm sm:text-base whitespace-nowrap hidden md:block"
+            >
+              {t('nav.blog')}
+            </Link>
             <Link
               href="/how-it-works"
               className="text-gray-700 hover:text-gray-900 px-2 sm:px-3 py-2 rounded-md text-sm sm:text-base whitespace-nowrap hidden sm:block"
@@ -37,7 +42,7 @@ export default function Navbar() {
             >
               {t('nav.history')}
             </Link>
-            <div className="relative">
+            <div className="relative ml-1 sm:ml-2">
               <LocaleSelect />
             </div>
           </div>

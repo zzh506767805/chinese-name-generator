@@ -1,0 +1,69 @@
+{
+  "surnames": {
+    "title": "中国姓氏完全指南：历史、文化与现代意义",
+    "description": "深入了解中国姓氏的丰富历史、文化内涵和在现代社会中的重要性。",
+    "introduction": "中国姓氏承载着数千年的历史和文化意义。与西方姓氏不同，中国的姓氏在一个人的全名中位于前面，反映了中国文化对家族和祖先的重视。",
+    "common_surnames": {
+      "title": "最常见的中国姓氏",
+      "meaning_prefix": "含义：",
+      "population_prefix": "使用人数："
+    },
+    "surnames": {
+      "wang": {
+        "meaning": "王",
+        "population": "约1亿人"
+      },
+      "li": {
+        "meaning": "李子",
+        "population": "约9800万人"
+      },
+      "zhang": {
+        "meaning": "弓匠",
+        "population": "约9500万人"
+      },
+      "liu": {
+        "meaning": "杀",
+        "population": "约7300万人"
+      },
+      "chen": {
+        "meaning": "大臣",
+        "population": "约7000万人"
+      },
+      "yang": {
+        "meaning": "杨树",
+        "population": "约6000万人"
+      }
+    },
+    "origins": {
+      "title": "中国姓氏的历史起源",
+      "introduction": "中国姓氏有几个主要的历史来源：",
+      "geographical": {
+        "title": "地名来源",
+        "description": "许多姓氏源自古代封地或居住地，如：周、邓、蒋等"
+      },
+      "official": {
+        "title": "官职来源",
+        "description": "一些姓氏来自古代官职，如：司马、司徒、尉迟等"
+      },
+      "state": {
+        "title": "国名来源",
+        "description": "源自古代诸侯国，如：齐、吴、鲁等"
+      },
+      "imperial": {
+        "title": "姓氏赐予",
+        "description": "由帝王赐予的姓氏，如：赵、钱、孙等"
+      }
+    },
+    "explore": {
+      "title": "探索您的姓氏",
+      "description": "想了解您的姓氏的历史和文化意义？使用我们的姓氏查询工具：",
+      "cta": "查询姓氏历史"
+    },
+    "related": {
+      "title": "相关文章",
+      "meaning": "中文名字的意义与文化内涵",
+      "girls": "女孩起名指南",
+      "boys": "男孩起名指南"
+    }
+  }
+} 

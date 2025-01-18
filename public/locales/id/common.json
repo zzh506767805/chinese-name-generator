@@ -39,6 +39,7 @@
     "generate_another": "Buat Nama Lain"
   },
   "nav": {
+    "blog": "Panduan Penamaan",
     "how_it_works": "Cara Kerja",
     "name_meanings": "Arti Nama",
     "about": "Tentang",
@@ -86,5 +87,26 @@
     "empty": "Anda belum menghasilkan nama apapun.",
     "generate_first": "Hasilkan Nama Pertama",
     "note": "Catatan: Riwayat ini disimpan di penyimpanan lokal browser Anda. Data akan hilang jika Anda menghapus data browser atau mengganti perangkat."
+  },
+  "blog": {
+    "title": "Blog Nama Tionghoa",
+    "subtitle": "Jelajahi Budaya Penamaan Tradisional Tionghoa dan Metode Modern",
+    "description": "Pahami secara mendalam makna budaya nama Tionghoa, teknik penamaan, dan analisis makna. Dapatkan panduan profesional dalam memilih nama Tionghoa.",
+    "search_placeholder": "Cari artikel...",
+    "categories": {
+      "all": "Semua Artikel",
+      "girl-names": "Nama Perempuan",
+      "boy-names": "Nama Laki-laki",
+      "surname": "Marga",
+      "culture": "Budaya"
+    },
+    "featured_articles": "Artikel Pilihan",
+    "all_articles": "Semua Artikel",
+    "newsletter": {
+      "title": "Berlangganan Newsletter Mingguan Kami",
+      "description": "Dapatkan tips penamaan terbaru, wawasan budaya, dan saran praktis",
+      "email_placeholder": "Masukkan alamat email Anda",
+      "subscribe": "Berlangganan"
+    }
   }
 } 

@@ -31,6 +31,7 @@
     "play_pronunciation": "発音を再生"
   },
   "nav": {
+    "blog": "命名ガイド",
     "how_it_works": "使い方",
     "name_meanings": "名前の意味",
     "about": "サービスについて",
@@ -67,6 +68,27 @@
     "step4": {
       "title": "より多くの名前を探す",
       "description": "生成された名前に満足できない場合は、気に入った名前が見つかるまで、さらに多くの選択肢を生成できます。"
+    }
+  },
+  "blog": {
+    "title": "中国語の名前ブログ",
+    "subtitle": "中国の伝統的な命名文化と現代の方法を探る",
+    "description": "中国語の名前の文化的意義、命名技法、意味分析について深く理解しましょう。専門的な中国語の名付けガイダンスを提供します。",
+    "search_placeholder": "記事を検索...",
+    "categories": {
+      "all": "すべての記事",
+      "girl-names": "女の子の名前",
+      "boy-names": "男の子の名前",
+      "surname": "姓氏",
+      "culture": "文化"
+    },
+    "featured_articles": "おすすめ記事",
+    "all_articles": "すべての記事",
+    "newsletter": {
+      "title": "週刊ニュースレターを購読",
+      "description": "最新の命名のヒント、文化的な洞察、実用的なアドバイスを入手",
+      "email_placeholder": "メールアドレスを入力",
+      "subscribe": "購読"
     }
   }
 } 

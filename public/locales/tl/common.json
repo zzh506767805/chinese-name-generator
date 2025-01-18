@@ -39,6 +39,7 @@
     "generate_another": "Gumawa ng Ibang Pangalan"
   },
   "nav": {
+    "blog": "Gabay sa Pagpapangalan",
     "how_it_works": "Paano Gumagana",
     "name_meanings": "Kahulugan ng Pangalan",
     "about": "Tungkol",
@@ -86,5 +87,26 @@
     "empty": "Wala ka pang nagagawang pangalan.",
     "generate_first": "Gumawa ng Unang Pangalan",
     "note": "Tandaan: Ang mga tala na ito ay naka-save sa local storage ng iyong browser. Mawawala ang data kapag binura mo ang browser data o nagpalit ng device."
+  },
+  "blog": {
+    "title": "Blog ng Chinese Name",
+    "subtitle": "Tuklasin ang Tradisyonal na Kultura ng Pagpapangalan ng Tsino at Modernong Pamamaraan",
+    "description": "Unawain nang malalim ang kultural na kahalagahan ng mga pangalang Chinese, mga teknik sa pagpapangalan, at pagsusuri ng kahulugan. Kumuha ng propesyonal na gabay sa pagpili ng Chinese name.",
+    "search_placeholder": "Maghanap ng mga artikulo...",
+    "categories": {
+      "all": "Lahat ng Artikulo",
+      "girl-names": "Pangalan ng Babae",
+      "boy-names": "Pangalan ng Lalaki",
+      "surname": "Apelyido",
+      "culture": "Kultura"
+    },
+    "featured_articles": "Mga Piling Artikulo",
+    "all_articles": "Lahat ng Artikulo",
+    "newsletter": {
+      "title": "Mag-subscribe sa Aming Lingguhang Newsletter",
+      "description": "Kumuha ng pinakabagong mga tip sa pagpapangalan, kultural na pananaw, at praktikal na payo",
+      "email_placeholder": "Ilagay ang iyong email address",
+      "subscribe": "Mag-subscribe"
+    }
   }
 } 

@@ -1,0 +1,69 @@
+{
+  "surnames": {
+    "title": "Chinese Last Names (Surnames): Complete Guide to Family Names",
+    "description": "Explore the fascinating world of Chinese surnames. Learn about the most common Chinese last names, their meanings, origins, and historical significance.",
+    "introduction": "Chinese surnames carry thousands of years of history and cultural significance. Unlike Western surnames, Chinese family names come first in a person's full name, reflecting the cultural emphasis on family and ancestry.",
+    "common_surnames": {
+      "title": "Most Common Chinese Surnames",
+      "meaning_prefix": "Meaning: ",
+      "population_prefix": "Population: "
+    },
+    "surnames": {
+      "wang": {
+        "meaning": "King",
+        "population": "About 100 million"
+      },
+      "li": {
+        "meaning": "Plum",
+        "population": "About 98 million"
+      },
+      "zhang": {
+        "meaning": "Bow-maker",
+        "population": "About 95 million"
+      },
+      "liu": {
+        "meaning": "Kill",
+        "population": "About 73 million"
+      },
+      "chen": {
+        "meaning": "Minister",
+        "population": "About 70 million"
+      },
+      "yang": {
+        "meaning": "Poplar",
+        "population": "About 60 million"
+      }
+    },
+    "origins": {
+      "title": "Historical Origins of Chinese Surnames",
+      "introduction": "Chinese surnames have several historical origins:",
+      "geographical": {
+        "title": "Geographical Origins",
+        "description": "Many surnames originated from ancient fiefdoms or places of residence, such as Zhou, Deng, Jiang"
+      },
+      "official": {
+        "title": "Official Titles",
+        "description": "Some surnames came from ancient official positions, such as Sima, Situ, Yuchi"
+      },
+      "state": {
+        "title": "State Names",
+        "description": "Derived from ancient feudal states, such as Qi, Wu, Lu"
+      },
+      "imperial": {
+        "title": "Imperial Grants",
+        "description": "Surnames granted by emperors, such as Zhao, Qian, Sun"
+      }
+    },
+    "explore": {
+      "title": "Explore Your Surname",
+      "description": "Want to learn about the history and cultural significance of your surname? Use our surname lookup tool:",
+      "cta": "Look Up Surname History"
+    },
+    "related": {
+      "title": "Related Articles",
+      "meaning": "Cultural Meaning and Significance of Chinese Names",
+      "girls": "Guide to Chinese Girl Names",
+      "boys": "Guide to Chinese Boy Names"
+    }
+  }
+} 
