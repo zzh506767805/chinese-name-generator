@@ -118,6 +118,11 @@ export default function RootLayout({
       <head>
         <SchemaOrg locale={params.locale || 'en'} />
         <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8366783560808157"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1JVZ3WVYQ4"
           strategy="afterInteractive"
         />
