@@ -1,7 +1,8 @@
 {
-  "title": "Asisten Nama Tionghoa",
+  "title": "Generator Nama Tionghoa",
   "subtitle": "Temukan nama Tionghoa sempurna Anda dengan AI",
   "form": {
+    "title": "Preferensi Nama",
     "gender": {
       "label": "Preferensi Gender",
       "options": {
@@ -24,11 +25,12 @@
     "submit": "Buat Nama Tionghoa"
   },
   "result": {
-    "loading": "AI sedang membuat nama Tionghoa sempurna untuk Anda...",
+    "title": "Nama yang Dihasilkan",
+    "loading": "AI sedang membuat nama Tionghoa yang sempurna untuk Anda...",
     "meaning": "Arti",
     "cultural_context": "Konteks Budaya",
     "save": "Simpan nama ini ($5)",
-    "generate_another": "Buat Nama Lain",
+    "generate_another": "Buat nama lain",
     "play_pronunciation": "Putar pengucapan"
   },
   "success": {

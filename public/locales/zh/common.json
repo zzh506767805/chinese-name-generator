@@ -2,6 +2,7 @@
   "title": "中文起名助手",
   "subtitle": "用AI为您找到完美的中文名字",
   "form": {
+    "title": "名字偏好设置",
     "gender": {
       "label": "性别偏好",
       "options": {

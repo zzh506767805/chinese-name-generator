@@ -2,6 +2,7 @@
   "title": "Chinese Name Assistant",
   "subtitle": "Find your perfect Chinese name with AI",
   "form": {
+    "title": "Name Preferences",
     "gender": {
       "label": "Gender Preference",
       "options": {

@@ -80,6 +80,9 @@ export default function HomePage() {
       <div className="bg-white rounded-lg shadow-xl p-8">
         {step === 1 && (
           <div className="space-y-6">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+              {t('form.title')}
+            </h2>
             <div>
               <label className="block text-gray-700 font-medium mb-2">
                 {t('form.gender.label')}

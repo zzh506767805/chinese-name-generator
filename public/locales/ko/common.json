@@ -1,9 +1,10 @@
 {
-  "title": "중국어 이름 도우미",
-  "subtitle": "AI 기반으로 당신에게 완벽한 중국어 이름을 찾아보세요",
+  "title": "중국어 이름 생성기",
+  "subtitle": "AI로 완벽한 중국어 이름 찾기",
   "form": {
+    "title": "이름 선호도 설정",
     "gender": {
-      "label": "성별 선호",
+      "label": "성별 선호도",
       "options": {
         "male": "남성",
         "female": "여성",
@@ -24,9 +25,11 @@
     "submit": "중국어 이름 생성"
   },
   "result": {
-    "loading": "AI가 당신을 위한 완벽한 중국어 이름을 만들고 있습니다...",
+    "title": "생성된 이름",
+    "loading": "AI가 완벽한 중국어 이름을 만들고 있습니다...",
     "meaning": "의미",
     "cultural_context": "문화적 배경",
+    "save": "이름 저장하기 ($5)",
     "generate_another": "다른 이름 생성",
     "play_pronunciation": "발음 듣기"
   },
@@ -90,5 +93,8 @@
       "email_placeholder": "이메일 주소 입력",
       "subscribe": "구독"
     }
+  },
+  "footer": {
+    "tagline": "AI 기술 구현 • 문화적 진정성 • 100% 고유함"
   }
 } 

@@ -74,10 +74,14 @@ export default function NameResult({
 
   return (
     <div className="bg-white rounded-lg shadow-xl p-8">
+      <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+        {t('result.title')}
+      </h2>
+      
       {/* 名字展示 */}
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-2">
-          <h2 className="text-5xl font-bold text-red-600">{chineseName}</h2>
+          <h3 className="text-5xl font-bold text-red-600">{chineseName}</h3>
           <button
             onClick={playPronunciation}
             disabled={isPlaying}

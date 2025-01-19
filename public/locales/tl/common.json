@@ -1,7 +1,8 @@
 {
-  "title": "Chinese Name Assistant",
+  "title": "Chinese Name Generator",
   "subtitle": "Hanapin ang iyong perpektong Chinese name gamit ang AI",
   "form": {
+    "title": "Mga Kagustuhan sa Pangalan",
     "gender": {
       "label": "Kagustuhan sa Kasarian",
       "options": {
@@ -12,7 +13,7 @@
     },
     "meaning": {
       "label": "Nais na Kahulugan o Katangian",
-      "placeholder": "Halimbawa: Gusto ko ng pangalang sumasagisag sa karunungan at kabutihan..."
+      "placeholder": "Halimbawa: Gusto ko ng pangalang sumasalamin sa karunungan at kabutihan..."
     },
     "style": {
       "label": "Istilo ng Pangalan",
@@ -24,12 +25,13 @@
     "submit": "Gumawa ng Chinese Name"
   },
   "result": {
-    "loading": "Gumagawa ang AI ng iyong perpektong Chinese name...",
+    "title": "Nabuong Pangalan",
+    "loading": "Gumagawa ang AI ng perpektong Chinese name para sa iyo...",
     "meaning": "Kahulugan",
     "cultural_context": "Kontekstong Pangkultura",
     "save": "I-save ang pangalang ito ($5)",
-    "generate_another": "Gumawa ng Iba Pa",
-    "play_pronunciation": "I-play ang pagbigkas"
+    "generate_another": "Gumawa ng iba pa",
+    "play_pronunciation": "I-play ang bigkas"
   },
   "success": {
     "payment_completed": "Kumpleto na ang Pagbabayad!",

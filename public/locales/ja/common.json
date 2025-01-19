@@ -1,7 +1,8 @@
 {
-  "title": "中国語名前アシスタント",
-  "subtitle": "AIを活用して、あなたにぴったりの中国語の名前を見つけましょう",
+  "title": "中国語の名前ジェネレーター",
+  "subtitle": "AIで完璧な中国語の名前を見つけましょう",
   "form": {
+    "title": "名前の設定",
     "gender": {
       "label": "性別の選択",
       "options": {
@@ -12,7 +13,7 @@
     },
     "meaning": {
       "label": "希望する意味や特徴",
-      "placeholder": "例：知恵と優しさを表す名前が欲しい..."
+      "placeholder": "例：知恵と優しさを表す名前が欲しいです..."
     },
     "style": {
       "label": "名前のスタイル",
@@ -24,9 +25,11 @@
     "submit": "中国語の名前を生成"
   },
   "result": {
-    "loading": "AIがあなたにぴったりの中国語の名前を作成しています...",
+    "title": "生成された名前",
+    "loading": "AIが完璧な中国語の名前を作成中...",
     "meaning": "意味",
     "cultural_context": "文化的背景",
+    "save": "この名前を保存 ($5)",
     "generate_another": "別の名前を生成",
     "play_pronunciation": "発音を再生"
   },
@@ -90,5 +93,8 @@
       "email_placeholder": "メールアドレスを入力",
       "subscribe": "購読"
     }
+  },
+  "footer": {
+    "tagline": "AI搭載 • 文化的に正統 • 完全オリジナル"
   }
 } 
