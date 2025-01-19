@@ -2,24 +2,23 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  // 获取当前请求的主机名
-  const hostname = request.headers.get('host') || ''
   const url = request.nextUrl.clone()
+  const hostname = request.headers.get('host') || ''
   
-  // 只处理 www 开头的域名，并且确保目标域名不是 www
-  if (hostname.startsWith('www.') && !hostname.replace('www.', '').startsWith('www.')) {
-    // 构建新的URL，确保使用正确的协议和主机名
+  // 如果已经是目标域名，直接返回
+  if (hostname === 'chinesenamegenerate.com') {
+    return NextResponse.next()
+  }
+  
+  // 处理所有需要重定向的情况
+  if (hostname.includes('www.') || hostname !== 'chinesenamegenerate.com') {
     const newUrl = new URL(request.url)
-    newUrl.hostname = hostname.replace('www.', '')
+    newUrl.hostname = 'chinesenamegenerate.com'
     newUrl.protocol = 'https:'
-    
-    // 保持原始路径和查询参数
     newUrl.pathname = url.pathname
     newUrl.search = url.search
     
-    // 添加调试日志
-    console.log(`Redirecting from ${request.url} to ${newUrl.toString()}`)
-    
+    console.log(`Redirecting from ${hostname} to chinesenamegenerate.com`)
     return NextResponse.redirect(newUrl.toString(), 301)
   }
   
