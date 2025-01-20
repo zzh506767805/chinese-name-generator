@@ -1,11 +1,33 @@
 import { Metadata } from 'next'
 import BlogArticle, { ContentSection, CardGrid, Card, CTASection } from '@/app/components/BlogArticle'
+import Breadcrumb from '@/app/components/Breadcrumb'
 
 export const metadata: Metadata = {
-  title: 'Chinese Names: Complete Guide with 200+ Popular Names and Meanings (2024)',
-  description: 'Explore Chinese names, their cultural significance, and meanings. Find beautiful Chinese names for boys and girls, with pronunciation guide and character meanings.',
-  keywords: 'chinese names, chinese name meanings, chinese baby names, chinese given names, chinese name characters',
+  title: 'Chinese Names Guide (2025): Complete Introduction',
+  description: 'Learn everything about Chinese names. Comprehensive guide covering structure, meanings, traditions, and modern practices.',
+  keywords: 'chinese names guide, chinese name introduction, chinese naming guide'
 }
+
+const relatedArticles = [
+  {
+    title: 'Chinese Names for Boys: Perfect Blend of Strength and Wisdom',
+    href: '/blog/chinese-names-for-boys'
+  },
+  {
+    title: 'Chinese Names for Girls: Elegant Choices',
+    href: '/blog/chinese-names-for-girls'
+  },
+  {
+    title: 'Guide to Chinese Last Names',
+    href: '/blog/chinese-last-names-guide'
+  }
+]
+
+const breadcrumbItems = [
+  { href: '/blog', label: 'Blog' },
+  { href: '/blog/categories/guides', label: 'Guides' },
+  { label: 'Chinese Names Guide' }
+]
 
 export default function ChineseNamesGuidePage() {
   const girlNamesByCategory = {
@@ -294,655 +316,646 @@ export default function ChineseNamesGuidePage() {
     ]
   }
 
-  const relatedArticles = [
-    {
-      href: '/blog/chinese-names-for-boys',
-      title: 'Chinese Names for Boys'
-    },
-    {
-      href: '/blog/chinese-names-for-girls',
-      title: 'Chinese Names for Girls'
-    },
-    {
-      href: '/blog/chinese-last-names-guide',
-      title: 'Guide to Chinese Last Names'
-    }
-  ]
-
   return (
-    <BlogArticle
-      title="Chinese Names: Complete Guide with 200+ Popular Names"
-      description="Discover the beauty and meaning of Chinese names, from traditional naming principles to modern trends, with a comprehensive collection of popular names for boys and girls."
-      relatedArticles={relatedArticles}
-    >
-      <ContentSection title="Understanding Chinese Names">
-        <Card className="bg-amber-50">
-          <h3 className="text-lg font-semibold mb-3">Name Structure</h3>
-          <ul className="list-disc pl-4 space-y-2">
-            <li>Family name (姓) comes first - usually one character</li>
-            <li>Given name (名) follows - one or two characters</li>
-            <li>Full name typically has 2-3 characters total</li>
-            <li>Women keep their family names after marriage</li>
-          </ul>
-        </Card>
-      </ContentSection>
-
-      <ContentSection title="Girl Names by Theme">
-        <h3 className="text-xl font-semibold mb-4">Nature-Inspired Names</h3>
-        <CardGrid>
-          {girlNamesByCategory.nature.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Elegance & Grace</h3>
-        <CardGrid>
-          {girlNamesByCategory.elegance.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Wisdom & Intelligence</h3>
-        <CardGrid>
-          {girlNamesByCategory.wisdom.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Virtue & Kindness</h3>
-        <CardGrid>
-          {girlNamesByCategory.virtue.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Artistic & Cultural</h3>
-        <CardGrid>
-          {girlNamesByCategory.artistic.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Precious & Valuable</h3>
-        <CardGrid>
-          {girlNamesByCategory.precious.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Joy & Happiness</h3>
-        <CardGrid>
-          {girlNamesByCategory.happiness.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Modern & International</h3>
-        <CardGrid>
-          {girlNamesByCategory.modern.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Flowers & Plants</h3>
-        <CardGrid>
-          {girlNamesByCategory.flowers.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Gentle & Beautiful</h3>
-        <CardGrid>
-          {girlNamesByCategory.gentle.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Light & Hope</h3>
-        <CardGrid>
-          {girlNamesByCategory.light.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Noble & Elegant</h3>
-        <CardGrid>
-          {girlNamesByCategory.noble.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Music & Arts</h3>
-        <CardGrid>
-          {girlNamesByCategory.music.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Wisdom & Intelligence</h3>
-        <CardGrid>
-          {girlNamesByCategory.wisdom.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Auspicious & Lucky</h3>
-        <CardGrid>
-          {girlNamesByCategory.auspicious.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Time & Seasons</h3>
-        <CardGrid>
-          {girlNamesByCategory.time.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Literature & Writing</h3>
-        <CardGrid>
-          {girlNamesByCategory.literature.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Character & Virtue</h3>
-        <CardGrid>
-          {girlNamesByCategory.character_girl.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Tranquil & Peaceful</h3>
-        <CardGrid>
-          {girlNamesByCategory.tranquil.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Graceful Demeanor</h3>
-        <CardGrid>
-          {girlNamesByCategory.demeanor.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-      </ContentSection>
-
-      <ContentSection title="Boy Names by Theme">
-        <h3 className="text-xl font-semibold mb-4">Strength & Power</h3>
-        <CardGrid>
-          {boyNamesByCategory.strength.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Wisdom & Learning</h3>
-        <CardGrid>
-          {boyNamesByCategory.wisdom.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Ambition & Achievement</h3>
-        <CardGrid>
-          {boyNamesByCategory.ambition.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Leadership & Authority</h3>
-        <CardGrid>
-          {boyNamesByCategory.leadership.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Cultural & Literary</h3>
-        <CardGrid>
-          {boyNamesByCategory.cultural.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Nature & Elements</h3>
-        <CardGrid>
-          {boyNamesByCategory.nature.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Prosperity & Success</h3>
-        <CardGrid>
-          {boyNamesByCategory.prosperity.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Modern & International</h3>
-        <CardGrid>
-          {boyNamesByCategory.modern.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Courage & Bravery</h3>
-        <CardGrid>
-          {boyNamesByCategory.courage.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Justice & Virtue</h3>
-        <CardGrid>
-          {boyNamesByCategory.justice.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Talent & Wisdom</h3>
-        <CardGrid>
-          {boyNamesByCategory.talent.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Character & Integrity</h3>
-        <CardGrid>
-          {boyNamesByCategory.character.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Universe & Nature</h3>
-        <CardGrid>
-          {boyNamesByCategory.universe.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Ambition & Goals</h3>
-        <CardGrid>
-          {boyNamesByCategory.ambition.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Fortune & Luck</h3>
-        <CardGrid>
-          {boyNamesByCategory.fortune.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Virtue & Conduct</h3>
-        <CardGrid>
-          {boyNamesByCategory.virtue.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Classical Literature</h3>
-        <CardGrid>
-          {boyNamesByCategory.classics.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Patriotic & Family</h3>
-        <CardGrid>
-          {boyNamesByCategory.patriotic.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Dignified & Noble</h3>
-        <CardGrid>
-          {boyNamesByCategory.dignified.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-
-        <h3 className="text-xl font-semibold mb-4 mt-8">Heroic & Brave</h3>
-        <CardGrid>
-          {boyNamesByCategory.heroic.map(name => (
-            <Card key={name.name}>
-              <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
-              <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
-              <div className="text-gray-500">
-                Elements: {name.elements.join(', ')}
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-      </ContentSection>
-
-      <ContentSection title="Common Characters for Girls">
-        <CardGrid>
-          <Card className="bg-pink-50">
-            <h3 className="text-lg font-semibold mb-3">Natural Beauty</h3>
+    <>
+      <div className="max-w-4xl mx-auto px-4">
+        <Breadcrumb items={breadcrumbItems} />
+      </div>
+      
+      <BlogArticle
+        title="Chinese Names: A Complete Introduction"
+        description="Your comprehensive guide to understanding Chinese names. Learn about their structure, cultural significance, and how to create meaningful names."
+        relatedArticles={relatedArticles}
+      >
+        <ContentSection title="Understanding Chinese Names">
+          <Card className="bg-amber-50">
+            <h3 className="text-lg font-semibold mb-3">Name Structure</h3>
             <ul className="list-disc pl-4 space-y-2">
-              <li>花 (huā) - flower</li>
-              <li>月 (yuè) - moon</li>
-              <li>雪 (xuě) - snow</li>
-              <li>春 (chūn) - spring</li>
-              <li>兰 (lán) - orchid</li>
+              <li>Family name (姓) comes first - usually one character</li>
+              <li>Given name (名) follows - one or two characters</li>
+              <li>Full name typically has 2-3 characters total</li>
+              <li>Women keep their family names after marriage</li>
             </ul>
           </Card>
-          <Card className="bg-rose-50">
-            <h3 className="text-lg font-semibold mb-3">Virtues & Qualities</h3>
-            <ul className="list-disc pl-4 space-y-2">
-              <li>雅 (yǎ) - elegance</li>
-              <li>婷 (tíng) - grace</li>
-              <li>静 (jìng) - serenity</li>
-              <li>慧 (huì) - wisdom</li>
-              <li>美 (měi) - beauty</li>
-            </ul>
-          </Card>
-        </CardGrid>
-      </ContentSection>
+        </ContentSection>
 
-      <ContentSection title="Common Characters for Boys">
-        <CardGrid>
-          <Card className="bg-blue-50">
-            <h3 className="text-lg font-semibold mb-3">Strength & Power</h3>
-            <ul className="list-disc pl-4 space-y-2">
-              <li>强 (qiáng) - strong</li>
-              <li>勇 (yǒng) - brave</li>
-              <li>威 (wēi) - powerful</li>
-              <li>龙 (lóng) - dragon</li>
-              <li>军 (jūn) - army</li>
-            </ul>
-          </Card>
-          <Card className="bg-green-50">
-            <h3 className="text-lg font-semibold mb-3">Wisdom & Learning</h3>
-            <ul className="list-disc pl-4 space-y-2">
-              <li>智 (zhì) - wisdom</li>
-              <li>博 (bó) - extensive</li>
-              <li>文 (wén) - culture</li>
-              <li>学 (xué) - study</li>
-              <li>思 (sī) - think</li>
-            </ul>
-          </Card>
-        </CardGrid>
-      </ContentSection>
+        <ContentSection title="Girl Names by Theme">
+          <h3 className="text-xl font-semibold mb-4">Nature-Inspired Names</h3>
+          <CardGrid>
+            {girlNamesByCategory.nature.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
 
-      <ContentSection title="Naming Principles">
-        <Card className="bg-yellow-50">
-          <h3 className="text-lg font-semibold mb-3">Key Considerations</h3>
-          <ul className="list-disc pl-4 space-y-2">
-            <li>Sound harmony and tone patterns</li>
-            <li>Character stroke count balance</li>
-            <li>Meaning associations and combinations</li>
-            <li>Family traditions and generation names</li>
-            <li>Modern practicality and international use</li>
-          </ul>
-        </Card>
-      </ContentSection>
+          <h3 className="text-xl font-semibold mb-4 mt-8">Elegance & Grace</h3>
+          <CardGrid>
+            {girlNamesByCategory.elegance.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
 
-      <ContentSection title="Modern Trends">
-        <CardGrid>
-          <Card>
-            <h3 className="text-lg font-semibold mb-3">Contemporary Preferences</h3>
+          <h3 className="text-xl font-semibold mb-4 mt-8">Wisdom & Intelligence</h3>
+          <CardGrid>
+            {girlNamesByCategory.wisdom.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Virtue & Kindness</h3>
+          <CardGrid>
+            {girlNamesByCategory.virtue.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Artistic & Cultural</h3>
+          <CardGrid>
+            {girlNamesByCategory.artistic.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Precious & Valuable</h3>
+          <CardGrid>
+            {girlNamesByCategory.precious.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Joy & Happiness</h3>
+          <CardGrid>
+            {girlNamesByCategory.happiness.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Modern & International</h3>
+          <CardGrid>
+            {girlNamesByCategory.modern.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Flowers & Plants</h3>
+          <CardGrid>
+            {girlNamesByCategory.flowers.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Gentle & Beautiful</h3>
+          <CardGrid>
+            {girlNamesByCategory.gentle.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Light & Hope</h3>
+          <CardGrid>
+            {girlNamesByCategory.light.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Noble & Elegant</h3>
+          <CardGrid>
+            {girlNamesByCategory.noble.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Music & Arts</h3>
+          <CardGrid>
+            {girlNamesByCategory.music.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Wisdom & Intelligence</h3>
+          <CardGrid>
+            {girlNamesByCategory.wisdom.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Auspicious & Lucky</h3>
+          <CardGrid>
+            {girlNamesByCategory.auspicious.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Time & Seasons</h3>
+          <CardGrid>
+            {girlNamesByCategory.time.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Literature & Writing</h3>
+          <CardGrid>
+            {girlNamesByCategory.literature.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Character & Virtue</h3>
+          <CardGrid>
+            {girlNamesByCategory.character_girl.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Tranquil & Peaceful</h3>
+          <CardGrid>
+            {girlNamesByCategory.tranquil.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Graceful Demeanor</h3>
+          <CardGrid>
+            {girlNamesByCategory.demeanor.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+        </ContentSection>
+
+        <ContentSection title="Boy Names by Theme">
+          <h3 className="text-xl font-semibold mb-4">Strength & Power</h3>
+          <CardGrid>
+            {boyNamesByCategory.strength.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Wisdom & Learning</h3>
+          <CardGrid>
+            {boyNamesByCategory.wisdom.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Ambition & Achievement</h3>
+          <CardGrid>
+            {boyNamesByCategory.ambition.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Leadership & Authority</h3>
+          <CardGrid>
+            {boyNamesByCategory.leadership.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Cultural & Literary</h3>
+          <CardGrid>
+            {boyNamesByCategory.cultural.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Nature & Elements</h3>
+          <CardGrid>
+            {boyNamesByCategory.nature.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Prosperity & Success</h3>
+          <CardGrid>
+            {boyNamesByCategory.prosperity.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Modern & International</h3>
+          <CardGrid>
+            {boyNamesByCategory.modern.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Courage & Bravery</h3>
+          <CardGrid>
+            {boyNamesByCategory.courage.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Justice & Virtue</h3>
+          <CardGrid>
+            {boyNamesByCategory.justice.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Talent & Wisdom</h3>
+          <CardGrid>
+            {boyNamesByCategory.talent.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Character & Integrity</h3>
+          <CardGrid>
+            {boyNamesByCategory.character.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Universe & Nature</h3>
+          <CardGrid>
+            {boyNamesByCategory.universe.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Ambition & Goals</h3>
+          <CardGrid>
+            {boyNamesByCategory.ambition.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Fortune & Luck</h3>
+          <CardGrid>
+            {boyNamesByCategory.fortune.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Virtue & Conduct</h3>
+          <CardGrid>
+            {boyNamesByCategory.virtue.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Classical Literature</h3>
+          <CardGrid>
+            {boyNamesByCategory.classics.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Patriotic & Family</h3>
+          <CardGrid>
+            {boyNamesByCategory.patriotic.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Dignified & Noble</h3>
+          <CardGrid>
+            {boyNamesByCategory.dignified.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+
+          <h3 className="text-xl font-semibold mb-4 mt-8">Heroic & Brave</h3>
+          <CardGrid>
+            {boyNamesByCategory.heroic.map(name => (
+              <Card key={name.name}>
+                <h3 className="text-lg font-semibold mb-2">{name.name}</h3>
+                <p className="text-gray-600 mb-1">Meaning: {name.meaning}</p>
+                <div className="text-gray-500">
+                  Elements: {name.elements.join(', ')}
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+        </ContentSection>
+
+        <ContentSection title="Common Characters for Girls">
+          <CardGrid>
+            <Card className="bg-pink-50">
+              <h3 className="text-lg font-semibold mb-3">Natural Beauty</h3>
+              <ul className="list-disc pl-4 space-y-2">
+                <li>花 (huā) - flower</li>
+                <li>月 (yuè) - moon</li>
+                <li>雪 (xuě) - snow</li>
+                <li>春 (chūn) - spring</li>
+                <li>兰 (lán) - orchid</li>
+              </ul>
+            </Card>
+            <Card className="bg-rose-50">
+              <h3 className="text-lg font-semibold mb-3">Virtues & Qualities</h3>
+              <ul className="list-disc pl-4 space-y-2">
+                <li>雅 (yǎ) - elegance</li>
+                <li>婷 (tíng) - grace</li>
+                <li>静 (jìng) - serenity</li>
+                <li>慧 (huì) - wisdom</li>
+                <li>美 (měi) - beauty</li>
+              </ul>
+            </Card>
+          </CardGrid>
+        </ContentSection>
+
+        <ContentSection title="Common Characters for Boys">
+          <CardGrid>
+            <Card className="bg-blue-50">
+              <h3 className="text-lg font-semibold mb-3">Strength & Power</h3>
+              <ul className="list-disc pl-4 space-y-2">
+                <li>强 (qiáng) - strong</li>
+                <li>勇 (yǒng) - brave</li>
+                <li>威 (wēi) - powerful</li>
+                <li>龙 (lóng) - dragon</li>
+                <li>军 (jūn) - army</li>
+              </ul>
+            </Card>
+            <Card className="bg-green-50">
+              <h3 className="text-lg font-semibold mb-3">Wisdom & Learning</h3>
+              <ul className="list-disc pl-4 space-y-2">
+                <li>智 (zhì) - wisdom</li>
+                <li>博 (bó) - extensive</li>
+                <li>文 (wén) - culture</li>
+                <li>学 (xué) - study</li>
+                <li>思 (sī) - think</li>
+              </ul>
+            </Card>
+          </CardGrid>
+        </ContentSection>
+
+        <ContentSection title="Naming Principles">
+          <Card className="bg-yellow-50">
+            <h3 className="text-lg font-semibold mb-3">Key Considerations</h3>
             <ul className="list-disc pl-4 space-y-2">
-              <li>Unique character combinations</li>
-              <li>Gender-neutral names</li>
-              <li>Easy international pronunciation</li>
-              <li>Positive modern associations</li>
+              <li>Sound harmony and tone patterns</li>
+              <li>Character stroke count balance</li>
+              <li>Meaning associations and combinations</li>
+              <li>Family traditions and generation names</li>
+              <li>Modern practicality and international use</li>
             </ul>
           </Card>
-          <Card>
-            <h3 className="text-lg font-semibold mb-3">Traditional Elements</h3>
-            <ul className="list-disc pl-4 space-y-2">
-              <li>Cultural significance</li>
-              <li>Family heritage</li>
-              <li>Auspicious meanings</li>
-              <li>Classical references</li>
-            </ul>
-          </Card>
-        </CardGrid>
-      </ContentSection>
+        </ContentSection>
 
-      <CTASection
-        title="Find Your Perfect Chinese Name"
-        description="Ready to discover your ideal Chinese name? Use our AI-powered name generator to create a meaningful name that reflects your personality:"
-        buttonText="Generate Names →"
-        buttonHref="/"
-      />
-    </BlogArticle>
+        <ContentSection title="Modern Trends">
+          <CardGrid>
+            <Card>
+              <h3 className="text-lg font-semibold mb-3">Contemporary Preferences</h3>
+              <ul className="list-disc pl-4 space-y-2">
+                <li>Unique character combinations</li>
+                <li>Gender-neutral names</li>
+                <li>Easy international pronunciation</li>
+                <li>Positive modern associations</li>
+              </ul>
+            </Card>
+            <Card>
+              <h3 className="text-lg font-semibold mb-3">Traditional Elements</h3>
+              <ul className="list-disc pl-4 space-y-2">
+                <li>Cultural significance</li>
+                <li>Family heritage</li>
+                <li>Auspicious meanings</li>
+                <li>Classical references</li>
+              </ul>
+            </Card>
+          </CardGrid>
+        </ContentSection>
+
+        <CTASection
+          title="Find Your Perfect Chinese Name"
+          description="Ready to discover your ideal Chinese name? Use our AI-powered name generator to create a meaningful name that reflects your personality:"
+          buttonText="Generate Names →"
+          buttonHref="/"
+        />
+      </BlogArticle>
+    </>
   )
 }

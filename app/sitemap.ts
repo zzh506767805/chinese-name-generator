@@ -15,13 +15,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog'
   ]
 
+  // 博客分类路径
+  const blogCategories = [
+    '/blog/categories',
+    '/blog/categories/boy-names',
+    '/blog/categories/girl-names',
+    '/blog/categories/surnames',
+    '/blog/categories/culture'
+  ]
+
   // 博客文章路径
   const blogPosts = [
     '/blog/chinese-names-complete-guide',
     '/blog/chinese-names-for-girls',
     '/blog/chinese-names-for-boys', 
     '/blog/chinese-last-names-guide',
-    '/blog/chinese-names-meaning-and-significance'
+    '/blog/chinese-names-meaning-and-significance',
+    '/blog/chinese-boy-names-guide',
+    '/blog/chinese-girl-names-guide'
   ]
 
   type ChangeFreq = 'daily' | 'weekly' | 'monthly'
@@ -39,18 +50,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   )
 
+  // 生成多语言博客分类的sitemap条目
+  const categoryEntries = languages.flatMap(lang =>
+    blogCategories.map(category => {
+      return {
+        url: `${baseUrl}/${lang}${category}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as ChangeFreq,
+        priority: 0.7
+      }
+    })
+  )
+
   // 生成多语言博客文章的sitemap条目
   const blogEntries = languages.flatMap(lang =>
     blogPosts.map(post => {
-      const changeFreq: ChangeFreq = 'monthly'
       return {
         url: `${baseUrl}/${lang}${post}`,
         lastModified: new Date(),
-        changeFrequency: changeFreq,
+        changeFrequency: 'monthly' as ChangeFreq,
         priority: 0.6
       }
     })
   )
 
-  return [...mainPages, ...blogEntries]
+  return [...mainPages, ...categoryEntries, ...blogEntries]
 } 

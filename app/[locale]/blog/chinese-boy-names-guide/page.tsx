@@ -1,11 +1,33 @@
 import { Metadata } from 'next'
 import BlogArticle, { ContentSection, CardGrid, NameCard, CTASection, Card } from '@/app/components/BlogArticle'
+import Breadcrumb from '@/app/components/Breadcrumb'
 
 export const metadata: Metadata = {
-  title: 'Complete Guide to Chinese Boy Names: Combining Traditional Values with Modern Style',
-  description: 'Choose a powerful and wise Chinese name for your son that balances traditional values with modern sensibilities. Learn about naming principles, popular characters, and their meanings.',
-  keywords: 'chinese boy names guide, chinese male names meaning, traditional chinese boy names, modern chinese names for boys',
+  title: 'Complete Guide to Chinese Boy Names (2025)',
+  description: 'Everything you need to know about Chinese names for boys. Learn about meanings, traditions, and how to choose the perfect name.',
+  keywords: 'chinese boy names guide, chinese male names guide, chinese names for boys guide'
 }
+
+const relatedArticles = [
+  {
+    title: 'Chinese Names for Boys: Perfect Blend of Strength and Wisdom',
+    href: '/blog/chinese-names-for-boys'
+  },
+  {
+    title: 'Chinese Names: The Ultimate Guide',
+    href: '/blog/chinese-names-complete-guide'
+  },
+  {
+    title: 'The Cultural Significance of Chinese Names',
+    href: '/blog/chinese-names-meaning-and-significance'
+  }
+]
+
+const breadcrumbItems = [
+  { href: '/blog', label: 'Blog' },
+  { href: '/blog/categories/boy-names', label: 'Boy Names' },
+  { label: 'Complete Guide to Chinese Boy Names' }
+]
 
 export default function ChineseBoyNamesGuidePage() {
   const popularNames = [
@@ -17,105 +39,96 @@ export default function ChineseBoyNamesGuidePage() {
     { name: '睿智 (Ruì Zhì)', meaning: 'Wise and intelligent', elements: ['睿 (wise)', '智 (intelligent)'] }
   ]
 
-  const relatedArticles = [
-    {
-      href: '/blog/chinese-names-for-boys',
-      title: 'Chinese Names for Boys'
-    },
-    {
-      href: '/blog/chinese-last-names-guide',
-      title: 'Guide to Chinese Last Names'
-    },
-    {
-      href: '/blog/chinese-names-meaning-and-significance',
-      title: 'Cultural Meaning and Significance of Chinese Names'
-    }
-  ]
-
   return (
-    <BlogArticle
-      title="Complete Guide to Chinese Boy Names"
-      description="A comprehensive guide to choosing meaningful Chinese names for boys, exploring traditional elements, modern trends, and cultural significance."
-      relatedArticles={relatedArticles}
-    >
-      <ContentSection title="Popular Modern Chinese Boy Names">
-        <CardGrid>
-          {popularNames.map(name => (
-            <NameCard
-              key={name.name}
-              name={name.name}
-              meaning={name.meaning}
-              elements={name.elements}
-            />
-          ))}
-        </CardGrid>
-      </ContentSection>
+    <>
+      <div className="max-w-4xl mx-auto px-4">
+        <Breadcrumb items={breadcrumbItems} />
+      </div>
+      
+      <BlogArticle
+        title="Complete Guide to Chinese Boy Names"
+        description="A comprehensive guide to understanding and choosing Chinese names for boys. From traditional naming customs to modern trends."
+        relatedArticles={relatedArticles}
+      >
+        <ContentSection title="Popular Modern Chinese Boy Names">
+          <CardGrid>
+            {popularNames.map(name => (
+              <NameCard
+                key={name.name}
+                name={name.name}
+                meaning={name.meaning}
+                elements={name.elements}
+              />
+            ))}
+          </CardGrid>
+        </ContentSection>
 
-      <ContentSection title="Essential Name Elements">
-        <CardGrid>
-          <Card className="bg-blue-50">
-            <h3 className="text-lg font-semibold mb-3">Traditional Values</h3>
+        <ContentSection title="Essential Name Elements">
+          <CardGrid>
+            <Card className="bg-blue-50">
+              <h3 className="text-lg font-semibold mb-3">Traditional Values</h3>
+              <ul className="list-disc pl-4 space-y-2">
+                <li>德 (dé) - moral character</li>
+                <li>仁 (rén) - benevolence</li>
+                <li>义 (yì) - righteousness</li>
+                <li>礼 (lǐ) - courtesy</li>
+                <li>智 (zhì) - wisdom</li>
+              </ul>
+            </Card>
+            <Card className="bg-green-50">
+              <h3 className="text-lg font-semibold mb-3">Modern Aspirations</h3>
+              <ul className="list-disc pl-4 space-y-2">
+                <li>创 (chuàng) - innovation</li>
+                <li>博 (bó) - extensive knowledge</li>
+                <li>睿 (ruì) - insight</li>
+                <li>宇 (yǔ) - universe</li>
+                <li>科 (kē) - science</li>
+              </ul>
+            </Card>
+          </CardGrid>
+        </ContentSection>
+
+        <ContentSection title="Naming Principles">
+          <Card className="bg-yellow-50">
+            <h3 className="text-lg font-semibold mb-3">Key Considerations</h3>
             <ul className="list-disc pl-4 space-y-2">
-              <li>德 (dé) - moral character</li>
-              <li>仁 (rén) - benevolence</li>
-              <li>义 (yì) - righteousness</li>
-              <li>礼 (lǐ) - courtesy</li>
-              <li>智 (zhì) - wisdom</li>
+              <li>Balance between traditional and modern elements</li>
+              <li>Harmony with family name</li>
+              <li>Character stroke count and balance</li>
+              <li>Positive meanings and associations</li>
+              <li>Easy pronunciation and recognition</li>
             </ul>
           </Card>
-          <Card className="bg-green-50">
-            <h3 className="text-lg font-semibold mb-3">Modern Aspirations</h3>
-            <ul className="list-disc pl-4 space-y-2">
-              <li>创 (chuàng) - innovation</li>
-              <li>博 (bó) - extensive knowledge</li>
-              <li>睿 (ruì) - insight</li>
-              <li>宇 (yǔ) - universe</li>
-              <li>科 (kē) - science</li>
-            </ul>
-          </Card>
-        </CardGrid>
-      </ContentSection>
+        </ContentSection>
 
-      <ContentSection title="Naming Principles">
-        <Card className="bg-yellow-50">
-          <h3 className="text-lg font-semibold mb-3">Key Considerations</h3>
-          <ul className="list-disc pl-4 space-y-2">
-            <li>Balance between traditional and modern elements</li>
-            <li>Harmony with family name</li>
-            <li>Character stroke count and balance</li>
-            <li>Positive meanings and associations</li>
-            <li>Easy pronunciation and recognition</li>
-          </ul>
-        </Card>
-      </ContentSection>
+        <ContentSection title="Name Structure">
+          <CardGrid>
+            <Card>
+              <h3 className="text-lg font-semibold mb-3">Two-Character Names</h3>
+              <p className="text-gray-600 mb-2">Most common format for modern Chinese names</p>
+              <ul className="list-disc pl-4 space-y-2">
+                <li>First character: core value or quality</li>
+                <li>Second character: aspiration or complement</li>
+              </ul>
+            </Card>
+            <Card>
+              <h3 className="text-lg font-semibold mb-3">Single-Character Names</h3>
+              <p className="text-gray-600 mb-2">Traditional and minimalist approach</p>
+              <ul className="list-disc pl-4 space-y-2">
+                <li>Emphasizes significance of chosen character</li>
+                <li>Often uses distinctive or rare characters</li>
+              </ul>
+            </Card>
+          </CardGrid>
+        </ContentSection>
 
-      <ContentSection title="Name Structure">
-        <CardGrid>
-          <Card>
-            <h3 className="text-lg font-semibold mb-3">Two-Character Names</h3>
-            <p className="text-gray-600 mb-2">Most common format for modern Chinese names</p>
-            <ul className="list-disc pl-4 space-y-2">
-              <li>First character: core value or quality</li>
-              <li>Second character: aspiration or complement</li>
-            </ul>
-          </Card>
-          <Card>
-            <h3 className="text-lg font-semibold mb-3">Single-Character Names</h3>
-            <p className="text-gray-600 mb-2">Traditional and minimalist approach</p>
-            <ul className="list-disc pl-4 space-y-2">
-              <li>Emphasizes significance of chosen character</li>
-              <li>Often uses distinctive or rare characters</li>
-            </ul>
-          </Card>
-        </CardGrid>
-      </ContentSection>
-
-      <CTASection
-        title="Find the Perfect Name"
-        description="Use our AI-powered name generator to create a meaningful Chinese name for your son:"
-        buttonText="Generate Names →"
-        buttonHref="/"
-      />
-    </BlogArticle>
+        <CTASection
+          title="Find the Perfect Name"
+          description="Use our AI-powered name generator to create a meaningful Chinese name for your son:"
+          buttonText="Generate Names →"
+          buttonHref="/"
+        />
+      </BlogArticle>
+    </>
   )
 } 

@@ -6,6 +6,7 @@ interface PageProps {
   params: {
     locale: string
   }
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -26,7 +27,7 @@ const cultureArticles = [
   }
 ]
 
-export default function CulturePage({ params }: PageProps) {
+export default async function CulturePage({ params, searchParams }: PageProps) {
   const locale = params.locale
 
   const breadcrumbItems = [

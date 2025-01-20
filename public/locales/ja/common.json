@@ -79,10 +79,10 @@
     "description": "中国語の名前の文化的意義、命名技法、意味分析について深く理解しましょう。専門的な中国語の名付けガイダンスを提供します。",
     "search_placeholder": "記事を検索...",
     "categories": {
-      "all": "すべての記事",
+      "all": "すべてのカテゴリー",
       "girl-names": "女の子の名前",
       "boy-names": "男の子の名前",
-      "surname": "姓氏",
+      "surnames": "姓氏",
       "culture": "文化"
     },
     "featured_articles": "おすすめ記事",
@@ -92,6 +92,14 @@
       "description": "最新の命名のヒント、文化的な洞察、実用的なアドバイスを入手",
       "email_placeholder": "メールアドレスを入力",
       "subscribe": "購読"
+    },
+    "articles": {
+      "culture": {
+        "meaning_significance": {
+          "title": "中国語の名前の文化的意義と重要性",
+          "description": "中国の伝統的な命名文化を探り、名前に込められた深い意味と文化的価値を理解しましょう。"
+        }
+      }
     }
   },
   "footer": {

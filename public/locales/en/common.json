@@ -96,10 +96,10 @@
     "description": "Discover the cultural significance of Chinese names, naming techniques, and meaning analysis. Get professional guidance on choosing Chinese names.",
     "search_placeholder": "Search articles...",
     "categories": {
-      "all": "All Articles",
+      "all": "All Categories",
       "girl-names": "Girl Names",
       "boy-names": "Boy Names",
-      "surname": "Surnames",
+      "surnames": "Surnames",
       "culture": "Culture"
     },
     "featured_articles": "Featured Articles",
@@ -109,6 +109,14 @@
       "description": "Get the latest naming tips, cultural insights, and practical advice",
       "email_placeholder": "Enter your email address",
       "subscribe": "Subscribe"
+    },
+    "articles": {
+      "culture": {
+        "meaning_significance": {
+          "title": "Cultural Meaning and Significance of Chinese Names",
+          "description": "Explore traditional Chinese naming culture and understand the deep meanings and cultural values behind names."
+        }
+      }
     }
   }
 } 

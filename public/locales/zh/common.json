@@ -91,15 +91,15 @@
   },
   "blog": {
     "title": "中文起名博客",
-    "subtitle": "探索中国传统命名文化与现代起名方法",
-    "description": "深入了解中文名字的文化内涵、命名技巧和寓意分析。为您提供专业的中文起名指导和建议。",
+    "subtitle": "探索传统中国起名文化与现代方法",
+    "description": "深入了解中文名字的文化意义、起名技巧和含义分析。获取专业的中文起名指导。",
     "search_placeholder": "搜索文章...",
     "categories": {
-      "all": "全部文章",
-      "girl-names": "女孩起名",
-      "boy-names": "男孩起名",
-      "surname": "姓氏文化",
-      "culture": "文化传统"
+      "all": "全部分类",
+      "girl-names": "女孩名字",
+      "boy-names": "男孩名字",
+      "surnames": "姓氏",
+      "culture": "文化"
     },
     "featured_articles": "精选文章",
     "all_articles": "所有文章",
@@ -108,6 +108,14 @@
       "description": "获取最新的起名技巧、文化见解和实用建议",
       "email_placeholder": "输入您的邮箱地址",
       "subscribe": "订阅"
+    },
+    "articles": {
+      "culture": {
+        "meaning_significance": {
+          "title": "中文名字的文化意义与重要性",
+          "description": "探索传统的中国起名文化，了解名字背后深层的含义和文化价值。"
+        }
+      }
     }
   }
 } 
