@@ -2,13 +2,6 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/app/components/Breadcrumbs'
 
-type Props = {
-  params: {
-    locale: string
-  }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
-
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Chinese Name Culture - Traditions & Modern Practices',
@@ -27,9 +20,11 @@ const cultureArticles = [
   }
 ]
 
-export default function CulturePage(props: Props) {
-  const { locale } = props.params
-
+export default async function CulturePage({
+  params: { locale },
+}: {
+  params: { locale: string }
+}) {
   const breadcrumbItems = [
     { href: `/${locale}/blog`, label: 'Blog' },
     { href: `/${locale}/blog/categories`, label: 'Categories' },
