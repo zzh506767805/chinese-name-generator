@@ -3,6 +3,6 @@ export interface PageParams {
 }
 
 export interface PageProps {
-  params: Promise<PageParams>
+  params: PageParams
   searchParams?: { [key: string]: string | string[] | undefined }
 } 
