@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/app/components/Breadcrumbs'
+import { PageProps } from '../../../../../types'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -20,11 +21,9 @@ const cultureArticles = [
   }
 ]
 
-export default async function CulturePage({
-  params: { locale },
-}: {
-  params: { locale: string }
-}) {
+export default function CulturePage({ params }: PageProps) {
+  const { locale } = params
+
   const breadcrumbItems = [
     { href: `/${locale}/blog`, label: 'Blog' },
     { href: `/${locale}/blog/categories`, label: 'Categories' },
