@@ -33,8 +33,12 @@ const cultureArticles = [
   }
 ]
 
-export default function CulturePage({ params }: { params: { locale: string } }) {
-  const { locale } = params
+interface PageProps {
+  params: Promise<{ locale: string }>
+}
+
+export default async function CulturePage({ params }: PageProps) {
+  const { locale } = await params
 
   const breadcrumbItems = [
     { href: `/${locale}/blog`, label: 'Blog' },
