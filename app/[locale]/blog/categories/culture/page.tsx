@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Breadcrumbs from '@/app/components/Breadcrumbs'
 
-interface PageProps {
+type Props = {
   params: {
     locale: string
   }
@@ -27,8 +27,8 @@ const cultureArticles = [
   }
 ]
 
-export default async function CulturePage({ params, searchParams }: PageProps) {
-  const locale = params.locale
+export default function CulturePage(props: Props) {
+  const { locale } = props.params
 
   const breadcrumbItems = [
     { href: `/${locale}/blog`, label: 'Blog' },
