@@ -1,8 +1,6 @@
-export interface PageParams {
-  locale: string
-}
-
 export interface PageProps {
-  params: Promise<PageParams>
+  params: {
+    locale: string
+  }
   searchParams?: { [key: string]: string | string[] | undefined }
 } 
