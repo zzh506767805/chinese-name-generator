@@ -1,50 +1,43 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { getTranslations } from 'next-intl/server'
 
 interface PageProps {
-  params: {
-    locale: string
-  }
+  params: Promise<{ locale: string }>
 }
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Blog Categories - Chinese Name Assistant',
-    description: 'Explore our comprehensive guides about Chinese names, including naming guides for boys and girls, surname explanations, and cultural insights.',
-    keywords: 'chinese name blog, chinese name categories, chinese naming guides'
+    title: 'Blog Categories - Chinese Name Generator',
+    description: 'Explore different categories of articles about Chinese names, including guides, culture, and naming practices.',
+    keywords: 'chinese name categories, chinese name guides, chinese name culture'
   }
 }
 
-const categories = [
-  {
-    id: 'boy-names',
-    title: 'Boy Names',
-    description: 'Guides and articles about Chinese names for boys',
-    count: 3,
-  },
-  {
-    id: 'girl-names',
-    title: 'Girl Names',
-    description: 'Guides and articles about Chinese names for girls',
-    count: 3,
-  },
-  {
-    id: 'surnames',
-    title: 'Surnames',
-    description: 'Understanding Chinese family names and their history',
-    count: 2,
-  },
-  {
-    id: 'culture',
-    title: 'Culture',
-    description: 'Chinese naming culture, traditions and modern trends',
-    count: 4,
-  },
-]
+export default async function CategoriesPage({ params }: PageProps) {
+  const { locale } = await params
 
-export default function CategoriesPage({ params }: PageProps) {
-  const locale = params.locale
+  const categories = [
+    {
+      id: 'guides',
+      title: 'Guides',
+      description: 'Comprehensive guides about Chinese names and naming practices'
+    },
+    {
+      id: 'boy-names',
+      title: 'Boy Names',
+      description: 'Articles about Chinese boy names and their meanings'
+    },
+    {
+      id: 'girl-names',
+      title: 'Girl Names',
+      description: 'Articles about Chinese girl names and their meanings'
+    },
+    {
+      id: 'culture',
+      title: 'Culture',
+      description: 'Articles about Chinese naming culture and traditions'
+    }
+  ]
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -52,14 +45,13 @@ export default function CategoriesPage({ params }: PageProps) {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {categories.map((category) => (
-          <Link
+          <Link 
             key={category.id}
             href={`/${locale}/blog/categories/${category.id}`}
-            className="block p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            className="block bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
           >
             <h2 className="text-xl font-semibold mb-2">{category.title}</h2>
-            <p className="text-gray-600 mb-4">{category.description}</p>
-            <span className="text-sm text-gray-500">{category.count} articles</span>
+            <p className="text-gray-600">{category.description}</p>
           </Link>
         ))}
       </div>
