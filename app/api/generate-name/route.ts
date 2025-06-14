@@ -18,7 +18,20 @@ export async function POST(request: Request) {
       )
     }
 
-    const { gender, meaning, style, additionalInfo, language } = body
+    const { gender, meaning, style, additionalInfo, language, hasCredits } = body
+    
+    // 检查用户是否有剩余次数（前端已检查，后端再次验证）
+    if (!hasCredits) {
+      console.log('API Route: User has no credits')
+      return NextResponse.json(
+        { 
+          error: 'Insufficient credits',
+          message: 'You need to purchase credits to generate names',
+          requiresPurchase: true 
+        },
+        { status: 402 } // 402 Payment Required
+      )
+    }
 
     // 验证必要的字段
     if (!gender || !meaning || !style || !language) {

@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import { useState, useEffect } from 'react'
+import { getUserCredits } from '@/app/utils/credits'
 
 interface NameResultProps {
   chineseName: string
@@ -20,9 +21,13 @@ export default function NameResult({
 }: NameResultProps) {
   const t = useTranslations()
   const [isPlaying, setIsPlaying] = useState(false)
+  const [remainingCredits, setRemainingCredits] = useState(0)
 
-  // 保存名字到本地存储
+  // 保存名字到本地存储和更新剩余积分
   useEffect(() => {
+    // 更新剩余积分
+    setRemainingCredits(getUserCredits())
+    
     if (!chineseName || !pinyin || !explanation) return
 
     const savedNames = localStorage.getItem('generatedNames')
@@ -121,14 +126,51 @@ export default function NameResult({
         )}
       </div>
 
+      {/* 剩余次数显示 */}
+      <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-lg p-4 mb-6">
+        <div className="flex items-center justify-center space-x-3">
+          <div className="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">
+            {remainingCredits}
+          </div>
+          <div className="text-center">
+            <p className="font-medium text-green-900">
+              {remainingCredits > 0 ? 'Names Remaining' : 'No Credits Left'}
+            </p>
+            <p className="text-sm text-green-700">
+              {remainingCredits > 0 
+                ? `You can generate ${remainingCredits} more names`
+                : 'Purchase more credits to continue'
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* 操作按钮 */}
       <div className="flex flex-col space-y-4">
         <button
           onClick={onRequestNewName}
-          className="w-full py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+          disabled={remainingCredits === 0}
+          className={`w-full py-3 rounded-lg transition-colors ${
+            remainingCredits > 0
+              ? 'border border-gray-300 text-gray-700 hover:bg-gray-50'
+              : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+          }`}
         >
-          {t('result.generate_another')}
+          {remainingCredits > 0 ? t('result.generate_another') : 'No Credits Available'}
         </button>
+        
+        {remainingCredits === 0 && (
+          <div className="text-center">
+            <p className="text-sm text-gray-600 mb-3">Need more names?</p>
+            <a
+              href="/"
+              className="inline-block bg-gradient-to-r from-red-600 to-yellow-500 text-white px-6 py-2 rounded-lg hover:opacity-90 transition-opacity"
+            >
+              Purchase More Credits
+            </a>
+          </div>
+        )}
       </div>
     </div>
   )

@@ -65,29 +65,51 @@ export async function generateChineseName(preferences: NamePreferences) {
   const responseLanguage = getResponseLanguage(preferences.language)
 
   // 构建 prompt
-  const prompt = `作为一个熟读中华文化的起名专家，请根据以下要求为用户起一个中文名：
-- 性别偏好：${preferences.gender}
-- 期望含义：${preferences.meaning}
-- 名字风格：${preferences.style}
-${preferences.additionalInfo ? `- 补充信息：${preferences.additionalInfo}` : ''}
+  const prompt = `You are a professional Chinese naming expert with deep knowledge of traditional Chinese culture, classical literature, and the science of naming. You possess extensive understanding of Chinese phonetics, I Ching five-element theory, and poetic allusions.
 
-请严格按照用户界面语言（${responseLanguage}）回复，并按照以下JSON格式返回结果：
+## Naming Requirements
+- **Gender Preference**: ${preferences.gender}
+- **Desired Meaning**: ${preferences.meaning}
+- **Style Preference**: ${preferences.style}
+${preferences.additionalInfo ? `- **Additional Information**: ${preferences.additionalInfo}` : ''}
+
+## Naming Principles
+1. Phonetic Harmony: Focus on tonal coordination and smooth pronunciation
+2. Visual Beauty: Consider the visual balance of Chinese character structures
+3. Profound Meaning: Integrate traditional cultural connotations with modern aesthetics
+4. Avoid Ambiguity: Ensure no negative homophones or associations
+5. Contemporary Relevance: Maintain cultural depth while fitting modern contexts
+
+## CRITICAL LANGUAGE REQUIREMENT
+**YOU MUST respond in ${responseLanguage} ONLY. All explanations and cultural contexts MUST be written in ${responseLanguage}.**
+
+## Output Format
+Provide your response strictly in the following JSON format:
+
+\`\`\`json
 {
-  "chineseName": "建议的中文名",
-  "pinyin": "名字的拼音",
-  "explanation": "名字的详细解释（请用${responseLanguage}）",
-  "culturalContext": "相关的文化背景解释（请用${responseLanguage}）"
+  "chineseName": "Recommended Chinese name",
+  "pinyin": "Standard pinyin with tone marks",
+  "explanation": "Name meaning analysis in ${responseLanguage}, including character meanings and overall significance",
+  "culturalContext": "Cultural background in ${responseLanguage}, such as poetic origins, historical allusions, or cultural symbolism"
 }
+\`\`\`
 
-注意：
-1. 必须使用${responseLanguage}解释名字的含义和文化背景
-2. 拼音使用声调标记，如：Yì Xuān
-3. 确保解释简洁明了，适合目标语言的表达习惯`
+## Quality Standards
+- Explanations must be detailed yet concise, following ${responseLanguage} expression habits
+- Pinyin notation must be accurate with standard tone marks (e.g., Yì Xuān)
+- Cultural references must be accurate, avoid fabricated allusions
+- Overall style must highly match user preferences
+- Name must have good modern applicability
+
+**REMEMBER: All text in "explanation" and "culturalContext" fields MUST be written in ${responseLanguage}. Do not use Chinese characters in these fields.**
+
+Based on the above requirements, please recommend a Chinese name with rich cultural connotations and beautiful meanings.`
 
   console.log('OpenAI: Generated prompt:', prompt)
 
   try {
-    console.log('OpenAI: Calling API with model gpt-4o-mini')
+    console.log('OpenAI: Calling API with model gpt-4.1-mini')
     
     const response = await fetchWithTimeout(`${OPENAI_API_PROXY}/v1/chat/completions`, {
       method: 'POST',
@@ -96,7 +118,7 @@ ${preferences.additionalInfo ? `- 补充信息：${preferences.additionalInfo}` 
         'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini",
+        model: "gpt-4.1-mini",
         messages: [
           {
             role: "system",

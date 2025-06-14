@@ -1,0 +1,457 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# API 开发指南
+
+## 现有 API 路由
+
+### 核心业务 API
+- [app/api/generate-name/](mdc:app/api/generate-name) - AI 生成中文名字
+- [app/api/payment-result/](mdc:app/api/payment-result) - 获取支付结果
+
+### 支付相关 API
+- [app/api/create-checkout-session/](mdc:app/api/create-checkout-session) - 创建支付会话
+- [app/api/create-tip-payment/](mdc:app/api/create-tip-payment) - 创建打赏支付
+- [app/api/get-checkout-url/](mdc:app/api/get-checkout-url) - 获取支付链接
+- [app/api/webhook/](mdc:app/api/webhook) - Stripe webhook 处理
+
+## API 开发规范
+
+### 1. 路由文件结构
+```
+app/api/
+├── generate-name/
+│   ├── route.ts          # 主要的API处理逻辑
+│   └── types.ts          # 类型定义（可选）
+├── payment-result/
+│   └── route.ts
+└── webhook/
+    └── route.ts
+```
+
+### 2. 标准 API 响应格式
+```typescript
+// 成功响应
+interface SuccessResponse<T = any> {
+  success: true;
+  data: T;
+  message?: string;
+  timestamp?: string;
+}
+
+// 错误响应
+interface ErrorResponse {
+  success: false;
+  error: string;
+  details?: string;
+  code?: number;
+  timestamp?: string;
+}
+
+// 响应辅助函数
+export function createSuccessResponse<T>(
+  data: T, 
+  message?: string
+): SuccessResponse<T> {
+  return {
+    success: true,
+    data,
+    message,
+    timestamp: new Date().toISOString()
+  };
+}
+
+export function createErrorResponse(
+  error: string,
+  details?: string,
+  code?: number
+): ErrorResponse {
+  return {
+    success: false,
+    error,
+    details,
+    code,
+    timestamp: new Date().toISOString()
+  };
+}
+```
+
+### 3. 错误处理模式
+```typescript
+// route.ts 模板
+import { NextRequest, NextResponse } from 'next/server';
+import { createSuccessResponse, createErrorResponse } from '@/app/utils/api';
+
+export async function POST(request: NextRequest) {
+  try {
+    // 1. 验证请求
+    const body = await request.json();
+    const validatedData = validateRequest(body);
+    
+    // 2. 处理业务逻辑
+    const result = await processBusinessLogic(validatedData);
+    
+    // 3. 返回成功响应
+    return NextResponse.json(
+      createSuccessResponse(result, '操作成功')
+    );
+    
+  } catch (error) {
+    console.error('API Error:', error);
+    
+    // 4. 处理不同类型的错误
+    if (error instanceof ValidationError) {
+      return NextResponse.json(
+        createErrorResponse('请求参数无效', error.message, 400),
+        { status: 400 }
+      );
+    }
+    
+    if (error instanceof UnauthorizedError) {
+      return NextResponse.json(
+        createErrorResponse('未授权访问', error.message, 401),
+        { status: 401 }
+      );
+    }
+    
+    // 5. 通用错误处理
+    return NextResponse.json(
+      createErrorResponse('服务器内部错误', '请稍后重试', 500),
+      { status: 500 }
+    );
+  }
+}
+```
+
+## 请求验证
+
+### 1. 输入验证函数
+```typescript
+// utils/validation.ts
+export function validateNameRequest(data: any): NameRequest {
+  if (!data.name || typeof data.name !== 'string') {
+    throw new ValidationError('姓名是必需的');
+  }
+  
+  if (data.name.length < 2 || data.name.length > 50) {
+    throw new ValidationError('姓名长度必须在2-50字符之间');
+  }
+  
+  return {
+    name: data.name.trim(),
+    gender: data.gender || 'any',
+    preferences: data.preferences || [],
+    culturalBackground: data.culturalBackground || ''
+  };
+}
+
+export class ValidationError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'ValidationError';
+  }
+}
+```
+
+### 2. 请求限制
+```typescript
+// utils/rateLimit.ts
+const requestCounts = new Map<string, { count: number; timestamp: number }>();
+
+export function checkRateLimit(ip: string, limit: number = 10): boolean {
+  const now = Date.now();
+  const userRequest = requestCounts.get(ip);
+  
+  if (!userRequest) {
+    requestCounts.set(ip, { count: 1, timestamp: now });
+    return true;
+  }
+  
+  // 重置计数器（每分钟）
+  if (now - userRequest.timestamp > 60000) {
+    requestCounts.set(ip, { count: 1, timestamp: now });
+    return true;
+  }
+  
+  if (userRequest.count >= limit) {
+    return false;
+  }
+  
+  userRequest.count++;
+  return true;
+}
+```
+
+## 外部服务集成
+
+### 1. OpenAI 集成模式
+```typescript
+// utils/openai.ts
+import { OpenAI } from 'openai';
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+export async function generateChineseName(
+  userInfo: NameRequest
+): Promise<NameResult> {
+  try {
+    const prompt = buildPrompt(userInfo);
+    
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4',
+      messages: [
+        {
+          role: 'system',
+          content: '你是一个专业的中文起名师...'
+        },
+        {
+          role: 'user',
+          content: prompt
+        }
+      ],
+      max_tokens: 1000,
+      temperature: 0.7
+    });
+    
+    return parseNameResponse(response.choices[0].message.content);
+    
+  } catch (error) {
+    console.error('OpenAI API Error:', error);
+    throw new Error('AI 服务暂时不可用');
+  }
+}
+
+function buildPrompt(userInfo: NameRequest): string {
+  return `
+    请为以下用户生成3个中文名字：
+    姓名：${userInfo.name}
+    性别：${userInfo.gender}
+    偏好：${userInfo.preferences.join(', ')}
+    文化背景：${userInfo.culturalBackground}
+    
+    请提供每个名字的含义解释。
+  `;
+}
+```
+
+### 2. Stripe 集成模式
+```typescript
+// utils/stripe.ts
+import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: '2023-10-16',
+});
+
+export async function createCheckoutSession(
+  priceId: string,
+  successUrl: string,
+  cancelUrl: string
+): Promise<Stripe.Checkout.Session> {
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price: priceId,
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: successUrl,
+      cancel_url: cancelUrl,
+      metadata: {
+        service: 'chinese-name-generation',
+        timestamp: Date.now().toString(),
+      },
+    });
+    
+    return session;
+    
+  } catch (error) {
+    console.error('Stripe Error:', error);
+    throw new Error('支付服务暂时不可用');
+  }
+}
+
+export async function verifyWebhookSignature(
+  payload: string,
+  signature: string
+): Promise<Stripe.Event> {
+  try {
+    return stripe.webhooks.constructEvent(
+      payload,
+      signature,
+      process.env.STRIPE_WEBHOOK_SECRET!
+    );
+  } catch (error) {
+    console.error('Webhook signature verification failed:', error);
+    throw new Error('无效的webhook签名');
+  }
+}
+```
+
+## 安全最佳实践
+
+### 1. 环境变量管理
+```typescript
+// config/env.ts
+export const config = {
+  openai: {
+    apiKey: process.env.OPENAI_API_KEY || '',
+  },
+  stripe: {
+    secretKey: process.env.STRIPE_SECRET_KEY || '',
+    webhookSecret: process.env.STRIPE_WEBHOOK_SECRET || '',
+  },
+  database: {
+    url: process.env.DATABASE_URL || '',
+  },
+} as const;
+
+// 验证必需的环境变量
+export function validateEnvironment() {
+  const required = [
+    'OPENAI_API_KEY',
+    'STRIPE_SECRET_KEY',
+    'STRIPE_WEBHOOK_SECRET',
+  ];
+  
+  for (const key of required) {
+    if (!process.env[key]) {
+      throw new Error(`缺少必需的环境变量: ${key}`);
+    }
+  }
+}
+```
+
+### 2. 请求来源验证
+```typescript
+// middleware/security.ts
+export function validateOrigin(request: NextRequest): boolean {
+  const origin = request.headers.get('origin');
+  const allowedOrigins = [
+    'https://yourdomain.com',
+    'https://www.yourdomain.com',
+    ...(process.env.NODE_ENV === 'development' 
+      ? ['http://localhost:3000'] 
+      : [])
+  ];
+  
+  return allowedOrigins.includes(origin || '');
+}
+
+export function validateContentType(request: NextRequest): boolean {
+  const contentType = request.headers.get('content-type');
+  return contentType?.includes('application/json') || false;
+}
+```
+
+## 性能优化
+
+### 1. 响应缓存
+```typescript
+// utils/cache.ts
+const cache = new Map<string, { data: any; timestamp: number }>();
+
+export function getCachedResponse<T>(
+  key: string, 
+  ttl: number = 300000 // 5分钟
+): T | null {
+  const cached = cache.get(key);
+  
+  if (!cached) return null;
+  
+  if (Date.now() - cached.timestamp > ttl) {
+    cache.delete(key);
+    return null;
+  }
+  
+  return cached.data;
+}
+
+export function setCachedResponse<T>(key: string, data: T): void {
+  cache.set(key, { data, timestamp: Date.now() });
+}
+```
+
+### 2. 数据库连接池
+```typescript
+// utils/database.ts
+import { Pool } from 'pg';
+
+let pool: Pool | null = null;
+
+export function getDatabase(): Pool {
+  if (!pool) {
+    pool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+      max: 20,
+      idleTimeoutMillis: 30000,
+      connectionTimeoutMillis: 2000,
+    });
+  }
+  
+  return pool;
+}
+
+export async function executeQuery<T>(
+  query: string, 
+  params: any[] = []
+): Promise<T[]> {
+  const db = getDatabase();
+  const client = await db.connect();
+  
+  try {
+    const result = await client.query(query, params);
+    return result.rows;
+  } finally {
+    client.release();
+  }
+}
+```
+
+## 测试策略
+
+### 1. API 单元测试
+```typescript
+// __tests__/api/generate-name.test.ts
+import { POST } from '@/app/api/generate-name/route';
+import { NextRequest } from 'next/server';
+
+describe('/api/generate-name', () => {
+  it('应该生成中文名字', async () => {
+    const request = new NextRequest('http://localhost/api/generate-name', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: 'John',
+        gender: 'male',
+        preferences: ['强壮', '智慧']
+      })
+    });
+    
+    const response = await POST(request);
+    const data = await response.json();
+    
+    expect(data.success).toBe(true);
+    expect(data.data.names).toHaveLength(3);
+  });
+  
+  it('应该处理无效输入', async () => {
+    const request = new NextRequest('http://localhost/api/generate-name', {
+      method: 'POST',
+      body: JSON.stringify({})
+    });
+    
+    const response = await POST(request);
+    const data = await response.json();
+    
+    expect(data.success).toBe(false);
+    expect(response.status).toBe(400);
+  });
+});
+```
