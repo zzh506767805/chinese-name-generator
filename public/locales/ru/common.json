@@ -94,5 +94,127 @@
         }
       }
     }
+  },
+  "seo_content": {
+    "title": "Chinese Name Generator: Create Authentic Chinese Names",
+    "description": "Our advanced Chinese name generator helps you create culturally authentic and meaningful Chinese names. Whether you're looking for traditional or modern names, our AI-powered tool provides personalized suggestions with detailed explanations.",
+    "features": {
+      "title": "Why Choose Our Chinese Name Generator?",
+      "items": {
+        "0": "AI-powered Chinese name generation with cultural authenticity",
+        "1": "Specialized male Chinese name generator for boys",
+        "2": "Comprehensive Chinese girl name generator for girls",
+        "3": "Traditional and modern naming styles available",
+        "4": "Detailed meaning explanations and pronunciation guides",
+        "5": "Cultural context and historical significance"
+      }
+    },
+    "male_names": {
+      "title": "Chinese Name Generator Male - Traditional & Modern Boy Names",
+      "description": "Our male Chinese name generator specializes in creating meaningful names for boys. From traditional Chinese boy names with deep cultural roots to modern options that blend Eastern and Western influences, find the perfect name that reflects strength, wisdom, and positive virtues."
+    },
+    "female_names": {
+      "title": "Chinese Girl Name Generator - Beautiful & Meaningful Names",
+      "description": "Discover beautiful Chinese girl names with our specialized Chinese girl name generator. We create names that embody grace, intelligence, and cultural beauty. Each name comes with detailed explanations of its meaning and cultural significance."
+    },
+    "how_it_works": {
+      "title": "How Our Chinese Name Generator Works",
+      "description": "Our Chinese name generator uses advanced AI to create personalized names based on your preferences. Simply select your gender preference, desired meaning, and style, and our system will generate culturally appropriate names with detailed explanations."
+    },
+    "name_types": {
+      "title": "Types of Chinese Names - Traditional & Modern Chinese Name Generator",
+      "description": "Explore different types of Chinese names with our comprehensive Chinese name generator. From traditional two-character names to modern three-character combinations, we provide authentic Chinese names for every preference.",
+      "traditional": {
+        "title": "Traditional Chinese Names - Classical Chinese Name Generator",
+        "description": "Traditional Chinese names follow ancient naming conventions with deep cultural roots. Our traditional Chinese name generator creates names based on classical Chinese literature, philosophy, and historical figures."
+      },
+      "modern": {
+        "title": "Modern Chinese Names - Contemporary Chinese Name Generator", 
+        "description": "Modern Chinese names blend traditional elements with contemporary style. Our modern Chinese name generator creates trendy names that resonate with today's families while maintaining cultural authenticity."
+      },
+      "two_character": {
+        "title": "Two Character Chinese Names - Simple Chinese Name Generator",
+        "description": "Two-character Chinese names are elegant and traditional. Our Chinese name generator specializes in creating beautiful two-character names with profound meanings and cultural significance."
+      },
+      "three_character": {
+        "title": "Three Character Chinese Names - Complete Chinese Name Generator",
+        "description": "Three-character Chinese names include surname plus given name. Our comprehensive Chinese name generator creates complete three-character names with perfect harmony between all elements."
+      }
+    },
+    "cultural_meaning": {
+      "title": "Cultural Significance of Chinese Names - Chinese Name Generator Guide",
+      "description": "Understanding the cultural meaning behind Chinese names is essential. Our Chinese name generator provides detailed explanations of cultural significance, symbolism, and traditional beliefs associated with each name.",
+      "elements": {
+        "title": "Chinese Name Elements - Meaning & Symbolism",
+        "description": "Each Chinese name contains powerful elements with specific meanings. Our Chinese name generator carefully selects characters that represent virtues, natural elements, and positive qualities."
+      },
+      "philosophy": {
+        "title": "Chinese Naming Philosophy - Ancient Wisdom in Modern Names",
+        "description": "Chinese naming philosophy is based on thousands of years of tradition. Our Chinese name generator incorporates principles of balance, harmony, and auspicious meanings in every generated name."
+      }
+    },
+    "name_elements": {
+      "title": "Common Chinese Name Elements - Character Meanings & Usage",
+      "description": "Learn about the most popular Chinese name elements and their meanings. Our Chinese name generator uses these traditional elements to create meaningful and culturally appropriate names.",
+      "virtue_elements": {
+        "title": "Virtue-Based Chinese Name Elements",
+        "description": "Chinese names often incorporate characters representing virtues like wisdom, courage, kindness, and honor. Our Chinese name generator emphasizes these positive qualities in name creation."
+      },
+      "nature_elements": {
+        "title": "Nature-Inspired Chinese Name Elements",
+        "description": "Elements from nature like flowers, trees, mountains, and water are common in Chinese names. Our Chinese name generator draws from these natural elements to create harmonious names."
+      }
+    },
+    "use_cases": {
+      "title": "When to Use a Chinese Name Generator - Practical Applications",
+      "description": "Our Chinese name generator serves various purposes: newborn naming, character names for stories, cultural exploration, business names, and personal identity discovery.",
+      "newborn": {
+        "title": "Newborn Chinese Names - Baby Chinese Name Generator",
+        "description": "Choosing a Chinese name for your newborn is a meaningful decision. Our baby Chinese name generator creates names that will bring good fortune and positive energy to your child's life."
+      },
+      "character": {
+        "title": "Character Names - Chinese Name Generator for Fiction",
+        "description": "Writers and creators use our Chinese name generator to develop authentic character names for novels, games, and stories. Each name comes with detailed background information for character development."
+      },
+      "personal": {
+        "title": "Personal Chinese Names - Choose Your Chinese Identity",
+        "description": "Many people seek Chinese names for personal, cultural, or professional reasons. Our Chinese name generator helps you find a name that resonates with your personality and aspirations."
+      }
+    },
+    "naming_principles": {
+      "title": "Chinese Naming Principles - Expert Guide to Chinese Names",
+      "description": "Master the art of Chinese naming with our comprehensive guide. Our Chinese name generator follows traditional principles including tonal harmony, character balance, and auspicious meanings.",
+      "tonal_harmony": {
+        "title": "Tonal Harmony in Chinese Names",
+        "description": "Proper tonal balance creates beautiful-sounding Chinese names. Our Chinese name generator ensures perfect tonal harmony for names that flow naturally when spoken."
+      },
+      "character_balance": {
+        "title": "Character Balance and Stroke Count",
+        "description": "Visual balance is important in Chinese names. Our Chinese name generator considers stroke count and character complexity to create visually appealing names."
+      },
+      "auspicious_meanings": {
+        "title": "Auspicious Meanings in Chinese Names",
+        "description": "Chinese names carry wishes for the future. Our Chinese name generator selects characters with positive meanings and auspicious associations for life success."
+      }
+    },
+    "success_stories": {
+      "title": "Success Stories - Chinese Name Generator Testimonials",
+      "description": "Thousands of satisfied users have found their perfect Chinese names using our generator. Read about their experiences and discover how our Chinese name generator changed their lives.",
+      "testimonial_1": "\"The Chinese name generator gave me a beautiful name that perfectly captures my personality. The cultural explanations helped me understand the deep meaning behind each character.\"",
+      "testimonial_2": "\"As a writer, I needed authentic Chinese names for my characters. This Chinese name generator provided exactly what I was looking for with detailed cultural context.\"",
+      "testimonial_3": "\"We used the Chinese name generator to name our daughter. The traditional name we received has brought us so much joy and connects her to her heritage.\""
+    },
+    "professional_advice": {
+      "title": "Professional Chinese Naming Advice - Expert Tips",
+      "description": "Get professional guidance on Chinese naming from our experts. Our Chinese name generator combines traditional wisdom with modern expertise to create the perfect name for you.",
+      "expert_tips": {
+        "title": "Expert Tips for Choosing Chinese Names",
+        "description": "Our naming experts share professional advice on selecting the ideal Chinese name. Learn the secrets that make our Chinese name generator so effective."
+      },
+      "consultation": {
+        "title": "Professional Chinese Name Consultation",
+        "description": "Beyond our automated Chinese name generator, we offer professional consultation services for those seeking personalized naming advice and cultural guidance."
+      }
+    }
   }
 } 
