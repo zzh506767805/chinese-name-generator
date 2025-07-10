@@ -625,6 +625,17 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      {/* 友情链接区块 */}
+      <div className="mt-12 mb-8">
+        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow border border-gray-200 p-6 text-center">
+          <h2 className="text-lg font-bold text-gray-700 mb-3">友情链接</h2>
+          <div className="flex flex-wrap justify-center gap-6">
+            <a href="https://dressmeai.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">dressmeai.com</a>
+            <a href="https://checkios.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">checkios.com</a>
+            <a href="https://Dreamfinityx.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">Dreamfinityx.com</a>
+          </div>
+        </div>
+      </div>
     </div>
   )
 } 
