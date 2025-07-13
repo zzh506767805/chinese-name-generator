@@ -154,10 +154,6 @@ export default function RootLayout({
             __html: `
               window.ezstandalone = window.ezstandalone || {};
               ezstandalone.cmd = ezstandalone.cmd || [];
-              ezstandalone.cmd.push(function () {
-                // 批量调用首页广告位以提高性能
-                ezstandalone.showAds(118, 119, 103);
-              });
             `
           }}
         />
