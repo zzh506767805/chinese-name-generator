@@ -157,17 +157,17 @@ export default function NameResult({
               : 'bg-gray-100 text-gray-400 cursor-not-allowed'
           }`}
         >
-          {remainingCredits > 0 ? t('result.generate_another') : 'No Credits Available'}
+          {remainingCredits > 0 ? t('result.generate_another') : 'No Free Names Left'}
         </button>
         
         {remainingCredits === 0 && (
           <div className="text-center">
-            <p className="text-sm text-gray-600 mb-3">Need more names?</p>
+            <p className="text-sm text-gray-600 mb-3">Want to generate more names?</p>
             <a
               href="/"
               className="inline-block bg-gradient-to-r from-red-600 to-yellow-500 text-white px-6 py-2 rounded-lg hover:opacity-90 transition-opacity"
             >
-              Purchase More Credits
+              Get More Names
             </a>
           </div>
         )}

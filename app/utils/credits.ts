@@ -4,6 +4,7 @@
  */
 
 const CREDITS_KEY = 'chinese_name_credits';
+const INITIAL_FREE_CREDITS = 5; // 初始免费次数
 const CREDITS_PER_PURCHASE = 10; // 每次购买获得10个名字
 const PRICE_PER_PACKAGE = 2.00; // 每包价格2美元
 
@@ -32,6 +33,31 @@ export function setUserCredits(credits: number): void {
     localStorage.setItem(CREDITS_KEY, credits.toString());
   } catch (error) {
     console.error('Error setting user credits:', error);
+  }
+}
+
+/**
+ * 检查并初始化新用户的免费积分
+ * 如果用户是新用户（没有积分记录），则提供初始免费积分
+ */
+export function initializeFreeCredits(): void {
+  if (typeof window === 'undefined') return;
+  
+  try {
+    const hasInitialized = localStorage.getItem('free_credits_initialized');
+    if (!hasInitialized) {
+      const currentCredits = getUserCredits();
+      if (currentCredits === 0) {
+        setUserCredits(INITIAL_FREE_CREDITS);
+        localStorage.setItem('free_credits_initialized', 'true');
+        
+        // 触发积分更新事件
+        window.dispatchEvent(new Event('creditsUpdated'));
+        console.log('Initialized free credits:', INITIAL_FREE_CREDITS);
+      }
+    }
+  } catch (error) {
+    console.error('Error initializing free credits:', error);
   }
 }
 
@@ -81,6 +107,7 @@ export function hasCredits(): boolean {
  */
 export function getPurchaseConfig() {
   return {
+    initialFreeCredits: INITIAL_FREE_CREDITS,
     creditsPerPurchase: CREDITS_PER_PURCHASE,
     pricePerPackage: PRICE_PER_PACKAGE,
   };

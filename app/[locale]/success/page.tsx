@@ -74,7 +74,7 @@ export default function Success() {
               Purchase Successful! 🎉
             </h1>
             <p className="text-gray-600 mb-6">
-              You have successfully purchased {creditsPerPurchase} Chinese name generations!
+              You have successfully purchased {creditsPerPurchase} additional Chinese name generations!
             </p>
             
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6 mb-6">

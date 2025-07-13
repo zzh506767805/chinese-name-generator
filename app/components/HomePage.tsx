@@ -6,7 +6,7 @@ import { useParams } from 'next/navigation'
 import NameResult from './NameResult'
 import CreditsDisplay from './CreditsDisplay'
 import EzoicAd from './EzoicAd'
-import { getUserCredits, useCredit } from '@/app/utils/credits'
+import { getUserCredits, useCredit, initializeFreeCredits } from '@/app/utils/credits'
 
 interface NameResponse {
   chineseName: string
@@ -30,11 +30,18 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null)
   const [userCredits, setUserCredits] = useState(0)
   const [isGenerating, setIsGenerating] = useState(false)
+  const [freeCreditsInitialized, setFreeCreditsInitialized] = useState(false)
 
   // 初始化和监听积分变化
   useEffect(() => {
     const updateCredits = () => {
       setUserCredits(getUserCredits())
+    }
+    
+    // 初始化免费积分（如果用户是首次访问）
+    if (!freeCreditsInitialized) {
+      initializeFreeCredits()
+      setFreeCreditsInitialized(true)
     }
     
     updateCredits()
@@ -43,7 +50,7 @@ export default function HomePage() {
     return () => {
       window.removeEventListener('creditsUpdated', updateCredits)
     }
-  }, [])
+  }, [freeCreditsInitialized])
 
   // 点击生成名字按钮（第一步：检查收费）
   const handleGenerateClick = () => {
@@ -151,12 +158,12 @@ export default function HomePage() {
                   </div>
                   <div>
                     <p className="font-medium text-blue-900">
-                      {userCredits > 0 ? 'Remaining Name Generations' : 'No Credits Available'}
+                      {userCredits > 0 ? 'Free Name Generations' : 'No Credits Available'}
                     </p>
                     <p className="text-sm text-blue-700">
                       {userCredits > 0 
-                        ? `You can generate ${userCredits} more Chinese names`
-                        : 'Purchase credits to start generating names'
+                        ? `You can generate ${userCredits} Chinese names for free!`
+                        : 'Need more? Get additional names below'
                       }
                     </p>
                   </div>
@@ -249,29 +256,28 @@ export default function HomePage() {
         )}
 
         {step === 2 && (
-          <div className="text-center py-8">
-            <div className="mb-6">
-              <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Purchase Required
+          <div className="text-center py-6 space-y-6">
+            <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 p-6 rounded-lg">
+              <svg className="w-16 h-16 mx-auto mb-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+              
+              <h3 className="text-xl font-bold text-amber-800 mb-3">
+                You've used all your free names!
               </h3>
-              <p className="text-gray-600 mb-6">
-                Get 10 unique Chinese names with detailed cultural explanations for just $2
+              
+              <p className="text-amber-700 mb-4">
+                You've used all your free name generations. 
+                Would you like to get more names?
               </p>
               
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 max-w-md mx-auto">
-                <div className="flex items-center justify-center space-x-2 mb-2">
-                  <span className="font-medium text-blue-900">✨ What you get:</span>
-                </div>
-                <ul className="text-sm text-blue-700 space-y-1">
-                  <li>• 10 AI-generated Chinese names</li>
-                  <li>• Cultural meanings & explanations</li>
-                  <li>• Pronunciation guides (Pinyin)</li>
-                  <li>• Historical context & symbolism</li>
+              <div className="bg-white rounded-lg p-4 border border-amber-100 mb-6">
+                <h4 className="font-medium text-amber-800 mb-2">Get more Chinese names with:</h4>
+                <ul className="text-sm text-amber-700 space-y-1 text-left list-disc pl-5 mb-4">
+                  <li>Authentic Chinese cultural meanings</li>
+                  <li>Proper pronunciation guides</li>
+                  <li>Character explanations</li>
+                  <li>Historical & cultural context</li>
                 </ul>
               </div>
             </div>

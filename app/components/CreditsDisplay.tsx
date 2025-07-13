@@ -12,7 +12,7 @@ interface CreditsDisplayProps {
 export default function CreditsDisplay({ onCreditsChange, onPurchaseSuccess, compact = false }: CreditsDisplayProps) {
   const [credits, setCredits] = useState(0)
   const [isLoading, setIsLoading] = useState(false)
-  const { creditsPerPurchase, pricePerPackage } = getPurchaseConfig()
+  const { initialFreeCredits, creditsPerPurchase, pricePerPackage } = getPurchaseConfig()
 
   // 更新积分显示
   const updateCredits = () => {
@@ -96,7 +96,7 @@ export default function CreditsDisplay({ onCreditsChange, onPurchaseSuccess, com
           </span>
         ) : (
           <span>
-            Buy {creditsPerPurchase} Names - ${pricePerPackage}
+            Get {creditsPerPurchase} More Names - ${pricePerPackage}
           </span>
         )}
       </button>
@@ -115,9 +115,11 @@ export default function CreditsDisplay({ onCreditsChange, onPurchaseSuccess, com
               {credits > 0 ? 'Names Remaining' : 'No Names Left'}
             </p>
             <p className="text-xs text-gray-500">
-              {credits > 0 
-                ? `You can generate ${credits} more name${credits > 1 ? 's' : ''}`
-                : 'Purchase credits to generate names'
+              {credits === initialFreeCredits 
+                ? `You got ${initialFreeCredits} free names to start!`
+                : credits > 0 
+                  ? `You can generate ${credits} more name${credits > 1 ? 's' : ''}`
+                  : 'Get more names to continue'
               }
             </p>
           </div>
@@ -142,20 +144,11 @@ export default function CreditsDisplay({ onCreditsChange, onPurchaseSuccess, com
           </span>
         ) : (
           <span>
-            Buy {creditsPerPurchase} Names - ${pricePerPackage}
+            Get {creditsPerPurchase} More Names - ${pricePerPackage}
           </span>
         )}
         </button>
       </div>
-      
-      {credits === 0 && (
-        <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
-          <p className="text-sm text-yellow-800">
-            <strong>💡 Get Started:</strong> Purchase {creditsPerPurchase} name generations for just ${pricePerPackage}!
-            Each name comes with detailed cultural explanations and pronunciation guides.
-          </p>
-        </div>
-      )}
     </div>
   )
 } 
