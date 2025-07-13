@@ -1,5 +1,130 @@
 ---
-description:
-globs:
+description: 项目概览
 alwaysApply: false
 ---
+# 中文起名助手项目概览
+
+## 项目简介
+这是一个基于 AI 的中文起名服务，帮助外国人获取有文化内涵的中文名字。项目采用现代化的全栈架构，提供多语言支持和国际支付功能。
+
+## 核心技术栈
+- **前端**: Next.js 14 (App Router) + TypeScript
+- **样式**: Tailwind CSS
+- **AI服务**: OpenAI GPT-4 API
+- **支付**: Stripe API
+- **国际化**: next-i18next + next-intl
+- **数据库**: PostgreSQL + Prisma ORM（预留）
+
+## 项目架构
+
+### 主要目录结构
+- [app/](mdc:app/) - Next.js 应用主目录
+  - [app/components/](mdc:app/components/) - React 组件库
+  - [app/api/](mdc:app/api/) - API 路由处理
+  - [app/utils/](mdc:app/utils/) - 工具函数库
+  - [app/lib/](mdc:app/lib/) - 核心业务逻辑
+  - [app/config/](mdc:app/config/) - 配置文件
+  - [app/i18n/](mdc:app/i18n/) - 国际化配置
+- [public/](mdc:public/) - 静态资源文件
+- [messages/](mdc:messages/) - 多语言翻译文件
+- [prisma/](mdc:prisma/) - 数据库模型定义
+
+### 关键文件
+- [package.json](mdc:package.json) - 项目依赖和脚本配置
+- [next.config.js](mdc:next.config.js) - Next.js 配置
+- [tailwind.config.js](mdc:tailwind.config.js) - 样式系统配置
+- [tsconfig.json](mdc:tsconfig.json) - TypeScript 配置
+- [app/layout.tsx](mdc:app/layout.tsx) - 应用根布局
+- [middleware.ts](mdc:middleware.ts) - 中间件处理
+
+## 核心功能模块
+
+### 1. 起名服务
+- 用户输入个人信息
+- AI 分析生成中文名字
+- 名字含义解释
+
+### 2. 多语言支持
+- 中文/英文界面切换
+- 动态语言检测
+- SEO 友好的多语言路由
+
+### 3. 支付系统
+- Stripe 集成
+- 国际支付支持
+- 支付状态跟踪
+
+### 4. 用户界面
+- 响应式设计
+- 移动端优化
+- 现代化 UI 组件
+
+## 开发环境
+- Node.js 18+
+- npm 包管理
+- 开发服务器: `npm run dev`
+- 构建命令: `npm run build`
+
+# 中文起名助手项目概览
+
+## 项目简介
+这是一个基于 AI 的中文起名服务，帮助外国人获取有文化内涵的中文名字。项目采用现代化的全栈架构，提供多语言支持和国际支付功能。
+
+## 核心技术栈
+- **前端**: Next.js 14 (App Router) + TypeScript
+- **样式**: Tailwind CSS
+- **AI服务**: OpenAI GPT-4 API
+- **支付**: Stripe API
+- **国际化**: next-i18next + next-intl
+- **数据库**: PostgreSQL + Prisma ORM（预留）
+
+## 项目架构
+
+### 主要目录结构
+- [app/](mdc:app/) - Next.js 应用主目录
+  - [app/components/](mdc:app/components/) - React 组件库
+  - [app/api/](mdc:app/api/) - API 路由处理
+  - [app/utils/](mdc:app/utils/) - 工具函数库
+  - [app/lib/](mdc:app/lib/) - 核心业务逻辑
+  - [app/config/](mdc:app/config/) - 配置文件
+  - [app/i18n/](mdc:app/i18n/) - 国际化配置
+- [public/](mdc:public/) - 静态资源文件
+- [messages/](mdc:messages/) - 多语言翻译文件
+- [prisma/](mdc:prisma/) - 数据库模型定义
+
+### 关键文件
+- [package.json](mdc:package.json) - 项目依赖和脚本配置
+- [next.config.js](mdc:next.config.js) - Next.js 配置
+- [tailwind.config.js](mdc:tailwind.config.js) - 样式系统配置
+- [tsconfig.json](mdc:tsconfig.json) - TypeScript 配置
+- [app/layout.tsx](mdc:app/layout.tsx) - 应用根布局
+- [middleware.ts](mdc:middleware.ts) - 中间件处理
+
+## 核心功能模块
+
+### 1. 起名服务
+- 用户输入个人信息
+- AI 分析生成中文名字
+- 名字含义解释
+
+### 2. 多语言支持
+- 中文/英文界面切换
+- 动态语言检测
+- SEO 友好的多语言路由
+
+### 3. 支付系统
+- Stripe 集成
+- 国际支付支持
+- 支付状态跟踪
+
+### 4. 用户界面
+- 响应式设计
+- 移动端优化
+- 现代化 UI 组件
+
+## 开发环境
+- Node.js 18+
+- npm 包管理
+- 开发服务器: `npm run dev`
+- 构建命令: `npm run build`
+

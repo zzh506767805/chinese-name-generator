@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
 import NameResult from './NameResult'
 import CreditsDisplay from './CreditsDisplay'
+import EzoicAd from './EzoicAd'
 import { getUserCredits, useCredit } from '@/app/utils/credits'
 
 interface NameResponse {
@@ -310,6 +311,9 @@ export default function HomePage() {
         )}
       </div>
 
+      {/* 广告位1：主要内容区域后 */}
+      <EzoicAd placementId={118} className="my-8 text-center" />
+
       {/* SEO Content Section */}
       <div className="mt-12 space-y-8">
         {/* Main SEO Content */}
@@ -343,6 +347,9 @@ export default function HomePage() {
             </ul>
           </div>
         </div>
+
+        {/* 广告位2：SEO内容中间 */}
+        <EzoicAd placementId={119} className="my-8 text-center" />
 
         {/* Gender-specific sections */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -624,11 +631,14 @@ export default function HomePage() {
             </p>
           </div>
         </div>
+
+        {/* 广告位3：页面底部 */}
+        <EzoicAd placementId={103} className="my-8 text-center" />
       </div>
       {/* 友情链接区块 */}
       <div className="mt-12 mb-8">
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow border border-gray-200 p-6 text-center">
-          <h2 className="text-lg font-bold text-gray-700 mb-3">友情链接</h2>
+          <h2 className="text-lg font-bold text-gray-700 mb-3">Friend links</h2>
           <div className="flex flex-wrap justify-center gap-6">
             <a href="https://dressmeai.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">dressmeai.com</a>
             <a href="https://checkios.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">checkios.com</a>

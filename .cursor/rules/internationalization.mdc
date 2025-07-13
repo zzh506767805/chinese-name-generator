@@ -1,5 +1,150 @@
 ---
-description:
-globs:
+description: 国际化开发指南
 alwaysApply: false
 ---
+      locale: locale,
+    },
+  };
+}
+
+export default function LocaleLayout({ children, params: { locale } }: LayoutProps) {
+  unstable_setRequestLocale(locale);
+  
+  return (
+    <html lang={locale}>
+      <body>
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+## 最佳实践
+
+### 1. 键值命名规范
+```json
+{
+  // ✅ 推荐：使用嵌套结构
+  "nameGenerator": {
+    "form": {
+      "name": "姓名",
+      "nameError": "姓名不能为空"
+    }
+  },
+  
+  // ❌ 避免：平铺结构
+  "nameGeneratorFormName": "姓名",
+  "nameGeneratorFormNameError": "姓名不能为空"
+}
+```
+
+### 2. 动态内容处理
+```typescript
+// ✅ 推荐：使用 ICU 消息格式
+const t = useTranslations('messages');
+
+// 处理复数
+t('itemCount', { count: 5 }); // "5 items" 或 "5个项目"
+
+// 处理条件文本
+t('userStatus', { 
+  status: 'active',
+  name: 'John' 
+}); // "John is active" 或 "John 处于活跃状态"
+
+// 处理日期和时间
+t('lastUpdated', { 
+  date: new Date(),
+  time: new Date() 
+}); // "Last updated on 2023-12-01 at 14:30" 或 "最后更新于 2023年12月1日 14:30"
+```
+
+### 3. 翻译质量保证
+```typescript
+// utils/i18n-validation.ts
+export function validateTranslations() {
+  const languages = ['en', 'zh'];
+  const issues: string[] = [];
+  
+  languages.forEach(lang => {
+    const translations = require(`../messages/${lang}.json`);
+    
+    // 检查缺失的翻译
+    const missingKeys = findMissingKeys(translations);
+    if (missingKeys.length > 0) {
+      issues.push(`${lang}: 缺少翻译键 ${missingKeys.join(', ')}`);
+    }
+    
+    // 检查空值
+    const emptyKeys = findEmptyValues(translations);
+    if (emptyKeys.length > 0) {
+      issues.push(`${lang}: 空值翻译 ${emptyKeys.join(', ')}`);
+    }
+  });
+  
+  return issues;
+}
+```
+
+### 4. 性能优化
+```typescript
+// 懒加载翻译文件
+const loadTranslations = async (locale: string) => {
+  const translations = await import(`../messages/${locale}.json`);
+  return translations.default;
+};
+
+// 缓存翻译
+const translationCache = new Map<string, any>();
+
+export function getCachedTranslations(locale: string) {
+  if (!translationCache.has(locale)) {
+    const translations = loadTranslations(locale);
+    translationCache.set(locale, translations);
+  }
+  return translationCache.get(locale);
+}
+```
+
+## 测试策略
+
+### 1. 翻译测试
+```typescript
+// __tests__/i18n.test.ts
+import { describe, it, expect } from '@jest/globals';
+
+describe('国际化翻译', () => {
+  it('应该包含所有必需的翻译键', () => {
+    const enTranslations = require('../messages/en.json');
+    const zhTranslations = require('../messages/zh.json');
+    
+    const enKeys = getNestedKeys(enTranslations);
+    const zhKeys = getNestedKeys(zhTranslations);
+    
+    expect(enKeys).toEqual(zhKeys);
+  });
+  
+  it('应该没有空值翻译', () => {
+    const translations = require('../messages/zh.json');
+    const emptyKeys = findEmptyValues(translations);
+    
+    expect(emptyKeys).toHaveLength(0);
+  });
+});
+
+function getNestedKeys(obj: any, prefix = ''): string[] {
+  return Object.keys(obj).reduce((keys: string[], key) => {
+    const fullKey = prefix ? `${prefix}.${key}` : key;
+    
+    if (typeof obj[key] === 'object' && obj[key] !== null) {
+      keys.push(...getNestedKeys(obj[key], fullKey));
+    } else {
+      keys.push(fullKey);
+    }
+    
+    return keys;
+  }, []);
+}
+```
+

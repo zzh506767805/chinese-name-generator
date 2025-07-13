@@ -146,6 +146,21 @@ export default function RootLayout({
   return (
     <html lang={params.locale || 'en'}>
       <head>
+        <script src="https://cmp.gatekeeperconsent.com/min.js" data-cfasync="false"></script>
+        <script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="false"></script>
+        <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.ezstandalone = window.ezstandalone || {};
+              ezstandalone.cmd = ezstandalone.cmd || [];
+              ezstandalone.cmd.push(function () {
+                // 批量调用首页广告位以提高性能
+                ezstandalone.showAds(118, 119, 103);
+              });
+            `
+          }}
+        />
         <SchemaOrg locale={params.locale || 'en'} />
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8366783560808157"

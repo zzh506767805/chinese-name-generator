@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import EzoicAd from '../EzoicAd'
 export { default as CardGrid } from './CardGrid'
 export { default as Card } from './Card'
 export { default as ContentSection } from './ContentSection'
@@ -23,9 +24,15 @@ export default function BlogArticle({ title, description, children, relatedArtic
           <p className="text-xl text-gray-600">{description}</p>
         </header>
 
+        {/* 文章顶部广告 */}
+        <EzoicAd placementId={113} className="mb-8 text-center" />
+
         <div className="mb-12">
           {children}
         </div>
+
+        {/* 文章底部广告 */}
+        <EzoicAd placementId={114} className="mb-8 text-center" />
 
         {relatedArticles && relatedArticles.length > 0 && (
           <div className="border-t pt-8">

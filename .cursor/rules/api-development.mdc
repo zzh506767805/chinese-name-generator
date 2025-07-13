@@ -1,6 +1,5 @@
 ---
-description: 
-globs: 
+description: api开发指南
 alwaysApply: false
 ---
 # API 开发指南
@@ -455,3 +454,4 @@ describe('/api/generate-name', () => {
   });
 });
 ```
+

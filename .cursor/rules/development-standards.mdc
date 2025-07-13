@@ -1,5 +1,356 @@
 ---
-description:
-globs:
+description: 开发原则
 alwaysApply: false
 ---
+# 开发规范与最佳实践
+
+## 代码组织原则
+
+### 1. 简洁优先
+- 使用最简单、最通用的解决方案
+- 避免过度工程化和复杂抽象
+- 优先可读性而非所谓的"聪明"代码
+
+### 2. 模块化设计
+- 每个组件只负责单一功能
+- 避免修改时影响到无关模块
+- 保持低耦合、高内聚
+
+### 3. 文档维护
+- 每个项目必须维护清晰的 [README.md](mdc:README.md)
+- 复杂函数和组件需要添加注释
+- 记录用户习惯和设计规范到专门文档
+
+## TypeScript 规范
+
+### 类型定义
+- 统一在 [app/types.ts](mdc:app/types.ts) 中定义全局类型
+- 组件专用类型在组件文件内定义
+- 使用接口而非类型别名来定义对象结构
+
+```typescript
+// ✅ 推荐
+interface UserInfo {
+  name: string;
+  age: number;
+  preferences?: string[];
+}
+
+// ❌ 避免
+type UserInfo = {
+  name: string;
+  age: number;
+  preferences?: string[];
+}
+```
+
+### 错误处理
+- 统一使用 try-catch 包装异步操作
+- API 调用必须处理错误情况
+- 向用户显示友好的错误信息
+
+## React 组件规范
+
+### 组件文件组织
+- 所有组件存放在 [app/components/](mdc:app/components/) 目录
+- 文件名使用 PascalCase 命名
+- 一个文件只导出一个主组件
+
+### 组件结构模板
+```typescript
+'use client';
+
+import React from 'react';
+// 其他导入...
+
+interface ComponentProps {
+  // 属性定义
+}
+
+export default function ComponentName({ 
+  // 解构属性
+}: ComponentProps) {
+  // 状态和逻辑
+
+  return (
+    <div className="组件样式">
+      {/* 组件内容 */}
+    </div>
+  );
+}
+```
+
+### 状态管理
+- 优先使用 React 内置的 useState 和 useEffect
+- 复杂状态逻辑使用 useReducer
+- 避免引入额外的状态管理库
+
+## API 开发规范
+
+### 路由组织
+- API 路由存放在 [app/api/](mdc:app/api/) 目录
+- 使用文件夹结构组织不同功能
+- 文件名使用 kebab-case
+
+### 错误响应格式
+```typescript
+// 统一的错误响应格式
+{
+  error: string;
+  details?: string;
+  code?: number;
+}
+```
+
+### 成功响应格式
+```typescript
+// 统一的成功响应格式
+{
+  success: true;
+  data: any;
+  message?: string;
+}
+```
+
+## 样式规范
+
+### Tailwind CSS 使用
+- 优先使用 Tailwind 原子类
+- 复杂样式在 [app/globals.css](mdc:app/globals.css) 中定义
+- 响应式设计使用 Tailwind 断点
+
+### 组件样式组织
+```typescript
+// ✅ 推荐：样式分组和注释
+<div className={`
+  // 布局
+  flex flex-col items-center justify-center
+  // 尺寸
+  w-full max-w-md h-screen
+  // 间距
+  p-6 mx-auto
+  // 外观
+  bg-white rounded-lg shadow-lg
+  // 响应式
+  md:max-w-lg lg:max-w-xl
+`}>
+```
+
+## 国际化规范
+
+### 翻译文件管理
+- 翻译文件存放在 [messages/](mdc:messages/) 目录
+- 按功能模块组织翻译键
+- 使用嵌套结构组织复杂翻译
+
+### 翻译键命名
+```json
+{
+  "common": {
+    "buttons": {
+      "submit": "提交",
+      "cancel": "取消"
+    }
+  },
+  "nameGenerator": {
+    "title": "中文起名助手",
+    "description": "获取有文化内涵的中文名字"
+  }
+}
+```
+
+## Git 工作流
+
+### 提交信息格式
+```
+feat: 添加新功能描述
+fix: 修复问题描述
+docs: 更新文档
+style: 代码格式调整
+refactor: 代码重构
+test: 添加测试
+chore: 构建工具或辅助工具变动
+```
+
+### 分支管理
+- `main`: 主分支，保持稳定
+- `develop`: 开发分支
+- `feature/功能名`: 功能开发分支
+- `fix/问题描述`: 问题修复分支
+
+# 开发规范与最佳实践
+
+## 代码组织原则
+
+### 1. 简洁优先
+- 使用最简单、最通用的解决方案
+- 避免过度工程化和复杂抽象
+- 优先可读性而非所谓的"聪明"代码
+
+### 2. 模块化设计
+- 每个组件只负责单一功能
+- 避免修改时影响到无关模块
+- 保持低耦合、高内聚
+
+### 3. 文档维护
+- 每个项目必须维护清晰的 [README.md](mdc:README.md)
+- 复杂函数和组件需要添加注释
+- 记录用户习惯和设计规范到专门文档
+
+## TypeScript 规范
+
+### 类型定义
+- 统一在 [app/types.ts](mdc:app/types.ts) 中定义全局类型
+- 组件专用类型在组件文件内定义
+- 使用接口而非类型别名来定义对象结构
+
+```typescript
+// ✅ 推荐
+interface UserInfo {
+  name: string;
+  age: number;
+  preferences?: string[];
+}
+
+// ❌ 避免
+type UserInfo = {
+  name: string;
+  age: number;
+  preferences?: string[];
+}
+```
+
+### 错误处理
+- 统一使用 try-catch 包装异步操作
+- API 调用必须处理错误情况
+- 向用户显示友好的错误信息
+
+## React 组件规范
+
+### 组件文件组织
+- 所有组件存放在 [app/components/](mdc:app/components/) 目录
+- 文件名使用 PascalCase 命名
+- 一个文件只导出一个主组件
+
+### 组件结构模板
+```typescript
+'use client';
+
+import React from 'react';
+// 其他导入...
+
+interface ComponentProps {
+  // 属性定义
+}
+
+export default function ComponentName({ 
+  // 解构属性
+}: ComponentProps) {
+  // 状态和逻辑
+
+  return (
+    <div className="组件样式">
+      {/* 组件内容 */}
+    </div>
+  );
+}
+```
+
+### 状态管理
+- 优先使用 React 内置的 useState 和 useEffect
+- 复杂状态逻辑使用 useReducer
+- 避免引入额外的状态管理库
+
+## API 开发规范
+
+### 路由组织
+- API 路由存放在 [app/api/](mdc:app/api/) 目录
+- 使用文件夹结构组织不同功能
+- 文件名使用 kebab-case
+
+### 错误响应格式
+```typescript
+// 统一的错误响应格式
+{
+  error: string;
+  details?: string;
+  code?: number;
+}
+```
+
+### 成功响应格式
+```typescript
+// 统一的成功响应格式
+{
+  success: true;
+  data: any;
+  message?: string;
+}
+```
+
+## 样式规范
+
+### Tailwind CSS 使用
+- 优先使用 Tailwind 原子类
+- 复杂样式在 [app/globals.css](mdc:app/globals.css) 中定义
+- 响应式设计使用 Tailwind 断点
+
+### 组件样式组织
+```typescript
+// ✅ 推荐：样式分组和注释
+<div className={`
+  // 布局
+  flex flex-col items-center justify-center
+  // 尺寸
+  w-full max-w-md h-screen
+  // 间距
+  p-6 mx-auto
+  // 外观
+  bg-white rounded-lg shadow-lg
+  // 响应式
+  md:max-w-lg lg:max-w-xl
+`}>
+```
+
+## 国际化规范
+
+### 翻译文件管理
+- 翻译文件存放在 [messages/](mdc:messages/) 目录
+- 按功能模块组织翻译键
+- 使用嵌套结构组织复杂翻译
+
+### 翻译键命名
+```json
+{
+  "common": {
+    "buttons": {
+      "submit": "提交",
+      "cancel": "取消"
+    }
+  },
+  "nameGenerator": {
+    "title": "中文起名助手",
+    "description": "获取有文化内涵的中文名字"
+  }
+}
+```
+
+## Git 工作流
+
+### 提交信息格式
+```
+feat: 添加新功能描述
+fix: 修复问题描述
+docs: 更新文档
+style: 代码格式调整
+refactor: 代码重构
+test: 添加测试
+chore: 构建工具或辅助工具变动
+```
+
+### 分支管理
+- `main`: 主分支，保持稳定
+- `develop`: 开发分支
+- `feature/功能名`: 功能开发分支
+- `fix/问题描述`: 问题修复分支
+

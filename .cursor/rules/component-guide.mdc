@@ -1,5 +1,688 @@
 ---
-description:
-globs:
+description: 组件开发指南
 alwaysApply: false
 ---
+# 组件开发指南
+
+## 现有组件概览
+
+### 核心组件
+- [HomePage.tsx](mdc:app/components/HomePage.tsx) - 主页面组件
+- [NameForm.tsx](mdc:app/components/NameForm.tsx) - 起名表单组件
+- [NameResult.tsx](mdc:app/components/NameResult.tsx) - 名字结果展示组件
+- [TipJar.tsx](mdc:app/components/TipJar.tsx) - 打赏组件
+
+### 布局组件
+- [Navbar.tsx](mdc:app/components/Navbar.tsx) - 导航栏组件
+- [Footer.tsx](mdc:app/components/Footer.tsx) - 页脚组件
+- [Breadcrumbs.tsx](mdc:app/components/Breadcrumbs.tsx) - 面包屑导航
+
+### 功能组件
+- [LocaleSelect.tsx](mdc:app/components/LocaleSelect.tsx) - 语言选择器
+- [LanguageSwitcher.tsx](mdc:app/components/LanguageSwitcher.tsx) - 语言切换器
+- [I18nProvider.tsx](mdc:app/components/I18nProvider.tsx) - 国际化提供者
+
+### SEO 组件
+- [SchemaOrg.tsx](mdc:app/components/SchemaOrg.tsx) - 结构化数据
+- [BlogSchema.tsx](mdc:app/components/BlogSchema.tsx) - 博客结构化数据
+
+## 组件开发模式
+
+### 1. 表单组件模式
+参考 [NameForm.tsx](mdc:app/components/NameForm.tsx)：
+
+```typescript
+interface FormProps {
+  onSubmit: (data: FormData) => void;
+  loading?: boolean;
+  initialValues?: Partial<FormData>;
+}
+
+export default function FormComponent({ 
+  onSubmit, 
+  loading = false, 
+  initialValues 
+}: FormProps) {
+  const [formData, setFormData] = useState<FormData>(
+    initialValues || getDefaultFormData()
+  );
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit(formData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      {/* 表单内容 */}
+    </form>
+  );
+}
+```
+
+### 2. 展示组件模式
+参考 [NameResult.tsx](mdc:app/components/NameResult.tsx)：
+
+```typescript
+interface DisplayProps {
+  data: DataType;
+  variant?: 'default' | 'compact' | 'detailed';
+  className?: string;
+}
+
+export default function DisplayComponent({ 
+  data, 
+  variant = 'default',
+  className = '' 
+}: DisplayProps) {
+  const renderContent = () => {
+    switch (variant) {
+      case 'compact':
+        return <CompactView data={data} />;
+      case 'detailed':
+        return <DetailedView data={data} />;
+      default:
+        return <DefaultView data={data} />;
+    }
+  };
+
+  return (
+    <div className={`base-styles ${className}`}>
+      {renderContent()}
+    </div>
+  );
+}
+```
+
+### 3. 布局组件模式
+参考 [Navbar.tsx](mdc:app/components/Navbar.tsx)：
+
+```typescript
+interface LayoutProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export default function LayoutComponent({ 
+  children, 
+  className = '' 
+}: LayoutProps) {
+  return (
+    <div className={`layout-base ${className}`}>
+      <header className="layout-header">
+        {/* 头部内容 */}
+      </header>
+      <main className="layout-main">
+        {children}
+      </main>
+    </div>
+  );
+}
+```
+
+## 组件设计原则
+
+### 1. 单一职责
+每个组件只负责一个明确的功能：
+- 表单组件只处理用户输入
+- 展示组件只负责数据展示
+- 布局组件只处理结构安排
+
+### 2. 属性设计
+```typescript
+// ✅ 好的属性设计
+interface Props {
+  // 必需的数据
+  data: DataType;
+  
+  // 可选的行为控制
+  onAction?: (data: DataType) => void;
+  
+  // 可选的样式控制
+  variant?: 'primary' | 'secondary';
+  className?: string;
+  
+  // 可选的状态控制
+  loading?: boolean;
+  disabled?: boolean;
+}
+
+// ❌ 避免的属性设计
+interface BadProps {
+  // 过于具体的样式控制
+  backgroundColor?: string;
+  fontSize?: number;
+  
+  // 过于复杂的配置对象
+  config?: {
+    showHeader: boolean;
+    showFooter: boolean;
+    headerColor: string;
+    // ... 更多配置
+  };
+}
+```
+
+### 3. 状态管理
+```typescript
+// ✅ 推荐：本地状态 + 回调
+function Component({ onDataChange }: Props) {
+  const [localState, setLocalState] = useState(initialState);
+  
+  const updateState = (newState: StateType) => {
+    setLocalState(newState);
+    onDataChange?.(newState);
+  };
+}
+
+// ❌ 避免：直接操作外部状态
+function BadComponent({ externalState, setExternalState }: BadProps) {
+  // 直接修改外部状态，破坏了封装性
+  const handleClick = () => {
+    setExternalState(newValue);
+  };
+}
+```
+
+## 组件复用策略
+
+### 1. 变体系统
+```typescript
+// 使用变体控制不同外观
+const variants = {
+  primary: 'bg-blue-500 text-white',
+  secondary: 'bg-gray-200 text-gray-800',
+  danger: 'bg-red-500 text-white',
+} as const;
+
+type Variant = keyof typeof variants;
+
+interface ButtonProps {
+  variant?: Variant;
+  children: React.ReactNode;
+}
+
+export default function Button({ 
+  variant = 'primary', 
+  children 
+}: ButtonProps) {
+  return (
+    <button className={`base-button ${variants[variant]}`}>
+      {children}
+    </button>
+  );
+}
+```
+
+### 2. 组合模式
+```typescript
+// 主组件
+function Card({ children, className = '' }: CardProps) {
+  return (
+    <div className={`card-base ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+// 子组件
+Card.Header = function CardHeader({ children }: { children: React.ReactNode }) {
+  return <div className="card-header">{children}</div>;
+};
+
+Card.Body = function CardBody({ children }: { children: React.ReactNode }) {
+  return <div className="card-body">{children}</div>;
+};
+
+Card.Footer = function CardFooter({ children }: { children: React.ReactNode }) {
+  return <div className="card-footer">{children}</div>;
+};
+
+// 使用示例
+<Card>
+  <Card.Header>标题</Card.Header>
+  <Card.Body>内容</Card.Body>
+  <Card.Footer>操作按钮</Card.Footer>
+</Card>
+```
+
+## 国际化集成
+
+### 1. 文本国际化
+```typescript
+import { useTranslations } from 'next-intl';
+
+export default function Component() {
+  const t = useTranslations('ComponentName');
+  
+  return (
+    <div>
+      <h1>{t('title')}</h1>
+      <p>{t('description')}</p>
+    </div>
+  );
+}
+```
+
+### 2. 动态内容处理
+```typescript
+export default function Component({ userName }: { userName: string }) {
+  const t = useTranslations('Component');
+  
+  return (
+    <div>
+      {/* 带参数的翻译 */}
+      <p>{t('welcome', { name: userName })}</p>
+      
+      {/* 复数处理 */}
+      <p>{t('itemCount', { count: items.length })}</p>
+    </div>
+  );
+}
+```
+
+## 性能优化
+
+### 1. 组件缓存
+```typescript
+import { memo } from 'react';
+
+// 对纯展示组件使用 memo
+export default memo(function PureComponent({ data }: Props) {
+  return <div>{/* 组件内容 */}</div>;
+});
+
+// 对有复杂计算的组件使用 useMemo
+function ExpensiveComponent({ items }: Props) {
+  const processedData = useMemo(() => {
+    return items.map(item => expensiveOperation(item));
+  }, [items]);
+  
+  return <div>{/* 使用 processedData */}</div>;
+}
+```
+
+### 2. 懒加载
+```typescript
+import { lazy, Suspense } from 'react';
+
+// 懒加载重型组件
+const HeavyComponent = lazy(() => import('./HeavyComponent'));
+
+export default function ParentComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>加载中...</div>}>
+        <HeavyComponent />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+## 测试指南
+
+### 1. 组件测试结构
+```typescript
+// __tests__/Component.test.tsx
+import { render, screen, fireEvent } from '@testing-library/react';
+import Component from '../Component';
+
+describe('Component', () => {
+  it('渲染正确的内容', () => {
+    render(<Component data={mockData} />);
+    expect(screen.getByText('预期文本')).toBeInTheDocument();
+  });
+  
+  it('处理用户交互', () => {
+    const mockHandler = jest.fn();
+    render(<Component onAction={mockHandler} />);
+    
+    fireEvent.click(screen.getByRole('button'));
+    expect(mockHandler).toHaveBeenCalledWith(expectedData);
+  });
+});
+```
+
+# 组件开发指南
+
+## 现有组件概览
+
+### 核心组件
+- [HomePage.tsx](mdc:app/components/HomePage.tsx) - 主页面组件
+- [NameForm.tsx](mdc:app/components/NameForm.tsx) - 起名表单组件
+- [NameResult.tsx](mdc:app/components/NameResult.tsx) - 名字结果展示组件
+- [TipJar.tsx](mdc:app/components/TipJar.tsx) - 打赏组件
+
+### 布局组件
+- [Navbar.tsx](mdc:app/components/Navbar.tsx) - 导航栏组件
+- [Footer.tsx](mdc:app/components/Footer.tsx) - 页脚组件
+- [Breadcrumbs.tsx](mdc:app/components/Breadcrumbs.tsx) - 面包屑导航
+
+### 功能组件
+- [LocaleSelect.tsx](mdc:app/components/LocaleSelect.tsx) - 语言选择器
+- [LanguageSwitcher.tsx](mdc:app/components/LanguageSwitcher.tsx) - 语言切换器
+- [I18nProvider.tsx](mdc:app/components/I18nProvider.tsx) - 国际化提供者
+
+### SEO 组件
+- [SchemaOrg.tsx](mdc:app/components/SchemaOrg.tsx) - 结构化数据
+- [BlogSchema.tsx](mdc:app/components/BlogSchema.tsx) - 博客结构化数据
+
+## 组件开发模式
+
+### 1. 表单组件模式
+参考 [NameForm.tsx](mdc:app/components/NameForm.tsx)：
+
+```typescript
+interface FormProps {
+  onSubmit: (data: FormData) => void;
+  loading?: boolean;
+  initialValues?: Partial<FormData>;
+}
+
+export default function FormComponent({ 
+  onSubmit, 
+  loading = false, 
+  initialValues 
+}: FormProps) {
+  const [formData, setFormData] = useState<FormData>(
+    initialValues || getDefaultFormData()
+  );
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit(formData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      {/* 表单内容 */}
+    </form>
+  );
+}
+```
+
+### 2. 展示组件模式
+参考 [NameResult.tsx](mdc:app/components/NameResult.tsx)：
+
+```typescript
+interface DisplayProps {
+  data: DataType;
+  variant?: 'default' | 'compact' | 'detailed';
+  className?: string;
+}
+
+export default function DisplayComponent({ 
+  data, 
+  variant = 'default',
+  className = '' 
+}: DisplayProps) {
+  const renderContent = () => {
+    switch (variant) {
+      case 'compact':
+        return <CompactView data={data} />;
+      case 'detailed':
+        return <DetailedView data={data} />;
+      default:
+        return <DefaultView data={data} />;
+    }
+  };
+
+  return (
+    <div className={`base-styles ${className}`}>
+      {renderContent()}
+    </div>
+  );
+}
+```
+
+### 3. 布局组件模式
+参考 [Navbar.tsx](mdc:app/components/Navbar.tsx)：
+
+```typescript
+interface LayoutProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export default function LayoutComponent({ 
+  children, 
+  className = '' 
+}: LayoutProps) {
+  return (
+    <div className={`layout-base ${className}`}>
+      <header className="layout-header">
+        {/* 头部内容 */}
+      </header>
+      <main className="layout-main">
+        {children}
+      </main>
+    </div>
+  );
+}
+```
+
+## 组件设计原则
+
+### 1. 单一职责
+每个组件只负责一个明确的功能：
+- 表单组件只处理用户输入
+- 展示组件只负责数据展示
+- 布局组件只处理结构安排
+
+### 2. 属性设计
+```typescript
+// ✅ 好的属性设计
+interface Props {
+  // 必需的数据
+  data: DataType;
+  
+  // 可选的行为控制
+  onAction?: (data: DataType) => void;
+  
+  // 可选的样式控制
+  variant?: 'primary' | 'secondary';
+  className?: string;
+  
+  // 可选的状态控制
+  loading?: boolean;
+  disabled?: boolean;
+}
+
+// ❌ 避免的属性设计
+interface BadProps {
+  // 过于具体的样式控制
+  backgroundColor?: string;
+  fontSize?: number;
+  
+  // 过于复杂的配置对象
+  config?: {
+    showHeader: boolean;
+    showFooter: boolean;
+    headerColor: string;
+    // ... 更多配置
+  };
+}
+```
+
+### 3. 状态管理
+```typescript
+// ✅ 推荐：本地状态 + 回调
+function Component({ onDataChange }: Props) {
+  const [localState, setLocalState] = useState(initialState);
+  
+  const updateState = (newState: StateType) => {
+    setLocalState(newState);
+    onDataChange?.(newState);
+  };
+}
+
+// ❌ 避免：直接操作外部状态
+function BadComponent({ externalState, setExternalState }: BadProps) {
+  // 直接修改外部状态，破坏了封装性
+  const handleClick = () => {
+    setExternalState(newValue);
+  };
+}
+```
+
+## 组件复用策略
+
+### 1. 变体系统
+```typescript
+// 使用变体控制不同外观
+const variants = {
+  primary: 'bg-blue-500 text-white',
+  secondary: 'bg-gray-200 text-gray-800',
+  danger: 'bg-red-500 text-white',
+} as const;
+
+type Variant = keyof typeof variants;
+
+interface ButtonProps {
+  variant?: Variant;
+  children: React.ReactNode;
+}
+
+export default function Button({ 
+  variant = 'primary', 
+  children 
+}: ButtonProps) {
+  return (
+    <button className={`base-button ${variants[variant]}`}>
+      {children}
+    </button>
+  );
+}
+```
+
+### 2. 组合模式
+```typescript
+// 主组件
+function Card({ children, className = '' }: CardProps) {
+  return (
+    <div className={`card-base ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+// 子组件
+Card.Header = function CardHeader({ children }: { children: React.ReactNode }) {
+  return <div className="card-header">{children}</div>;
+};
+
+Card.Body = function CardBody({ children }: { children: React.ReactNode }) {
+  return <div className="card-body">{children}</div>;
+};
+
+Card.Footer = function CardFooter({ children }: { children: React.ReactNode }) {
+  return <div className="card-footer">{children}</div>;
+};
+
+// 使用示例
+<Card>
+  <Card.Header>标题</Card.Header>
+  <Card.Body>内容</Card.Body>
+  <Card.Footer>操作按钮</Card.Footer>
+</Card>
+```
+
+## 国际化集成
+
+### 1. 文本国际化
+```typescript
+import { useTranslations } from 'next-intl';
+
+export default function Component() {
+  const t = useTranslations('ComponentName');
+  
+  return (
+    <div>
+      <h1>{t('title')}</h1>
+      <p>{t('description')}</p>
+    </div>
+  );
+}
+```
+
+### 2. 动态内容处理
+```typescript
+export default function Component({ userName }: { userName: string }) {
+  const t = useTranslations('Component');
+  
+  return (
+    <div>
+      {/* 带参数的翻译 */}
+      <p>{t('welcome', { name: userName })}</p>
+      
+      {/* 复数处理 */}
+      <p>{t('itemCount', { count: items.length })}</p>
+    </div>
+  );
+}
+```
+
+## 性能优化
+
+### 1. 组件缓存
+```typescript
+import { memo } from 'react';
+
+// 对纯展示组件使用 memo
+export default memo(function PureComponent({ data }: Props) {
+  return <div>{/* 组件内容 */}</div>;
+});
+
+// 对有复杂计算的组件使用 useMemo
+function ExpensiveComponent({ items }: Props) {
+  const processedData = useMemo(() => {
+    return items.map(item => expensiveOperation(item));
+  }, [items]);
+  
+  return <div>{/* 使用 processedData */}</div>;
+}
+```
+
+### 2. 懒加载
+```typescript
+import { lazy, Suspense } from 'react';
+
+// 懒加载重型组件
+const HeavyComponent = lazy(() => import('./HeavyComponent'));
+
+export default function ParentComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>加载中...</div>}>
+        <HeavyComponent />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+## 测试指南
+
+### 1. 组件测试结构
+```typescript
+// __tests__/Component.test.tsx
+import { render, screen, fireEvent } from '@testing-library/react';
+import Component from '../Component';
+
+describe('Component', () => {
+  it('渲染正确的内容', () => {
+    render(<Component data={mockData} />);
+    expect(screen.getByText('预期文本')).toBeInTheDocument();
+  });
+  
+  it('处理用户交互', () => {
+    const mockHandler = jest.fn();
+    render(<Component onAction={mockHandler} />);
+    
+    fireEvent.click(screen.getByRole('button'));
+    expect(mockHandler).toHaveBeenCalledWith(expectedData);
+  });
+});
+```
+

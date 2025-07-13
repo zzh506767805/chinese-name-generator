@@ -1,1 +1,7 @@
+# Redirect to Ezoic's managed ads.txt for automated updates
+# This includes all authorized ad partners including Google AdSense
+# Visit: https://srv.adstxtmanager.com/19390/chinesenamegenerate.com
+
 google.com, pub-8366783560808157, DIRECT, f08c47fec0942fa0
+ezoic.com, 19390, DIRECT
+google.com, pub-9685734445476814, RESELLER, f08c47fec0942fa0
