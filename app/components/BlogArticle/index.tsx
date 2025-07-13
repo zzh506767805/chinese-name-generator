@@ -25,14 +25,14 @@ export default function BlogArticle({ title, description, children, relatedArtic
         </header>
 
         {/* 文章顶部广告 */}
-        <EzoicAd placementId={113} className="mb-8 text-center" />
+        <EzoicAd placementId={901} className="mb-8 text-center" />
 
         <div className="mb-12">
           {children}
         </div>
 
         {/* 文章底部广告 */}
-        <EzoicAd placementId={114} className="mb-8 text-center" />
+        <EzoicAd placementId={902} className="mb-8 text-center" />
 
         {relatedArticles && relatedArticles.length > 0 && (
           <div className="border-t pt-8">
