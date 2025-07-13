@@ -10,9 +10,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 const languages = {
   en: {
-    title: 'Chinese Names - Find Your Perfect Chinese Name | Free Name Generator',
-    description: 'Create your perfect Chinese name with our AI-powered name generator. Get authentic Chinese names with pinyin, meanings, and cultural significance. Specialized in boys names, girls names, and English to Chinese name translation.',
-    keywords: 'chinese name generator, chinese names, chinese name meaning, chinese name translation, chinese girl names, chinese boy names, chinese name in chinese, chinese name converter, chinese name characters, chinese name pronunciation',
+    title: 'Chinese Name Generator - AI-Powered Chinese Names for Boys & Girls | Free',
+    description: 'Create authentic Chinese names with our AI-powered Chinese name generator. Get meaningful Chinese boy names, Chinese girl names with pinyin, pronunciation, and cultural significance. Free Chinese name generator with traditional and modern options.',
+    keywords: 'chinese name generator, chinese names, chinese name meaning, chinese name translation, chinese girl names, chinese boy names, chinese name in chinese, chinese name converter, chinese name characters, chinese name pronunciation, male chinese name generator, female chinese name generator, chinese boy name generator, chinese girl name generator, traditional chinese names, modern chinese names, AI chinese name generator, free chinese name generator, chinese name generator online, chinese name generator with meaning, authentic chinese name maker, chinese personal name generator',
     footer: {
       tagline: 'Powered by AI • Culturally authentic • 100% unique'
     }
@@ -26,9 +26,9 @@ const languages = {
     }
   },
   ko: {
-    title: '중국어 이름 생성기 - 남자 여자 중국어 이름 찾기 | 무료 이름 생성',
-    description: '중국어 이름 생성기로 의미 있는 중국어 이름을 찾아보세요. 성별, 의미, 스타일에 맞는 완벽한 중국어 이름과 병음, 의미 설명을 제공합니다.',
-    keywords: '중국어 이름, 중국어 이름 만들기, 중국어 이름 생성기, 중국어 여자 이름, 중국어 남자 이름, 중국 성씨, 중국어 이름 의미, 중국어 이름 번역, 중국어 이름 발음, AI 이름 생성',
+    title: '중국어 이름 생성기 - Chinese Name Generator 한국 | 남자 여자 중국어 이름 무료',
+    description: 'AI 중국어 이름 생성기로 완벽한 중국어 이름을 만드세요. 한국에서 가장 인기 있는 중국어 이름 생성기. 남성, 여성 중국어 이름과 병음, 의미 설명을 무료로 제공합니다.',
+    keywords: '중국어 이름, 중국어 이름 만들기, 중국어 이름 생성기, chinese name generator, chinese name generator 한국, 중국어 여자 이름, 중국어 남자 이름, 중국 성씨, 중국어 이름 의미, 중국어 이름 번역, 중국어 이름 발음, AI 이름 생성, chinese names korea, 한국 중국어 이름, 중국 이름 생성기 무료, 한자 이름 생성기',
     footer: {
       tagline: 'AI 기술 구현 • 문화적 진정성 • 100% 고유함'
     }
@@ -50,9 +50,9 @@ const languages = {
     }
   },
   id: {
-    title: 'Generator Nama Tionghoa - Nama Tionghoa untuk Pria & Wanita | Gratis',
-    description: 'Generator nama Tionghoa gratis untuk pria dan wanita. Temukan nama Tionghoa bermakna dengan pinyin dan arti. Tersedia nama depan dan nama belakang Tionghoa.',
-    keywords: 'generator nama tionghoa, nama tionghoa, arti nama tionghoa, nama tionghoa modern, nama tionghoa tradisional, nama tionghoa perempuan, nama tionghoa laki-laki, cara baca nama tionghoa, marga tionghoa, AI generator nama',
+    title: 'Chinese Name Generator Indonesia - Nama Tionghoa untuk Pria & Wanita | Gratis',
+    description: 'Generator nama Tionghoa gratis terbaik di Indonesia. Buat nama Tionghoa otentik dengan AI untuk pria dan wanita. Lengkap dengan pinyin, arti, dan makna budaya. Chinese name generator Indonesia terpercaya.',
+    keywords: 'generator nama tionghoa, chinese name generator, chinese name generator indonesia, nama tionghoa, arti nama tionghoa, nama tionghoa modern, nama tionghoa tradisional, nama tionghoa perempuan, nama tionghoa laki-laki, cara baca nama tionghoa, marga tionghoa, AI generator nama, chinese names, chinese name meaning, chinese boy names, chinese girl names, nama cina, generator nama cina indonesia, chinese name generator gratis',
     footer: {
       tagline: 'Didukung oleh AI • Otentik secara budaya • 100% unik'
     }

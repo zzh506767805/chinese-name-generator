@@ -131,7 +131,11 @@ export default function HomePage() {
         </p>
         {/* SEO Keyword Tagline */}
         <p className="mt-3 text-sm font-semibold text-red-700 max-w-3xl mx-auto">
-          Chinese Name Generator • Chinese Name Generator Male • Male Chinese Name Generator • Chinese Girl Name Generator • Chinese Boy Names • Chinese Girl Names • AI Chinese Name Generator • Authentic Chinese Name Maker
+          {t('seo_keywords_tagline')}
+        </p>
+        {/* Additional SEO Keywords for better density */}
+        <p className="mt-2 text-xs text-gray-500 max-w-4xl mx-auto leading-relaxed">
+          Free Chinese Name Generator • Traditional Chinese Names • Modern Chinese Names • Chinese Name Meaning • Chinese Name Pronunciation • Chinese Name with Pinyin • Best Chinese Name Generator • Professional Chinese Name Creator • Chinese Name Generator AI • Authentic Chinese Names • Chinese Family Names • Chinese Given Names • Chinese Name Translation • Chinese Name Converter • Chinese Name Characters
         </p>
       </div>
 
