@@ -158,9 +158,9 @@ export default function RootLayout({
           }}
         />
         <SchemaOrg locale={params.locale || 'en'} />
-        <Script
+        <script 
+          async 
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8366783560808157"
-          strategy="afterInteractive"
           crossOrigin="anonymous"
         />
         <Script
