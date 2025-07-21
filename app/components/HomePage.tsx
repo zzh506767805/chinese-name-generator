@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
 import NameResult from './NameResult'
 import CreditsDisplay from './CreditsDisplay'
-import EzoicAd from './EzoicAd'
 import { getUserCredits, useCredit, initializeFreeCredits } from '@/app/utils/credits'
 
 interface NameResponse {
@@ -322,7 +321,6 @@ export default function HomePage() {
       </div>
 
       {/* 广告位1：主要内容区域后 */}
-      <EzoicAd placementId={900} className="my-8 text-center" />
 
       {/* SEO Content Section */}
       <div className="mt-12 space-y-8">
@@ -359,7 +357,6 @@ export default function HomePage() {
         </div>
 
         {/* 广告位2：SEO内容中间 */}
-        <EzoicAd placementId={911} className="my-8 text-center" />
 
         {/* Gender-specific sections */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -643,7 +640,6 @@ export default function HomePage() {
         </div>
 
         {/* 广告位3：页面底部 */}
-        <EzoicAd placementId={902} className="my-8 text-center" />
       </div>
       {/* 友情链接区块 */}
       <div className="mt-12 mb-8">
