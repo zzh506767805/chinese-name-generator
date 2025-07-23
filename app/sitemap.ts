@@ -15,6 +15,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog'
   ]
 
+  // 关键词落地页
+  const keywordLandingPages = [
+    '/chinese-names-for-boys',
+    '/list-of-chinese-names',
+    '/chinese-names-for-girls-generator',
+    '/chinese-names',
+    '/chinese-girl-names',
+    '/chinese-surnames',
+    '/chinese-names-for-girls',
+    '/chinese-last-names',
+    '/chinese-name-generator'
+  ]
+
   // 博客分类路径
   const blogCategories = [
     '/blog/categories',
@@ -50,6 +63,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   )
 
+  // 生成关键词落地页的sitemap条目
+  const landingPageEntries = languages.flatMap(lang =>
+    keywordLandingPages.map(page => {
+      return {
+        url: `${baseUrl}/${lang}${page}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as ChangeFreq,
+        priority: 0.9 // 给关键词落地页更高的优先级
+      }
+    })
+  )
+
   // 生成多语言博客分类的sitemap条目
   const categoryEntries = languages.flatMap(lang =>
     blogCategories.map(category => {
@@ -74,5 +99,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   )
 
-  return [...mainPages, ...categoryEntries, ...blogEntries]
+  return [...mainPages, ...landingPageEntries, ...categoryEntries, ...blogEntries]
 } 

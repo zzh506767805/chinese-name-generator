@@ -40,7 +40,13 @@
     "print": "Print Name Certificate",
     "generate_another": "Generate Another Name"
   },
+  "error": {
+    "title": "Something went wrong",
+    "default_message": "An unexpected error occurred. Please try again later.",
+    "retry": "Try Again"
+  },
   "nav": {
+    "name_generator": "Name Generator",
     "blog": "Naming Guide",
     "how_it_works": "How It Works",
     "name_meanings": "Name Meanings",

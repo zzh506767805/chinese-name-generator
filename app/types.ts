@@ -4,3 +4,8 @@ export interface PageProps {
   }
   searchParams?: { [key: string]: string | string[] | undefined }
 } 
+
+export interface KeywordPage {
+  title: string
+  href: string
+} 

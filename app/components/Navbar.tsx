@@ -1,9 +1,14 @@
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import LocaleSelect from './LocaleSelect'
+import NavbarClient from './NavbarClient'
+import { keywordPages } from './sitemapLinks'
 
 export default function Navbar() {
   const t = useTranslations()
+  
+  // 使用正确的翻译键
+  const nameGeneratorText = t('nav.name_generator')
 
   return (
     <nav className="bg-white shadow-sm fixed w-full top-0 z-50">
@@ -17,7 +22,14 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="flex items-center space-x-1 sm:space-x-4">
+          <div className="flex items-center space-x-1 sm:space-x-3">
+            {/* 名字生成器下拉菜单 - 客户端组件（只传递翻译后的文本） */}
+            <NavbarClient 
+              keywordPages={keywordPages} 
+              nameGeneratorText={nameGeneratorText} 
+            />
+
+            {/* 静态链接 - 服务端渲染 */}
             <Link
               href="/blog"
               className="text-gray-700 hover:text-gray-900 px-2 sm:px-3 py-2 rounded-md text-sm sm:text-base whitespace-nowrap hidden md:block"

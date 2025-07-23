@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/admin/']
+      // 我们不禁止任何路径，让搜索引擎可以抓取所有内容
     },
-    sitemap: 'https://chinesenamegenerate.com/sitemap.xml'
+    sitemap: 'https://chinesenamegenerate.com/sitemap.xml',
   }
 } 

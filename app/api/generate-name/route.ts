@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 
     const { gender, meaning, style, additionalInfo, language, hasCredits } = body
     
-    // 检查用户是否有剩余次数（前端已检查，后端再次验证）
+    // 检查用户是否有积分（前端已消耗积分，这里只验证请求是否合法）
     if (!hasCredits) {
       console.log('API Route: User has no credits')
       return NextResponse.json(
@@ -34,8 +34,8 @@ export async function POST(request: Request) {
     }
 
     // 验证必要的字段
-    if (!gender || !meaning || !style || !language) {
-      console.error('API Route: Missing required fields:', { gender, meaning, style, language })
+    if (!gender || !style) {
+      console.error('API Route: Missing required fields:', { gender, style })
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -48,10 +48,10 @@ export async function POST(request: Request) {
     try {
       nameResult = await generateChineseName({
         gender,
-        meaning,
+        meaning: meaning || '',
         style,
-        additionalInfo,
-        language,
+        additionalInfo: additionalInfo || '',
+        language: language || 'en',
       })
       console.log('API Route: Name generated successfully:', nameResult)
       

@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import I18nProvider from './components/I18nProvider'
 import SchemaOrg from './components/SchemaOrg'
 import Script from 'next/script'
+import { Viewport } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -75,6 +76,12 @@ const languages = {
   },
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+}
+
 export async function generateMetadata({ params }: { 
   params: { 
     locale: string;
@@ -132,7 +139,7 @@ export async function generateMetadata({ params }: {
       email: false,
       address: false,
       telephone: false,
-    }
+    },
   }
 }
 

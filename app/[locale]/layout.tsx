@@ -41,8 +41,6 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale}>
-      <body className="min-h-screen bg-gray-50">
         <NextIntlClientProvider locale={locale} messages={messages} timeZone="Asia/Shanghai">
           <Navbar />
           <main className="pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,7 +48,5 @@ export default async function LocaleLayout({
           </main>
           <Footer />
         </NextIntlClientProvider>
-      </body>
-    </html>
   )
 } 

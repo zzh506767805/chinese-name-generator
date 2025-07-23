@@ -4,7 +4,9 @@ if (!process.env.OPENAI_API_KEY) {
   throw new Error('Missing OPENAI_API_KEY environment variable')
 }
 
+// 定义代理和直接调用的URL
 const OPENAI_API_PROXY = 'https://proxy.tainanle.online'
+const OPENAI_API_DIRECT = 'https://api.openai.com'
 
 /**
  * 用户名字生成偏好的接口定义
@@ -108,56 +110,89 @@ Based on the above requirements, please recommend a Chinese name with rich cultu
 
   console.log('OpenAI: Generated prompt:', prompt)
 
-  try {
-    console.log('OpenAI: Calling API with model gpt-4.1-mini')
-    
-    const response = await fetchWithTimeout(`${OPENAI_API_PROXY}/v1/chat/completions`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+  // 准备API请求的通用部分
+  const requestBody = JSON.stringify({
+    model: "gpt-4.1-mini",
+    messages: [
+      {
+        role: "system",
+        content: "你是一个专业的中文起名专家，精通汉语、诗词、文化典故。你需要根据用户的需求，给出恰当的中文名字建议。"
       },
-      body: JSON.stringify({
-        model: "gpt-4.1-mini",
-        messages: [
-          {
-            role: "system",
-            content: "你是一个专业的中文起名专家，精通汉语、诗词、文化典故。你需要根据用户的需求，给出恰当的中文名字建议。"
-          },
-          {
-            role: "user",
-            content: prompt
-          }
-        ],
-        temperature: 0.8,
-        max_tokens: 1000,
-        response_format: { type: "json_object" },
-      }),
-      timeout: 60000 // 60 seconds timeout
-    })
+      {
+        role: "user",
+        content: prompt
+      }
+    ],
+    temperature: 0.8,
+    max_tokens: 1000,
+    response_format: { type: "json_object" },
+  })
+  
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+    },
+    body: requestBody,
+    timeout: 30000 // 30 seconds timeout
+  }
 
-    if (!response.ok) {
-      const errorData = await response.json()
-      console.error('OpenAI: API error response:', errorData)
-      throw new Error(`API request failed: ${errorData.error?.message || response.statusText}`)
+  // 首先尝试使用代理
+  try {
+    console.log('OpenAI: Calling API with proxy using model gpt-4.1-mini')
+    
+    const response = await fetchWithTimeout(`${OPENAI_API_PROXY}/v1/chat/completions`, requestOptions)
+
+    if (response.ok) {
+      const data = await response.json()
+      console.log('OpenAI: Raw API response:', data)
+  
+      // 解析并返回生成的结果
+      const result = JSON.parse(data.choices[0].message.content || '{}')
+      console.log('OpenAI: Parsed result:', result)
+      return result
     }
-
-    const data = await response.json()
-    console.log('OpenAI: Raw API response:', data)
-
-    // 解析并返回生成的结果
-    const result = JSON.parse(data.choices[0].message.content || '{}')
-    console.log('OpenAI: Parsed result:', result)
-    return result
-  } catch (error) {
-    console.error('OpenAI: API call failed:', error)
-    if (error instanceof Error) {
-      console.error('OpenAI: Error details:', {
-        name: error.name,
-        message: error.message,
-        stack: error.stack
+    
+    // 如果代理响应但返回错误状态码
+    const errorData = await response.json()
+    console.error('OpenAI: Proxy API error response:', errorData)
+    throw new Error(`Proxy API request failed: ${errorData.error?.message || response.statusText}`)
+  } catch (proxyError) {
+    // 代理调用失败，尝试直接调用
+    console.error('OpenAI: Proxy API call failed, trying direct call:', proxyError)
+    
+    try {
+      console.log('OpenAI: Calling API directly using model gpt-4.1-mini')
+      
+      const directResponse = await fetchWithTimeout(`${OPENAI_API_DIRECT}/v1/chat/completions`, {
+        ...requestOptions,
+        timeout: 60000 // 对直接调用增加超时时间到60秒
       })
+
+      if (!directResponse.ok) {
+        const errorData = await directResponse.json()
+        console.error('OpenAI: Direct API error response:', errorData)
+        throw new Error(`Direct API request failed: ${errorData.error?.message || directResponse.statusText}`)
+      }
+
+      const data = await directResponse.json()
+      console.log('OpenAI: Raw direct API response:', data)
+
+      // 解析并返回生成的结果
+      const result = JSON.parse(data.choices[0].message.content || '{}')
+      console.log('OpenAI: Parsed result:', result)
+      return result
+    } catch (directError) {
+      console.error('OpenAI: Both proxy and direct API calls failed:', directError)
+      if (directError instanceof Error) {
+        console.error('OpenAI: Direct error details:', {
+          name: directError.name,
+          message: directError.message,
+          stack: directError.stack
+        })
+      }
+      throw new Error('Failed to generate name: All API endpoints failed')
     }
-    throw new Error('Failed to generate name: ' + (error instanceof Error ? error.message : 'Unknown error'))
   }
 } 

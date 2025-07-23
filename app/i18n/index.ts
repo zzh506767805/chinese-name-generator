@@ -29,7 +29,11 @@ const initI18next = async () => {
             subtitle: "Get Your Perfect Chinese Name",
             nav: {
               how_it_works: "How It Works",
-              contact: "Contact"
+              contact: "Contact",
+              name_generator: "Name Generator",
+              blog: "Blog",
+              faq: "FAQ",
+              history: "Name History"
             },
             contact: {
               message: "Please contact us via email: zzh506767805@gmail.com"
@@ -93,7 +97,11 @@ const initI18next = async () => {
             subtitle: "获得一个完美的中文名字",
             nav: {
               how_it_works: "使用说明",
-              contact: "联系我们"
+              contact: "联系我们",
+              name_generator: "名字生成器",
+              blog: "博客",
+              faq: "常见问题",
+              history: "名字历史"
             },
             contact: {
               message: "请通过邮箱联系我们：zzh506767805@gmail.com"
@@ -157,7 +165,11 @@ const initI18next = async () => {
             subtitle: "あなたにぴったりの中国語の名前を",
             nav: {
               how_it_works: "使い方",
-              contact: "お問い合わせ"
+              contact: "お問い合わせ",
+              name_generator: "名前ジェネレーター",
+              blog: "ブログ",
+              faq: "よくある質問",
+              history: "名前の歴史"
             },
             contact: {
               message: "メールでお問い合わせください：zzh506767805@gmail.com"
@@ -221,7 +233,11 @@ const initI18next = async () => {
             subtitle: "당신을 위한 완벽한 중국어 이름",
             nav: {
               how_it_works: "사용 방법",
-              contact: "문의하기"
+              contact: "문의하기",
+              name_generator: "이름 생성기",
+              blog: "블로그",
+              faq: "자주 묻는 질문",
+              history: "이름 역사"
             },
             contact: {
               message: "이메일로 문의해 주세요: zzh506767805@gmail.com"
@@ -285,7 +301,11 @@ const initI18next = async () => {
             subtitle: "अपना सही चीनी नाम पाएं",
             nav: {
               how_it_works: "कैसे काम करता है",
-              contact: "संपर्क करें"
+              contact: "संपर्क करें",
+              name_generator: "नाम जनरेटर",
+              blog: "ब्लॉग",
+              faq: "अक्सर पूछे जाने वाले प्रश्न",
+              history: "नाम इतिहास"
             },
             contact: {
               message: "कृपया हमें ईमेल के माध्यम से संपर्क करें: zzh506767805@gmail.com"
@@ -349,7 +369,11 @@ const initI18next = async () => {
             subtitle: "Dapatkan Nama Tionghoa Sempurna Anda",
             nav: {
               how_it_works: "Cara Kerja",
-              contact: "Kontak"
+              contact: "Kontak",
+              name_generator: "Generator Nama",
+              blog: "Blog",
+              faq: "FAQ",
+              history: "Sejarah Nama"
             },
             contact: {
               message: "Silakan hubungi kami melalui email: zzh506767805@gmail.com"
@@ -413,7 +437,11 @@ const initI18next = async () => {
             subtitle: "Kunin ang Iyong Perpektong Chinese na Pangalan",
             nav: {
               how_it_works: "Paano Gumagana",
-              contact: "Makipag-ugnayan"
+              contact: "Makipag-ugnayan",
+              name_generator: "Pangalan Generator",
+              blog: "Blog",
+              faq: "FAQ",
+              history: "Kasaysayan ng Pangalan"
             },
             contact: {
               message: "Mangyaring makipag-ugnayan sa amin sa email: zzh506767805@gmail.com"
