@@ -2,10 +2,15 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { getRelatedKeywordPages } from './sitemapLinks'
 
-export default function RelatedPages() {
+interface RelatedPagesProps {
+  currentPage?: string;
+}
+
+export default function RelatedPages({ currentPage }: RelatedPagesProps) {
   const pathname = usePathname()
-  // 使用空字符串作为后备值，以防pathname为null
-  const relatedPages = getRelatedKeywordPages(pathname || '', 4)
+  // 使用currentPage参数或从pathname中获取，空字符串作为后备值
+  const pageIdentifier = currentPage || pathname || ''
+  const relatedPages = getRelatedKeywordPages(pageIdentifier, 4)
   
   if (relatedPages.length === 0) return null
   
