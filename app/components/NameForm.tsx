@@ -109,7 +109,7 @@ export default function NameForm() {
       })
 
       const data = await response.json()
-      
+
       if (!response.ok) {
         // 如果API调用失败，退还积分
         const currentCredits = getUserCredits()
@@ -225,97 +225,97 @@ export default function NameForm() {
       )}
       
       {step === 'form' && (
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* 英文名输入 */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* 英文名输入 */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
               {formTranslations.firstName}
-            </label>
-            <input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleInputChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-              required
-            />
-          </div>
+          </label>
+          <input
+            type="text"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleInputChange}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+            required
+          />
+        </div>
 
-          {/* 性别选择 */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+        {/* 性别选择 */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
               {formTranslations.gender}
-            </label>
-            <select
-              name="gender"
-              value={formData.gender}
-              onChange={handleInputChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-              required
-            >
+          </label>
+          <select
+            name="gender"
+            value={formData.gender}
+            onChange={handleInputChange}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+            required
+          >
               <option value="">{formTranslations.selectGender}</option>
               <option value="male">{formTranslations.male}</option>
               <option value="female">{formTranslations.female}</option>
               <option value="neutral">{formTranslations.neutral}</option>
-            </select>
-          </div>
+          </select>
+        </div>
 
-          {/* 期望含义 */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+        {/* 期望含义 */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
               {formTranslations.meaning}
-            </label>
-            <input
-              type="text"
-              name="meaning"
-              value={formData.meaning}
-              onChange={handleInputChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-            />
-          </div>
+          </label>
+          <input
+            type="text"
+            name="meaning"
+            value={formData.meaning}
+            onChange={handleInputChange}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+          />
+        </div>
 
-          {/* 名字风格 */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+        {/* 名字风格 */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
               {formTranslations.style}
-            </label>
-            <select
-              name="style"
-              value={formData.style}
-              onChange={handleInputChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-            >
+          </label>
+          <select
+            name="style"
+            value={formData.style}
+            onChange={handleInputChange}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+          >
               <option value="modern">{formTranslations.styleModern}</option>
               <option value="traditional">{formTranslations.styleTraditional}</option>
               <option value="literary">{formTranslations.styleLiterary}</option>
-            </select>
-          </div>
+          </select>
+        </div>
 
-          {/* 额外信息 */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+        {/* 额外信息 */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
               {formTranslations.additionalInfo}
-            </label>
-            <textarea
-              name="additionalInfo"
-              value={formData.additionalInfo}
-              onChange={handleInputChange}
-              rows={3}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-            />
-          </div>
+          </label>
+          <textarea
+            name="additionalInfo"
+            value={formData.additionalInfo}
+            onChange={handleInputChange}
+            rows={3}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+          />
+        </div>
 
-          {/* 提交按钮 */}
-          <div>
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:bg-gray-400"
-            >
+        {/* 提交按钮 */}
+        <div>
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:bg-gray-400"
+          >
               {isLoading ? formTranslations.loading : formTranslations.submit}
-            </button>
-          </div>
-        </form>
+          </button>
+        </div>
+      </form>
       )}
       
       {step === 'purchase' && (

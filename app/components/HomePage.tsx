@@ -649,6 +649,7 @@ export default function HomePage() {
             <a href="https://dressmeai.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">dressmeai.com</a>
             <a href="https://checkios.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">checkios.com</a>
             <a href="https://Dreamfinityx.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">Dreamfinityx.com</a>
+            <a href="https://ainails.pro" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">ainails.pro</a>
           </div>
         </div>
       </div>

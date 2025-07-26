@@ -112,20 +112,20 @@ Based on the above requirements, please recommend a Chinese name with rich cultu
 
   // 准备API请求的通用部分
   const requestBody = JSON.stringify({
-    model: "gpt-4.1-mini",
-    messages: [
-      {
-        role: "system",
-        content: "你是一个专业的中文起名专家，精通汉语、诗词、文化典故。你需要根据用户的需求，给出恰当的中文名字建议。"
-      },
-      {
-        role: "user",
-        content: prompt
-      }
-    ],
-    temperature: 0.8,
-    max_tokens: 1000,
-    response_format: { type: "json_object" },
+        model: "gpt-4.1-mini",
+        messages: [
+          {
+            role: "system",
+            content: "你是一个专业的中文起名专家，精通汉语、诗词、文化典故。你需要根据用户的需求，给出恰当的中文名字建议。"
+          },
+          {
+            role: "user",
+            content: prompt
+          }
+        ],
+        temperature: 0.8,
+        max_tokens: 1000,
+        response_format: { type: "json_object" },
   })
   
   const requestOptions = {
@@ -145,13 +145,13 @@ Based on the above requirements, please recommend a Chinese name with rich cultu
     const response = await fetchWithTimeout(`${OPENAI_API_PROXY}/v1/chat/completions`, requestOptions)
 
     if (response.ok) {
-      const data = await response.json()
-      console.log('OpenAI: Raw API response:', data)
-  
-      // 解析并返回生成的结果
-      const result = JSON.parse(data.choices[0].message.content || '{}')
-      console.log('OpenAI: Parsed result:', result)
-      return result
+    const data = await response.json()
+    console.log('OpenAI: Raw API response:', data)
+
+    // 解析并返回生成的结果
+    const result = JSON.parse(data.choices[0].message.content || '{}')
+    console.log('OpenAI: Parsed result:', result)
+    return result
     }
     
     // 如果代理响应但返回错误状态码
@@ -190,8 +190,8 @@ Based on the above requirements, please recommend a Chinese name with rich cultu
           name: directError.name,
           message: directError.message,
           stack: directError.stack
-        })
-      }
+      })
+    }
       throw new Error('Failed to generate name: All API endpoints failed')
     }
   }
