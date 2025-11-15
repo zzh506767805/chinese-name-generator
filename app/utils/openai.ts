@@ -5,7 +5,7 @@ if (!process.env.OPENAI_API_KEY) {
 }
 
 // 定义代理和直接调用的URL
-const OPENAI_API_PROXY = 'https://proxy.tainanle.online'
+const OPENAI_API_PROXY = 'https://openai-proxy-tainanle.azurewebsites.net'
 const OPENAI_API_DIRECT = 'https://api.openai.com'
 
 /**
